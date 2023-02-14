@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from "react";
+import {LoginApi} from "./api/LoginApi";
+import {useDispatch} from "react-redux";
+import {loginFailure, loginStart, loginSuccess} from "./action/AuthLoginAction";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    const [value, setValue] = useState("")
+
+    const dispatch = useDispatch()
+
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        dispatch(loginStart());
+        try {
+            const user = await LoginApi(value)
+            dispatch(loginSuccess(user.data))
+        } catch (error) {
+            console.log(error)
+            dispatch(loginFailure())
+        }
+    }
+
+    return (
+        <>
+
+        </>
+    );
 }
 
 export default App;
