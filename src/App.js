@@ -1,29 +1,20 @@
-import React, {useState} from "react";
-import {LoginApi} from "./api/LoginApi";
-import {useDispatch} from "react-redux";
-import {loginFailure, loginStart, loginSuccess} from "./action/AuthLoginAction";
+import React, {useEffect} from "react";
+import {Home} from "./pages"
+import {Login, Navbar, Signup} from "./components";
+import {Route, Routes, useNavigate} from "react-router-dom";
+import VerifyCode from "./components/VerifyCode/VerifyCode";
 
 function App() {
 
-    const [value, setValue] = useState("")
-
-    const dispatch = useDispatch()
-
-    const handleSubmit = async (e) => {
-        e.preventDefault()
-        dispatch(loginStart());
-        try {
-            const user = await LoginApi(value)
-            dispatch(loginSuccess(user.data))
-        } catch (error) {
-            console.log(error)
-            dispatch(loginFailure())
-        }
-    }
-
     return (
         <>
-
+            <Navbar />
+            <Routes>
+                <Route path="/" element={<Home/>}/>
+                <Route path="/signup" element={<Signup />} />
+                <Route path="/login" element={<Login/>}/>
+                <Route path="/verify-phone-number" element={<VerifyCode />} />
+            </Routes>
         </>
     );
 }

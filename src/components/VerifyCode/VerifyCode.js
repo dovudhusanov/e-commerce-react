@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
 import OtpInput from 'react18-input-otp';
 import {VerifyApi} from "../../api/VerifyApi";
+import {VerifyCodeStyle} from "./VerifyCodeStyle";
 
-export default function OTPInput() {
+export default function VerifyCode() {
     const [otp, setOtp] = useState('');
 
     const handleChange = (enteredOtp) => {
@@ -21,17 +22,18 @@ export default function OTPInput() {
 
     return (
         <>
-            <form onSubmit={handleSubmit}>
+            <VerifyCodeStyle.Form onSubmit={handleSubmit}>
+                <h1>Confirm the SMS code received on your phone number</h1>
                 <OtpInput
                     id="otp-input"
                     autoComplete="one-time-code"
-                    inputStyle="inputStyle"
                     onChange={handleChange}
                     shouldAutoFocus
                     value={otp}
                     separator={<span>-</span>}
                 />
-            </form>
+                <button type="submit">Send</button>
+            </VerifyCodeStyle.Form>
         </>
     )
 }

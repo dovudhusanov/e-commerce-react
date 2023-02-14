@@ -4,7 +4,7 @@ export const loginStart = () => ({
     type: AuthLoginTypes.LOGIN_START,
 });
 
-export const loginSuccess = (admin: any) => ({
+export const loginSuccess = (admin) => ({
     type: AuthLoginTypes.LOGIN_SUCCESS,
     payload: admin
 });
