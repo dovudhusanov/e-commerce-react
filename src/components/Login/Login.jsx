@@ -33,9 +33,6 @@ function Login() {
             dispatch(loginFailure())
         }
     }
-    const {phoneNumber, password} = value
-    console.log({phoneNumber: "+998" + phoneNumber, password})
-
     return (
         <AuthStyle.AuthContainer>
             <AuthStyle.AuthForm>

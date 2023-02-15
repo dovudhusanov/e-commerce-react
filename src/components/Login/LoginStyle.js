@@ -12,10 +12,6 @@ export const AuthStyle = {
       width: 550px;
       padding: 20px;
       margin-top: 50px;
-      
-      @media screen and (max-width: 680px) {
-        margin-top: 20px;
-      }
 
       & h1 {
         color: var(--color-black);

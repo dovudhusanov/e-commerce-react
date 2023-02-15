@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const NavbarStyle = {
+export const NavTopStyle = {
     NavbarTop: styled.div`
       width: 100%;
       height: 32px;
@@ -15,8 +15,7 @@ export const NavbarStyle = {
       justify-content: space-between;
       align-items: center;
       height: 30px;
-      
-      @media screen and (max-width: 990px) {
+      @media screen and (max-width: 820px) {
         justify-content: center;
       }
     `,
@@ -43,6 +42,14 @@ export const NavbarStyle = {
       }
       
       @media screen and (max-width: 990px) {
+        width: 250px;        
+        
+        & span {
+          font-size: 12px;
+        }
+      }
+      
+      @media screen and (max-width: 820px) {
         display: none;
       }
 
@@ -50,10 +57,17 @@ export const NavbarStyle = {
 
     NavTopCenter: styled.span`
       text-align: center;
-      
-      @media screen and (max-width: 375px) {
-        font-size: 12px;
-    }
+
+
+      @media screen and (max-width: 990px) {
+        font-size: 13px;
+      }
+      @media screen and (max-width: 820px) {
+        font-size: 14px!important;
+      }
+      @media screen and (max-width: 520px) {
+        font-size: 12px !important;
+      }
     `,
 
     NavTopRight: styled.div`
@@ -82,6 +96,12 @@ export const NavbarStyle = {
       }
 
       @media screen and (max-width: 990px) {
+        width: 200px;
+        & span {
+          font-size: 12px;
+        }
+      }
+      @media screen and (max-width: 820px) {
         display: none;
       }
     `,

@@ -26,7 +26,7 @@ export default function VerifyCode() {
                 <h1>Confirm the SMS code received on your phone number</h1>
                 <OtpInput
                     id="otp-input"
-                    autoComplete="one-time-code"
+                    autoComplete="off"
                     onChange={handleChange}
                     shouldAutoFocus
                     value={otp}

@@ -5,6 +5,8 @@ const GlobalStyles = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
     font-family: "Montserrat", sans-serif;
   }
 
@@ -13,10 +15,10 @@ const GlobalStyles = createGlobalStyle`
     height: auto;
   }
 
-  html body{
-    background-color: aliceblue;
+  html body {
+    //background-color: #f6f7ff;
   }
-  
+
   :root {
     --color-black: rgb(37, 43, 66);
     --color-white: white;
@@ -26,8 +28,8 @@ const GlobalStyles = createGlobalStyle`
   .container {
     max-width: 1240px;
     min-width: 320px;
-    width: 95%;
     margin: 0 auto;
+    padding: 0 15px;
   }
 `
 
