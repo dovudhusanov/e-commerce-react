@@ -1,5 +1,6 @@
 import React from 'react';
 import {NavTopStyle} from "./NavTopStyle";
+import americaFlag from "../../../assets/america.png";
 
 function NavTop() {
     return (
@@ -16,7 +17,7 @@ function NavTop() {
                     <NavTopStyle.NavTopRight>
                         <span>FAQ</span>
                         <span>My orders</span>
-                        <span style={{cursor: "pointer"}}><img src="./assets/america.png" alt="america"/> English</span>
+                        <span style={{cursor: "pointer"}}><img src={americaFlag} alt="america"/> English</span>
                     </NavTopStyle.NavTopRight>
                 </NavTopStyle.NavbarTopItems>
             </div>

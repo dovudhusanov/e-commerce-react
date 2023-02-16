@@ -22,7 +22,8 @@ const GlobalStyles = createGlobalStyle`
   :root {
     --color-black: rgb(37, 43, 66);
     --color-white: white;
-    --color-blue: rgb(32, 145, 249)
+    --color-blue: rgb(32, 145, 249);
+    --color-grey: #f4f5f5
   }
 
   .container {
@@ -30,6 +31,10 @@ const GlobalStyles = createGlobalStyle`
     min-width: 320px;
     margin: 0 auto;
     padding: 0 15px;
+  }
+  
+  a.active{
+    font-weight: 700;
   }
 `
 
