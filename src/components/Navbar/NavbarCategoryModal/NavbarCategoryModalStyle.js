@@ -8,8 +8,12 @@ export const CategoryModal = {
       opacity: 0;
       z-index: 1000;
       position: relative;
-      top: -30px;
+      top: -50px;
       width: 100%;
+      
+      @media screen and (max-width: 820px) {
+        display: none;
+      } 
       
       ${(props) => {
         if (props.showCategory) {
@@ -19,6 +23,7 @@ export const CategoryModal = {
                 transition: all 0.3s ease 0s;
                 opacity: 1;
                 z-index: 1000
+                
               `
         }
       }}
@@ -29,15 +34,24 @@ export const CategoryModal = {
       z-index: 999;
       left: 0;
       width: 100%;
-      height: 700px;
+      height: 0;
       background-color: white;
       overflow: hidden;
-      
+
+      ${(props) => {
+        if (props.showCategory) {
+          return `
+               height: 700px; 
+              `
+        }
+      }}
     `,
 
     ModalItems: styled.div`
+      position: relative;
       max-width: 1240px;
       margin: 0 auto;
+      padding: 25px 15px;
     `,
 
     Close: styled.button`

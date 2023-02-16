@@ -10,6 +10,16 @@ import NavbarBottom from "../NavbarBottom/NavbarBottom";
 
 function Navbar() {
     const [showCategories, setShowCategories] = useState(false)
+
+    window.addEventListener("click", () => {
+        setShowCategories(false)
+    })
+
+    const openCategoryBtn = (e) => {
+        e.stopPropagation();
+        setShowCategories(prevState => !prevState)
+    }
+
     const user = useSelector(state => state.LoginReducer)
     return (
         <>
@@ -24,7 +34,7 @@ function Navbar() {
                             <Link to="/"><NavbarStyle.Logo>e-commerce</NavbarStyle.Logo></Link>
                         </div>
                         <NavbarStyle.SearchBar>
-                            <NavbarStyle.CategoryButton onClick={() => setShowCategories(prevState => !prevState)} className={showCategories ? "open-categories" : ""}>
+                            <NavbarStyle.CategoryButton onClick={openCategoryBtn} className={showCategories ? "open-categories" : ""}>
                                 <NavbarStyle.CategoryIcon>
                                     <NavbarStyle.CategoryBtnRect>
                                         <div></div>
@@ -34,7 +44,7 @@ function Navbar() {
                                 </NavbarStyle.CategoryIcon>
                                 <NavbarStyle.CategoryButtonText>Category</NavbarStyle.CategoryButtonText>
                             </NavbarStyle.CategoryButton>
-                            <SearchBar/>
+                            <SearchBar setShowCategories={setShowCategories}/>
                         </NavbarStyle.SearchBar>
                         <NavbarStyle.NavbarRight>
                             {localStorage.getItem("user")
@@ -49,7 +59,7 @@ function Navbar() {
                     <NavbarBottom setShowCategories={setShowCategories}/>
                 </div>
             </NavbarStyle.Navbar>
-            <NavbarCategoryModal showCategory={showCategories}/>
+            <NavbarCategoryModal showCategory={showCategories} setShowCategory={setShowCategories}/>
         </>
     );
 }

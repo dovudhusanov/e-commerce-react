@@ -6,6 +6,12 @@ export const SearchBarStyle = {
       height: 40px;
       width: 100%;
       
+      & form{
+        position: relative;
+        height: 40px;
+        width: 100%;
+      }
+      
       & input {
         width: 100%;
         height: 100%;
@@ -53,5 +59,54 @@ export const SearchBarStyle = {
       @media screen and (max-width: 990px) {
         left: 0;
       }
-    `
+    `,
+
+    SearchBtn: styled.button`
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: 0;
+      right: -20px;
+      border: none;
+      z-index: 1;
+      width: 15%;
+      border-radius: 0 4px 4px 0;
+      background: rgba(118, 121, 127, 0.05);
+      height: 40px;
+      cursor: pointer;
+      
+      & i {
+        color: black;
+        opacity: .6;
+        font-size: 16px;
+        font-weight: 400;
+      }
+      
+      @media screen and (max-width: 990px) {
+        right: 0;
+      }
+    `,
+
+    ClearBtn: styled.span`
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      top: 0;
+      right: 35px;
+      border: none;
+      z-index: 1;
+      width: 15%;
+      height: 40px;
+
+      & i {
+        cursor: pointer;
+        color: #8d8d8d;
+      }
+
+      @media screen and (max-width: 990px) {
+        right: 40px;
+      }
+    `,
 }

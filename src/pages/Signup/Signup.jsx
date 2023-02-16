@@ -4,8 +4,13 @@ import {Link} from "react-router-dom";
 import {useDispatch} from "react-redux";
 import {loginFailure, loginStart, loginSuccess} from "../../action/AuthLoginAction";
 import {LoginApi} from "../../api/LoginApi";
+import {ScrollTop} from "../../middleware/scrollTop";
+import ChangeTitle from "../../middleware/changeTitle";
 
 function Signup() {
+
+    ScrollTop()
+    ChangeTitle("Sign Up")
 
     const [value, setValue] = useState({
         firstName: "",
@@ -177,8 +182,8 @@ function Signup() {
                             </AuthStyle.Input>
                         </AuthStyle.InputParent>
                     </AuthStyle.DoubleInput>
-                    <AuthStyle.Button type="submit">Login</AuthStyle.Button>
-                    <AuthStyle.BottomText>Create an account <Link to="/login">Sign Up</Link></AuthStyle.BottomText>
+                    <AuthStyle.Button type="submit">Sign Up</AuthStyle.Button>
+                    <AuthStyle.BottomText>Already have an account? <Link to="/login">Log In</Link></AuthStyle.BottomText>
                     {/*<AuthStyle.Or>*/}
                     {/*    <AuthStyle.OrLine></AuthStyle.OrLine>*/}
                     {/*    <AuthStyle.OrText>Or</AuthStyle.OrText>*/}

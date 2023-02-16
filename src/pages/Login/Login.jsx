@@ -5,8 +5,13 @@ import {useDispatch} from "react-redux";
 import {loginFailure, loginStart, loginSuccess} from "../../action/AuthLoginAction";
 import {LoginApi} from "../../api/LoginApi";
 import {Link} from "react-router-dom";
+import {ScrollTop} from "../../middleware/scrollTop";
+import ChangeTitle from "../../middleware/changeTitle";
 
 function Login() {
+
+    ScrollTop();
+    ChangeTitle("Log In")
 
     const [value, setValue] = useState({
         phoneNumber: "",

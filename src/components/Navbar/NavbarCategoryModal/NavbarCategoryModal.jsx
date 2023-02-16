@@ -1,12 +1,17 @@
 import React from 'react';
 import {CategoryModal} from "./NavbarCategoryModalStyle"
 
-function NavbarCategoryModal({showCategory}) {
+function NavbarCategoryModal({showCategory, setShowCategory}) {
+
+    const clickModalDisabled = (e) => {
+        e.stopPropagation()
+    }
+
     return (
-        <CategoryModal.ModalCategory showCategory={showCategory}>
-            <CategoryModal.Modal>
+        <CategoryModal.ModalCategory showCategory={showCategory} onClick={clickModalDisabled}>
+            <CategoryModal.Modal showCategory={showCategory}>
                 <CategoryModal.ModalItems>
-                    <CategoryModal.Close>
+                    <CategoryModal.Close onClick={() => setShowCategory(false)}>
                         <i className="fa-solid fa-xmark"></i>
                     </CategoryModal.Close>
                 </CategoryModal.ModalItems>

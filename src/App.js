@@ -1,11 +1,9 @@
-import React, {useEffect} from "react";
-import {Home} from "./pages"
-import {Login, Navbar, Signup} from "./components";
-import {Route, Routes, useNavigate} from "react-router-dom";
-import VerifyCode from "./components/VerifyCode/VerifyCode";
+import React from "react";
+import {Home, Signup, Login, VerifyCode, NotFoundPage, SearchResults} from "./pages"
+import {Navbar} from "./components";
+import {Route, Routes} from "react-router-dom";
 
 function App() {
-
     return (
         <>
             <Navbar />
@@ -14,6 +12,8 @@ function App() {
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/login" element={<Login/>}/>
                 <Route path="/verify-phone-number" element={<VerifyCode />} />
+                <Route path="/search" element={<SearchResults searchParams={new URLSearchParams(window.location.search).get("query")} />} />
+                <Route path="/*" element={<NotFoundPage />} />
             </Routes>
         </>
     );

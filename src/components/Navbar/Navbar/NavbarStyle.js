@@ -63,14 +63,14 @@ export const NavbarStyle = {
       text-decoration: none;
       border-radius: 4px;
       background-color: rgba(49, 49, 196, 0.1);
-      color: #33c;
+      color: var(--color-blue);
       height: 40px;
       width: 160px;
       margin-right: 7px;
       position: relative;
 
       &:hover {
-        background-color: rgba(49, 49, 196, 0.16);
+        background-color: rgba(49, 49, 196, 0.13);
       }
 
       @media screen and (max-width: 990px) {
@@ -94,9 +94,9 @@ export const NavbarStyle = {
       position: absolute;
       width: 18px;
       height: 12px;
-      border: 2px solid #5c5cd6;
+      border: 2px solid var(--color-blue);
       border-radius: 2px;
-      background: #5c5cd6;
+      background: var(--color-blue);
       box-sizing: border-box;
       transform: translate(-50%, 0);
       top: 9px;
@@ -104,7 +104,7 @@ export const NavbarStyle = {
 
       & div {
         transition: all .11s .11s ease-out;
-        background-color: #eaeaf9;
+        background-color: #e5e5ff;
         width: 100%;
         height: 100%;
         border-radius: 1px;
@@ -117,7 +117,7 @@ export const NavbarStyle = {
       position: absolute;
       width: 13.991999999999999px;
       height: 0;
-      border-top: 2px solid #5c5cd6;
+      border-top: 2px solid var(--color-blue);
       border-top-left-radius: 2px;
       border-top-right-radius: 2px;
       top: 3px;
@@ -136,8 +136,8 @@ export const NavbarStyle = {
       position: absolute;
       width: 15.984000000000002px;
       height: 0;
-      background: #5c5cd6;
-      border-top: 2px solid #5c5cd6;
+      background: var(--color-blue);
+      border-top: 2px solid var(--color-blue);
       border-top-left-radius: 2px;
       border-top-right-radius: 2px;
       top: 6px;
