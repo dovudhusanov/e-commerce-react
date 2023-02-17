@@ -1,11 +1,11 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {AuthStyle} from "../Login/LoginStyle";
 import {Link} from "react-router-dom";
 import {useDispatch} from "react-redux";
-import {loginFailure, loginStart, loginSuccess} from "../../action/AuthLoginAction";
-import {LoginApi} from "../../api/LoginApi";
 import {ScrollTop} from "../../middleware/scrollTop";
 import ChangeTitle from "../../middleware/changeTitle";
+import {SignupApi} from "../../api/SignupApi";
+import {signFailure, signStart, signSuccess} from "../../action/SignupAction";
 
 function Signup() {
 
@@ -23,43 +23,21 @@ function Signup() {
         confirmPassword: "",
     })
 
-    useEffect(() => {
-        phoneNumberFormatter()
-        handleFormat()
-    }, [value])
-
     const handleChange = (e) => {
         setValue({...value, [e.target.name]: e.target.value})
-    }
-
-    const handleFormat = (value) => {
-        if(!value) return value;
-        const phoneNumber = value.replace(/[^\d]/g, '');
-        const phoneNumberLength = phoneNumber.length
-        if(phoneNumberLength < 4) return phoneNumber
-        if(phoneNumberLength < 7) {
-            return `(${phoneNumber.slice(0,2)}) ${phoneNumber.slice(2)}`;
-        }
-        return `(${phoneNumber.slice(0, 2)}) ${phoneNumber.slice(2, 5)}-${phoneNumber.slice(5, 7)}-${phoneNumber.slice(7, 9)}`
-    }
-
-    const phoneNumberFormatter = () => {
-        const formattedInput = handleFormat(value.phoneNumber)
-        console.log(formattedInput)
-        value.phoneNumber = formattedInput
     }
 
     const dispatch = useDispatch()
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        dispatch(loginStart());
+        dispatch(signStart());
         try {
-            const user = await LoginApi(value)
-            dispatch(loginSuccess(user.data))
+            const user = await SignupApi(value)
+            dispatch(signSuccess(user.data))
         } catch (error) {
             console.log(error)
-            dispatch(loginFailure())
+            dispatch(signFailure())
         }
     }
 
@@ -129,7 +107,6 @@ function Signup() {
                                     onChange={handleChange}
                                     autoComplete="off"
                                     required
-                                    onKeyDown={phoneNumberFormatter}
                                 />
                                 <AuthStyle.ErrorValid></AuthStyle.ErrorValid>
                             </AuthStyle.Input>

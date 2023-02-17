@@ -36,6 +36,14 @@ const GlobalStyles = createGlobalStyle`
   a.active{
     font-weight: 700;
   }
+  
+  .secondText{
+    color: rgb(115, 115, 115);
+    font-size: 14px;
+    line-height: 28px;
+    letter-spacing: 0.2px;
+    font-weight: 400;
+  }
 `
 
 export default GlobalStyles

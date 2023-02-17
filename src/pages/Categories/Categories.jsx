@@ -7,7 +7,7 @@ function Categories() {
 
     return (
         <div className="container">
-            <h1 style={{marginTop: "40px"}}>{categoryName}</h1>
+            <h1 style={{marginTop: "40px"}}>{categoryName.split("-").join(" ")}</h1>
         </div>
     );
 }

@@ -1,13 +1,12 @@
 import {AuthLoginTypes} from "../constants/AuthLoginType"
 
 const initialState = {
-    user: JSON.parse(localStorage.getItem("user")) || null,
+    user: null,
     isFetching: false,
     error: false,
 };
 
 export const LoginReducer = (state = initialState, action) => {
-    console.log(action.type)
     switch (action.type) {
         case AuthLoginTypes.LOGIN_START:
             return {

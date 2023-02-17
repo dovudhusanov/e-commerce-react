@@ -17,11 +17,7 @@
     background: var(--color-blue);
     color: white;
     border-radius: 50%;
-}
-
-.scrollToTopBTn:hover {
     cursor: pointer;
-    border-radius: 20px;
 }
 
 .opacity-100{

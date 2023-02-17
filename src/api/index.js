@@ -6,19 +6,17 @@ const axiosInstance = axios.create({
     baseURL: `${api_url}/api`,
 });
 
-// @ts-ignore
 axiosInstance.interceptors.request.use((req, error) => {
-    if (localStorage.getItem("admin")) {
+    if (localStorage.getItem("user")) {
         req.headers.Authorization = `Bearer ${
-            // @ts-ignore
-            JSON.parse(localStorage.getItem("admin")).token
+            JSON.parse(localStorage.getItem("user")).accessToken
         }`
     }
 
     if (error) {
         let res = error.response;
         if (res.payload.status === 400) {
-            window.location.href = `${api_url}/api/auth`;
+            window.location.href = `${api_url}/api/auth/login`;
         }
         console.error("Looks like there was a problem. Status Code:" + res.status);
         return Promise.reject(error);

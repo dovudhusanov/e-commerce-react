@@ -1,10 +1,9 @@
 import React from 'react';
 import {NavbarBottomStyle} from "./NavbarBottomStyle";
 import {Link, NavLink} from "react-router-dom";
+import {categoryList} from "../../../data/data";
 
 function NavbarBottom({setShowCategories}) {
-
-    const categoryList = ["Electronic", "Household appliances", "Clothes", "Shoes", "Accessories", "Auto commodities", "Construction and repair", "food products", "Books", "Sports product"]
 
     const handleOpen = (e) => {
         e.stopPropagation();
@@ -14,7 +13,7 @@ function NavbarBottom({setShowCategories}) {
     return (
         <NavbarBottomStyle.NavbarBottom>
             {categoryList.map((item, index) => (
-                <li key={index}><NavLink to={`/categories/${item}`}>{item}</NavLink></li>
+                <li key={index}><NavLink to={`/categories/${item.pathName}`}>{item.categoryName}</NavLink></li>
             ))}
             <span onClick={handleOpen}>More <i className="fa-regular fa-angle-down"></i></span>
         </NavbarBottomStyle.NavbarBottom>
