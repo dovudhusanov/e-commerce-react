@@ -21,8 +21,12 @@ export const ProductStyle = {
         justify-content: space-evenly;
       }
 
-      @media screen and (max-width: 390px) {
-        justify-content: space-between !important;
+      @media screen and (max-width: 430px) {
+        justify-content: space-between;
+      }
+
+      @media screen and (max-width: 380px) {
+        justify-content: center!important;
       }
     `,
 
@@ -40,118 +44,131 @@ export const ProductStyle = {
         margin: 20px 0;
       }
 
-      @media screen and (max-width: 450px) {
-        max-width: 160px;
-        margin: 20px 0;
+      @media screen and (max-width: 490px) {
+        max-width: 180px;
       }
 
-      @media screen and (max-width: 364px) {
-        max-width: 140px;
+      @media screen and (max-width: 400px) {
+        max-width: 170px;
       }
-
-      &:hover {
-        transform: scale(1.02);
+      
+      @media screen and (max-width: 380px) {
+        max-width: 100% !important;
       }
+    }
 
-      & img {
-        width: 100%;
-        height: 230px;
-        object-fit: cover;
-        border-radius: 8px 8px 0 0;
+    &:hover {
+      transform: scale(1.02);
+    }
 
-        @media screen and (max-width: 620px) {
-          height: 180px;
-        }
-
-        @media screen and (max-width: 450px) {
-          height: 130px;
-        }
-
-        @media screen and (max-width: 364px) {
-          height: 110px;
-          object-fit: scale-down;
-        }
-      }
+    & img {
+      width: 100%;
+      height: 230px;
+      object-fit: cover;
+      border-radius: 8px 8px 0 0;
 
       @media screen and (max-width: 620px) {
-        & button {
-          font-size: 10px !important;
-          padding: 6px 10px;
-        }
+        height: 180px;
       }
 
-      @media screen and (max-width: 450px) {
-        & button {
-          font-size: 8px !important;
-          padding: 4px 8px;
-        }
+      @media screen and (max-width: 490px) {
+        height: 160px;
+      }
+
+      @media screen and (max-width: 380px) {
+        height: 200px!important;
+      }
+    }
+
+    @media screen and (max-width: 620px) {
+      & button {
+        font-size: 11px !important;
+        padding: 6px 10px;
+      }
+    }
+
+    @media screen and (max-width: 400px) {
+      & button {
+        font-size: 10px!important;
+        padding: 6px 6px !important;
+        width: 80px!important;
+      }
+
+      @media screen and (max-width: 380px) {
+       & button {
+         font-size: 12.8px !important;
+         padding: 8px 10px!important;
+         width: 100px!important;
+       }
+      }
+    }
+
+    & > div {
+
+    `,
+
+    ProductInfo: styled.div`
+      padding: 10px 20px;
+      height: 127px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+
+      @media screen and (max-width: 490px) {
+        padding: 5px 13px;
       }
 
       & > div {
-        padding: 10px 20px;
+        padding: 15px 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: auto;
 
         @media screen and (max-width: 450px) {
-          padding: 5px 13px;
+          padding: 7px 0;
         }
 
-        & > div {
-          padding: 15px 0;
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-
-          @media screen and (max-width: 450px) {
-            padding: 7px 0;
-          }
-
-          & i {
-            margin-right: 15px;
-            cursor: pointer;
-            color: var(--color-blue);
-            font-size: 17px;
-
-            @media screen and (max-width: 620px) {
-              font-size: 12px;
-            }
-            @media screen and (max-width: 450px) {
-              margin-right: 10px;
-              font-size: 10px !important;
-            }
-          }
-        }
-      }
-
-      & h1 {
-        font-size: 18px;
-        color: #383838;
-        padding: 20px 0 5px 0;
-
-        @media screen and (max-width: 620px) {
+        & i {
+          margin-right: 15px;
+          cursor: pointer;
+          color: var(--color-blue);
           font-size: 14px;
-          padding: 5px 0;
-        }
+          
+          
+          @media screen and (max-width: 400px) {
+            margin-right: 5px!important;
+          }
 
-        @media screen and (max-width: 500px) {
-          font-size: 12px;
-        }
-
-        @media screen and (max-width: 450px) {
-          font-size: 9px;
-        }
-      }
-
-      & span {
-        font-size: 13px;
-
-        @media screen and (max-width: 620px) {
-          font-size: 10px;
-        }
-
-        @media screen and (max-width: 450px) {
-          font-size: 7px;
+          @media screen and (max-width: 380px) {
+            margin-right: 10px!important;
+          }
         }
       }
-    `,
+    }
+
+    & span {
+      font-weight: 400;
+      color: black;
+      font-size: 12.8px;
+      line-height: 15.36px;
+      max-height: 43px;
+      margin-top: 15px;
+
+      @media screen and (max-width: 620px) {
+        font-size: 12px;
+      }
+
+      @media screen and (max-width: 400px) {
+        font-size: 11px;
+      }
+
+      @media screen and (max-width: 380px) {
+        font-size: 12.8px;
+      }
+    }
+
+    {`,
 
     Price: styled.div`
       position: absolute;
@@ -170,16 +187,13 @@ export const ProductStyle = {
         top: 169px;
       }
 
-      @media screen and (max-width: 450px) {
-        font-size: 7px;
-        padding: 4px 8px;
-        top: 118px;
-        left: 13px;
+
+      @media screen and (max-width: 490px) {
+        top: 150px;
       }
 
-      @media screen and (max-width: 364px) {
-        top: 99px;
+      @media screen and (max-width: 380px) {
+       top: 189px;
       }
-
     `
 }

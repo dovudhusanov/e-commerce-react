@@ -30,9 +30,8 @@ function Home() {
                   <ProductStyle.ProdcutCard key={product.id}>
                       <img src={product.image} alt={product.productName}/>
                       <ProductStyle.Price>{USDollar.format(product.price)}</ProductStyle.Price>
-                      <div>
-                          <h1>{product.productName}</h1>
-                          <span>{product.descr}</span>
+                      <ProductStyle.ProductInfo>
+                          <span>{product.productName} {product.descr.slice(0, 25)}</span>
                           <div>
                               <div>
                                   <i className="fa-light fa-eye"></i>
@@ -40,7 +39,7 @@ function Home() {
                               </div>
                               <Button style={{fontSize: "12px"}}>Add to Cart</Button>
                           </div>
-                      </div>
+                      </ProductStyle.ProductInfo>
                   </ProductStyle.ProdcutCard>
               ))}
           </ProductStyle.Products>
