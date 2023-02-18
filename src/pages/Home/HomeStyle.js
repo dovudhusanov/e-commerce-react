@@ -24,10 +24,6 @@ export const ProductStyle = {
       @media screen and (max-width: 430px) {
         justify-content: space-between;
       }
-
-      @media screen and (max-width: 380px) {
-        justify-content: center!important;
-      }
     `,
 
     ProdcutCard: styled.div`
@@ -53,7 +49,7 @@ export const ProductStyle = {
       }
       
       @media screen and (max-width: 380px) {
-        max-width: 100% !important;
+        max-width: 160px !important;
       }
     }
 
@@ -74,10 +70,7 @@ export const ProductStyle = {
       @media screen and (max-width: 490px) {
         height: 160px;
       }
-
-      @media screen and (max-width: 380px) {
-        height: 200px!important;
-      }
+      
     }
 
     @media screen and (max-width: 620px) {
@@ -94,13 +87,7 @@ export const ProductStyle = {
         width: 80px!important;
       }
 
-      @media screen and (max-width: 380px) {
-       & button {
-         font-size: 12.8px !important;
-         padding: 8px 10px!important;
-         width: 100px!important;
-       }
-      }
+     
     }
 
     & > div {
@@ -135,13 +122,8 @@ export const ProductStyle = {
           color: var(--color-blue);
           font-size: 14px;
           
-          
           @media screen and (max-width: 400px) {
             margin-right: 5px!important;
-          }
-
-          @media screen and (max-width: 380px) {
-            margin-right: 10px!important;
           }
         }
       }
@@ -164,7 +146,7 @@ export const ProductStyle = {
       }
 
       @media screen and (max-width: 380px) {
-        font-size: 12.8px;
+        font-size: 10px;
       }
     }
 
@@ -190,10 +172,7 @@ export const ProductStyle = {
 
       @media screen and (max-width: 490px) {
         top: 150px;
-      }
-
-      @media screen and (max-width: 380px) {
-       top: 189px;
+        left: 15px;
       }
     `
 }
