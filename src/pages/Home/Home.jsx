@@ -31,7 +31,7 @@ function Home() {
                       <img src={product.image} alt={product.productName}/>
                       <ProductStyle.Price>{USDollar.format(product.price)}</ProductStyle.Price>
                       <ProductStyle.ProductInfo>
-                          <span>{product.productName} {product.descr.slice(0, 25)}</span>
+                          <span>{product.productName} {product.descr.slice(0, 20)}</span>
                           <div>
                               <div>
                                   <i className="fa-light fa-eye"></i>

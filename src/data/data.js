@@ -13,6 +13,11 @@ export const products = [
         id: 1,
         productName: "Samsung Galaxy A51 Red 64 GB",
         image: img,
+        sliderImages: [
+            {
+                id: 1
+            }
+        ],
         descr: "Потрясающий экран, реальная плавная прокрутка",
         price: "400",
         color: "cyan",

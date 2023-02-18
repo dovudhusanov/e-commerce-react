@@ -47,7 +47,7 @@ export const ProductStyle = {
       @media screen and (max-width: 400px) {
         max-width: 170px;
       }
-      
+
       @media screen and (max-width: 380px) {
         max-width: 160px !important;
       }
@@ -70,24 +70,24 @@ export const ProductStyle = {
       @media screen and (max-width: 490px) {
         height: 160px;
       }
-      
+
     }
 
     @media screen and (max-width: 620px) {
       & button {
-        font-size: 11px !important;
+        font-size: 12px !important;
         padding: 6px 10px;
       }
     }
 
     @media screen and (max-width: 400px) {
       & button {
-        font-size: 10px!important;
+        font-size: 11px !important;
         padding: 6px 6px !important;
-        width: 80px!important;
+        width: 80px !important;
       }
 
-     
+
     }
 
     & > div {
@@ -120,17 +120,17 @@ export const ProductStyle = {
           margin-right: 15px;
           cursor: pointer;
           color: var(--color-blue);
-          font-size: 14px;
-          
+          font-size: 16px;
+
           @media screen and (max-width: 400px) {
-            margin-right: 5px!important;
+            margin-right: 5px !important;
           }
         }
       }
     }
 
     & span {
-      font-weight: 400;
+      font-weight: 500;
       color: black;
       font-size: 12.8px;
       line-height: 15.36px;
@@ -146,7 +146,7 @@ export const ProductStyle = {
       }
 
       @media screen and (max-width: 380px) {
-        font-size: 10px;
+        font-size: 12px;
       }
     }
 
@@ -172,7 +172,8 @@ export const ProductStyle = {
 
       @media screen and (max-width: 490px) {
         top: 150px;
-        left: 15px;
+        left: 12.7px;
+        font-size: 13px;
       }
     `
 }
