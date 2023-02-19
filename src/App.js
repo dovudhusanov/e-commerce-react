@@ -1,5 +1,5 @@
 import React from "react";
-import {Home, Signup, Login, VerifyCode, NotFoundPage, SearchResults, Categories, Cart} from "./pages"
+import {Home, Signup, Login, VerifyCode, NotFoundPage, SearchResults, Categories, Cart, Saved} from "./pages"
 import {Navbar} from "./components";
 import {Route, Routes} from "react-router-dom";
 
@@ -12,6 +12,7 @@ function App() {
                 <Route path="/" element={<Home/>}/>
                 <Route path="/categories/:categoryName" element={<Categories/>}/>
                 <Route path="/cart" element={<Cart/>}/>
+                <Route path="/saved" element={<Saved/>}/>
                 <Route path="/search" element={<SearchResults
                     searchParams={new URLSearchParams(window.location.search).get("query")}/>}/>
                 <Route path="/signup" element={<Signup/>}/>

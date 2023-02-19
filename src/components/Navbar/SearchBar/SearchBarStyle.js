@@ -6,10 +6,36 @@ export const SearchBarStyle = {
       height: 40px;
       width: 100%;
 
+      ${(props) => {
+        if (props.fullscreen === true) {
+          return `
+              @media screen and (max-width: 820px) {
+                position: fixed;
+                top: 87px;
+                width: 100vw !important;
+                z-index: 20000;                
+              }
+            `
+        }
+      }};
+
       & form {
         position: relative;
         height: 40px;
         width: 100%;
+        
+        ${(props) => {
+          if (props.fullscreen === true) {
+            return `
+              @media screen and (max-width: 820px) {
+                z-index: 10010 !important;
+                top: -65px;
+                width: 86%;
+                left: 20px
+              }
+            `
+          }
+        }};
       }
 
       & input {
@@ -28,6 +54,25 @@ export const SearchBarStyle = {
         border-radius: 4px;
         position: relative;
         left: 20px;
+
+        ${(props) => {
+          if(props.showSearchBar === true) {
+            return `
+                border-radius: 4px 4px 0 0 !imortant;
+              `
+          }
+        }};
+
+        ${(props) => {
+          if (props.fullscreen === true) {
+            return `
+              @media screen and (max-width: 820px) {
+                border-radius: 9px !imortant;
+              }
+            `
+          }
+        }};
+
         @media screen and (max-width: 990px) {
           left: 0;
         }
@@ -52,6 +97,24 @@ export const SearchBarStyle = {
       }
     `,
 
+    BackIcon: styled.div`
+      cursor: pointer;
+      z-index: 4000 !important;
+      position: absolute;
+      top: -54px;
+      display: none;
+
+      ${(props) => {
+        if (props.fullscreen === true) {
+          return `
+              @media screen and (max-width: 820px) {
+                display: block !important;
+              }
+            `
+        }
+      }};
+    `,
+
     SearchBar: styled.div`
       width: 100%;
       position: absolute;
@@ -70,6 +133,21 @@ export const SearchBarStyle = {
       transition: 0.2s ease;
       padding: 25px 0;
 
+      ${(props) => {
+        if (props.fullscreen === true) {
+          return `
+              @media screen and (max-width: 820px) {
+                width: 100vw !important;
+                height: 100vh;
+                left: -16px !important;
+                top: -87px !important;
+                z-index: 1005 !important;
+                border-radius: 0 !important;
+                padding: 100px 0 25px 0;
+               }
+            `
+        }
+      }}
       & h4 {
         color: #464646;
         font-size: 15px;
@@ -113,8 +191,8 @@ export const SearchBarStyle = {
 
     Title: styled.div`
       padding: 0 17px;
-      
-      & span{
+
+      & span {
         cursor: pointer;
         font-weight: 600;
       }
@@ -129,18 +207,18 @@ export const SearchBarStyle = {
         display: flex;
         justify-content: space-between;
         padding: 10px 17px;
-        
-        & > div{
+
+        & > div {
           cursor: pointer;
         }
-        
+
         & i {
           cursor: pointer;
         }
       }
     `,
     PopularSearched: styled.div`
-      & h4{
+      & h4 {
         padding: 0 17px;
         margin-top: 15px;
       }
@@ -205,6 +283,18 @@ export const SearchBarStyle = {
 
       @media screen and (max-width: 990px) {
         right: 40px;
+      }
+      
+      @media screen and (max-width: 820px) {
+        right: 80px;
+      }
+      
+      @media screen and (max-width: 650px) {
+        right: 60px;
+      }
+
+      @media screen and (max-width: 650px) {
+        right: 45px;
       }
     `,
 }

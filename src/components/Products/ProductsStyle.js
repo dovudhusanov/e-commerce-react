@@ -24,9 +24,9 @@ export const ProductStyle = {
       @media screen and (max-width: 430px) {
         justify-content: space-between;
       }
-
+      
       @media screen and (max-width: 359px) {
-        justify-content: center !important;
+        justify-content: center!important;
         flex-direction: column
       }
     `,
@@ -81,26 +81,33 @@ export const ProductStyle = {
       }
 
       @media screen and (max-width: 359px) {
-        height: 220px !important;
+       height: 220px!important;
       }
 
     }
 
     @media screen and (max-width: 620px) {
       & button {
-        font-size: 11px !important;
-        padding: 6px 6px;
+        font-size: 12px !important;
+        padding: 6px 10px;
       }
     }
 
-    @media screen and (max-width: 359px) {
+    @media screen and (max-width: 400px) {
       & button {
-        font-size: 13px !important;
-        padding: 8px 10px !important;
-        width: 120px !important;
+        font-size: 11px !important;
+        padding: 6px 6px !important;
       }
+
+      @media screen and (max-width: 359px) {
+        & button {
+          font-size: 13px !important;
+          padding: 8px 10px!important;
+          width: 120px !important;
+        }
+      }
+
     }
-    
 
     & > div {
 
@@ -119,7 +126,7 @@ export const ProductStyle = {
 
       @media screen and (max-width: 359px) {
         height: 120px;
-        padding: 5px 13px 15px 13px !important;
+        padding: 5px 13px 15px 13px!important;
       }
 
       & > div {
@@ -135,24 +142,16 @@ export const ProductStyle = {
 
         & i {
           margin-right: 15px;
+          cursor: pointer;
           color: var(--color-blue);
           font-size: 16px;
 
-          & i {
-            cursor: pointer;
-          }
-
-          @media screen and (max-width: 490px) {
-            font-size: 14px;
-          }
-          
           @media screen and (max-width: 400px) {
             margin-right: 5px !important;
-            font-size: 16px!important;
           }
 
           @media screen and (max-width: 359px) {
-            margin-right: 15px !important;
+            margin-right: 15px!important;
           }
         }
       }
@@ -209,37 +208,7 @@ export const ProductStyle = {
       }
 
       @media screen and (max-width: 359px) {
-        top: 207px !important;
-      }
-    `,
-
-    Empty: styled.div`
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      & div {
-        margin-top: 100px;
-        text-align: center;
-
-        & img {
-          width: 300px;
-        }
-
-        & h1 {
-          font-size: 30px;
-          color: #a9a9a9;
-          margin: 25px 0 10px 0;
-
-          @media screen and (max-width: 425px) {
-            font-size: 25px;
-          }
-        }
-
-        & button {
-          margin-top: 15px;
-        }
+        top: 207px!important;
       }
     `
 }

@@ -7,6 +7,9 @@ import img5 from "../assets/products/img_5.png";
 import img6 from "../assets/products/img_6.png";
 import img7 from "../assets/products/img_7.png";
 import img8 from "../assets/products/img_8.png";
+import img9 from "../assets/products/img_9.png";
+import img10 from "../assets/products/img_10.png";
+import img11 from "../assets/products/img_11.png";
 
 export const products = [
     {
@@ -22,7 +25,10 @@ export const products = [
         price: "400",
         color: "cyan",
         category: "Electronic",
-        quantity: 0
+        quantity: 1,
+        selected: true,
+        isFavourite: true,
+        pathName: "Electronic"
     },
     {
         id: 2,
@@ -32,7 +38,11 @@ export const products = [
         price: "32",
         color: "pink",
         category: "Accessories",
-        quantity: 0
+        quantity: 1,
+        selected: true,
+        isFavourite: true,
+        pathName: "Accessories"
+
     },
     {
         id: 3,
@@ -42,8 +52,10 @@ export const products = [
         price: "50",
         color: "black",
         category: "Accessories",
-        quantity: 0
-
+        quantity: 1,
+        selected: true,
+        isFavourite: false,
+        pathName: "Accessories"
     },
     {
         id: 4,
@@ -53,7 +65,10 @@ export const products = [
         price: "110",
         color: "white",
         category: "Accessories",
-        quantity: 0
+        quantity: 1,
+        selected: true,
+        isFavourite: false,
+        pathName: "Accessories"
     },
     {
         id: 5,
@@ -63,7 +78,10 @@ export const products = [
         price: "55",
         color: "white",
         category: "Clothes",
-        quantity: 0
+        quantity: 1,
+        selected: true,
+        isFavourite: false,
+        pathName: "Clothes"
     },
     {
         id: 6,
@@ -73,8 +91,11 @@ export const products = [
         price: "200",
         color: "grey",
         category: "Household appliances",
-        quantity: 0
-    },{
+        quantity: 1,
+        selected: true,
+        isFavourite: false,
+        pathName: "Household-appliances"
+    }, {
         id: 7,
         productName: "Shoes",
         image: img6,
@@ -82,7 +103,10 @@ export const products = [
         price: "95",
         color: "white",
         category: "Shoes",
-        quantity: 0
+        quantity: 1,
+        selected: true,
+        isFavourite: false,
+        pathName: "Shoes"
     },
     {
         id: 8,
@@ -91,7 +115,10 @@ export const products = [
         descr: "Wet Fruits",
         price: "22",
         category: "Food",
-        quantity: 0
+        quantity: 1,
+        selected: true,
+        isFavourite: false,
+        pathName: "Food-products"
     },
     {
         id: 9,
@@ -100,8 +127,413 @@ export const products = [
         descr: "Sports Products for you",
         price: "310",
         category: "Sports product",
-        quantity: 0
-    }
+        quantity: 1,
+        selected: true,
+        isFavourite: false,
+        pathName: "Sports-product"
+    },
+    {
+        id: 10,
+        productName: "Samsung Galaxy A51 Red 64 GB",
+        image: img,
+        sliderImages: [
+            {
+                id: 1
+            }
+        ],
+        descr: "Потрясающий экран, реальная плавная прокрутка",
+        price: "400",
+        color: "cyan",
+        category: "Electronic",
+        quantity: 1,
+        selected: true,
+        isFavourite: true,
+        pathName: "Electronic"
+    }, {
+        id: 11,
+        productName: "Samsung Galaxy A51 Red 64 GB",
+        image: img,
+        sliderImages: [
+            {
+                id: 1
+            }
+        ],
+        descr: "Потрясающий экран, реальная плавная прокрутка",
+        price: "400",
+        color: "cyan",
+        category: "Electronic",
+        quantity: 1,
+        selected: true,
+        isFavourite: true,
+        pathName: "Electronic"
+    }, {
+        id: 12,
+        productName: "Samsung Galaxy A51 Red 64 GB",
+        image: img,
+        sliderImages: [
+            {
+                id: 1
+            }
+        ],
+        descr: "Потрясающий экран, реальная плавная прокрутка",
+        price: "400",
+        color: "cyan",
+        category: "Electronic",
+        quantity: 1,
+        selected: true,
+        isFavourite: true,
+        pathName: "Electronic"
+    }, {
+        id: 13,
+        productName: "Sports Products",
+        image: img8,
+        descr: "Sports Products for you",
+        price: "310",
+        category: "Sports product",
+        quantity: 1,
+        selected: true,
+        isFavourite: false,
+        pathName: "Sports-product"
+    }, {
+        id: 14,
+        productName: "Sports Products",
+        image: img8,
+        descr: "Sports Products for you",
+        price: "310",
+        category: "Sports product",
+        quantity: 1,
+        selected: true,
+        isFavourite: false,
+        pathName: "Sports-product"
+    }, {
+        id: 15,
+        productName: "Sports Products",
+        image: img8,
+        descr: "Sports Products for you",
+        price: "310",
+        category: "Sports product",
+        quantity: 1,
+        selected: true,
+        isFavourite: false,
+        pathName: "Sports-product"
+    },
+    {
+        id: 16,
+        productName: "Shoes",
+        image: img6,
+        descr: "Shoe Sneakers for you",
+        price: "95",
+        color: "white",
+        category: "Shoes",
+        quantity: 1,
+        selected: true,
+        isFavourite: false,
+        pathName: "Shoes"
+    },
+    {
+        id: 17,
+        productName: "Shoes",
+        image: img6,
+        descr: "Shoe Sneakers for you",
+        price: "95",
+        color: "white",
+        category: "Shoes",
+        quantity: 1,
+        selected: true,
+        isFavourite: false,
+        pathName: "Shoes"
+    },
+
+    {
+        id: 18,
+        productName: "Shoes",
+        image: img6,
+        descr: "Shoe Sneakers for you",
+        price: "95",
+        color: "white",
+        category: "Shoes",
+        quantity: 1,
+        selected: true,
+        isFavourite: false,
+        pathName: "Shoes"
+    }, {
+        id: 19,
+        productName: "Sportswear",
+        image: img4,
+        descr: "Soft Sportswear for you",
+        price: "55",
+        color: "white",
+        category: "Clothes",
+        quantity: 1,
+        selected: true,
+        isFavourite: false,
+        pathName: "Clothes"
+    }, {
+        id: 20,
+        productName: "Sportswear",
+        image: img4,
+        descr: "Soft Sportswear for you",
+        price: "55",
+        color: "white",
+        category: "Clothes",
+        quantity: 1,
+        selected: true,
+        isFavourite: false,
+        pathName: "Clothes"
+    }, {
+        id: 21,
+        productName: "Sportswear",
+        image: img4,
+        descr: "Soft Sportswear for you",
+        price: "55",
+        color: "white",
+        category: "Clothes",
+        quantity: 1,
+        selected: true,
+        isFavourite: false,
+        pathName: "Clothes"
+    }, {
+        id: 22,
+        productName: "Wash Machine",
+        image: img5,
+        descr: "Electrosh Wash Machine for you",
+        price: "200",
+        color: "grey",
+        category: "Household appliances",
+        quantity: 1,
+        selected: true,
+        isFavourite: false,
+        pathName: "Household-appliances"
+    }, {
+        id: 23,
+        productName: "Wash Machine",
+        image: img5,
+        descr: "Electrosh Wash Machine for you",
+        price: "200",
+        color: "grey",
+        category: "Household appliances",
+        quantity: 1,
+        selected: true,
+        isFavourite: false,
+        pathName: "Household-appliances"
+    }, {
+        id: 24,
+        productName: "Wash Machine",
+        image: img5,
+        descr: "Electrosh Wash Machine for you",
+        price: "200",
+        color: "grey",
+        category: "Household appliances",
+        quantity: 1,
+        selected: true,
+        isFavourite: false,
+        pathName: "Household-appliances"
+    }, {
+        id: 25,
+        productName: "Wash Machine",
+        image: img5,
+        descr: "Electrosh Wash Machine for you",
+        price: "200",
+        color: "grey",
+        category: "Household appliances",
+        quantity: 1,
+        selected: true,
+        isFavourite: false,
+        pathName: "Household-appliances"
+    },
+    {
+        id: 26,
+        productName: "Fruits",
+        image: img7,
+        descr: "Wet Fruits",
+        price: "22",
+        category: "Food",
+        quantity: 1,
+        selected: true,
+        isFavourite: false,
+        pathName: "Food-products"
+    }, {
+        id: 27,
+        productName: "Fruits",
+        image: img7,
+        descr: "Wet Fruits",
+        price: "22",
+        category: "Food",
+        quantity: 1,
+        selected: true,
+        isFavourite: false,
+        pathName: "Food-products"
+
+    },
+    {
+        id: 28,
+        productName: "Fruits",
+        image: img7,
+        descr: "Wet Fruits",
+        price: "22",
+        category: "Food",
+        quantity: 1,
+        selected: true,
+        isFavourite: false,
+        pathName: "Food-products"
+    },
+    {
+        id: 29,
+        productName: "Airpods",
+        image: img3,
+        descr: "Airpods 2.2 white for you",
+        price: "110",
+        color: "white",
+        category: "Accessories",
+        quantity: 1,
+        selected: true,
+        isFavourite: false,
+        pathName: "Accessories"
+    },
+    {
+        id: 30,
+        productName: "Auto Water",
+        image: img9,
+        descr: "Auto commodities for you water",
+        price: "110",
+        category: "Auto commodities",
+        quantity: 1,
+        selected: true,
+        isFavourite: false,
+        pathName: "Auto-commodities"
+    },
+    {
+        id: 31,
+        productName: "Auto Water",
+        image: img9,
+        descr: "Auto commodities for you water",
+        price: "110",
+        category: "Auto commodities",
+        quantity: 1,
+        selected: true,
+        isFavourite: false,
+        pathName: "Auto-commodities"
+    },
+    {
+        id: 32,
+        productName: "Auto Water",
+        image: img9,
+        descr: "Auto commodities for you water",
+        price: "110",
+        category: "Auto commodities",
+        quantity: 1,
+        selected: true,
+        isFavourite: false,
+        pathName: "Auto-commodities"
+    },
+    {
+        id: 33,
+        productName: "Auto Water",
+        image: img9,
+        descr: "Auto commodities for you water",
+        price: "110",
+        category: "Auto commodities",
+        quantity: 1,
+        selected: true,
+        isFavourite: false,
+        pathName: "Auto-commodities"
+    },
+    {
+        id: 34,
+        productName: "Glue",
+        image: img10,
+        descr: "Glue for you and other think",
+        price: "110",
+        category: "Construction and repair",
+        quantity: 1,
+        selected: true,
+        isFavourite: false,
+        pathName: "Construction-and-repair"
+    },
+    {
+        id: 35,
+        productName: "Glue",
+        image: img10,
+        descr: "Glue for you and other think",
+        price: "110",
+        category: "Construction and repair",
+        quantity: 1,
+        selected: true,
+        isFavourite: false,
+        pathName: "Construction-and-repair"
+    },
+    {
+        id: 36,
+        productName: "Glue",
+        image: img10,
+        descr: "Glue for you and other think",
+        price: "110",
+        category: "Construction and repair",
+        quantity: 1,
+        selected: true,
+        isFavourite: false,
+        pathName: "Construction-and-repair"
+    },
+    {
+        id: 37,
+        productName: "Glue",
+        image: img10,
+        descr: "Glue for you and other think",
+        price: "110",
+        category: "Construction and repair",
+        quantity: 1,
+        selected: true,
+        isFavourite: false,
+        pathName: "Construction-and-repair"
+    },
+    {
+        id: 38,
+        productName: "Book",
+        image: img11,
+        descr: "Book about life Stiv Jobs",
+        price: "110",
+        category: "Books",
+        quantity: 1,
+        selected: true,
+        isFavourite: false,
+        pathName: "Books"
+    },
+    {
+        id: 39,
+        productName: "Book",
+        image: img11,
+        descr: "Book about life Stiv Jobs",
+        price: "110",
+        category: "Books",
+        quantity: 1,
+        selected: true,
+        isFavourite: false,
+        pathName: "Books"
+    },
+    {
+        id: 40,
+        productName: "Book",
+        image: img11,
+        descr: "Book about life Stiv Jobs",
+        price: "110",
+        category: "Books",
+        quantity: 1,
+        selected: true,
+        isFavourite: false,
+        pathName: "Books"
+    },
+    {
+        id: 41,
+        productName: "Book",
+        image: img11,
+        descr: "Book about life Stiv Jobs",
+        price: "110",
+        category: "Books",
+        quantity: 1,
+        selected: true,
+        isFavourite: false,
+        pathName: "Books"
+    },
 ]
 
 export const categoryList = [

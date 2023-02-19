@@ -1,10 +1,14 @@
 import {combineReducers} from "redux";
 import {LoginReducer} from "./LoginReducer";
 import {SignReducer} from "./SigninReducer";
-import {ProductReducer} from "./ProductsReducer";
+import {ProductsReducer} from "./ProductsReducer";
+import {ProductReducer} from "./ProductReducer";
+// import {WhishlistReducer} from "./WishlistReducer";
 
 export const rootReducer = combineReducers({
     LoginReducer: LoginReducer,
     SignupReducer: SignReducer,
-    ProductReducer: ProductReducer
+    ProductsReducer: ProductsReducer,
+    ProductReducer: ProductReducer,
+    // WishlistReducer: WhishlistReducer
 })
