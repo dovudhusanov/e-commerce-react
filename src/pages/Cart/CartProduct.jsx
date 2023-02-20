@@ -5,7 +5,19 @@ import {useDispatch} from "react-redux";
 import {deleteProductFromCart, addToCart} from "../../action/ProductAction";
 import {ProductType} from "../../constants/ProductType";
 
-function    CartProduct({id, image, productName, descr, price, quantity, product, setIsBuy, checkbox,setCheck,isFavourite}) {
+function CartProduct({
+                         id,
+                         image,
+                         productName,
+                         descr,
+                         price,
+                         quantity,
+                         product,
+                         setIsBuy,
+                         checkbox,
+                         setCheck,
+                         isFavourite
+                     }) {
     const [save, setSave] = useState(false)
 
 
@@ -28,7 +40,7 @@ function    CartProduct({id, image, productName, descr, price, quantity, product
             <CartStyle.ProductLeft save={isFavourite}>
                 <input type="checkbox" checked={checkbox} onChange={(e) => {
                     setCheck(!checkbox)
-                    dispatch({type:ProductType.TOGGLE_PRODUCT,payload:id})
+                    dispatch({type: ProductType.TOGGLE_PRODUCT, payload: id})
                 }}/>
                 <div>
                     <img src={image} alt={productName}/>
@@ -38,9 +50,11 @@ function    CartProduct({id, image, productName, descr, price, quantity, product
                         <div>
                             <button onClick={() => {
                                 setSave(prevState => !prevState)
-                                dispatch({type:ProductType.TOOGLE_FAVOURITE,payload:id})
-                            }}><i className="fa-sharp fa-solid fa-heart"></i> Save</button>
-                            <button onClick={() => deleteProduct(id)}><i className="fa-solid fa-trash"></i>Delete</button>
+                                dispatch({type: ProductType.TOOGLE_FAVOURITE, payload: id})
+                            }}><i className="fa-sharp fa-solid fa-heart"></i> Save
+                            </button>
+                            <button onClick={() => deleteProduct(id)}><i className="fa-solid fa-trash"></i>Delete
+                            </button>
                         </div>
                     </div>
                 </div>

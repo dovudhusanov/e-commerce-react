@@ -11,7 +11,7 @@ function NavbarCategoryModal({showCategory, setShowCategory}) {
         <CategoryModal.ModalCategory showCategory={showCategory} onClick={clickModalDisabled}>
             <CategoryModal.Modal showCategory={showCategory}>
                 <CategoryModal.ModalItems>
-                    awda
+                    Category
                     <CategoryModal.Close onClick={() => setShowCategory(false)}>
                         <i className="fa-solid fa-xmark"></i>
                     </CategoryModal.Close>

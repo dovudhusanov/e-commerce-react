@@ -8,23 +8,47 @@ function SearchBar({setShowCategories}) {
     const [showSearchBar, setShowSearchBar] = useState(false);
     const [fullscreen, setFullscreen] = useState(false);
     const [popularProducts, setPopularProducts] = useState(["Clothes", "Shoes", "Accessories"])
+    const [resentSearch, setResentSearch] = useState([])
     const ref = useRef()
     const navigate = useNavigate();
+
+    localStorage.setItem("resently-rearch", JSON.stringify(resentSearch))
+
     window.addEventListener("click", () => {
         setShowSearchBar(false)
     })
+
     const handleOpenSearchBar = useCallback((e) => {
         e.stopPropagation();
         setShowSearchBar(true);
         setShowCategories(false);
     })
+
     const handleSearch = (e) => {
         e.preventDefault();
         e.stopPropagation();
         setShowSearchBar(false);
         setFullscreen(false);
         navigate(`/search?query=${query}`);
+        setResentSearch([...resentSearch, {resentVal: query}])
         ScrollTop()
+    }
+
+    const handleResentlySearch = (e, resentItem) => {
+        e.preventDefault();
+        e.stopPropagation();
+        setShowSearchBar(false);
+        setFullscreen(false);
+        navigate(`/search?query=${resentItem}`);
+        JSON.parse(localStorage.getItem("resently-rearch"))
+        ScrollTop()
+    }
+
+    const handleDeleteResentSearched = (e, index) => {
+        const newResent = [...resentSearch];
+        newResent.splice(index, 1);
+        setResentSearch(newResent);
+        e.stopPropagation();
     }
 
     const handleClearSearch = (e) => {
@@ -77,15 +101,22 @@ function SearchBar({setShowCategories}) {
                 </SearchBarStyle.SearchBtn>
             </form>
             <SearchBarStyle.SearchBar showSearchBar={showSearchBar} fullscreen={fullscreen}>
-                <SearchBarStyle.RecentlySearched>
-                    <SearchBarStyle.Title><h4>Recently Searched</h4><span>Clear</span></SearchBarStyle.Title>
-                    <SearchBarStyle.SearchedList>
-                        <div>
-                            <div><i className="fa-light fa-clock"></i><span>electronics</span></div>
-                            <i className="fa-solid fa-xmark"></i>
-                        </div>
-                    </SearchBarStyle.SearchedList>
-                </SearchBarStyle.RecentlySearched>
+                {Object.keys(resentSearch).length !== 0 &&
+                    <SearchBarStyle.RecentlySearched>
+                        <SearchBarStyle.Title><h4>Recently Searched</h4><span>Clear</span></SearchBarStyle.Title>
+                        <SearchBarStyle.SearchedList>
+                            <SearchBarStyle.ResentList>
+                                {resentSearch?.map((resentValue, index) => (
+                                    <div key={index} onClick={(e) => handleResentlySearch(e, resentValue.resentVal)}>
+                                        <div><i className="fa-light fa-clock"></i><span>{resentValue.resentVal}</span>
+                                        </div>
+                                        <i className="fa-solid fa-xmark"
+                                           onClick={(e) => handleDeleteResentSearched(e, index)}></i>
+                                    </div>
+                                ))}
+                            </SearchBarStyle.ResentList>
+                        </SearchBarStyle.SearchedList>
+                    </SearchBarStyle.RecentlySearched>}
                 <SearchBarStyle.PopularSearched>
                     <h4>Popular</h4>
                     <SearchBarStyle.PopularList>

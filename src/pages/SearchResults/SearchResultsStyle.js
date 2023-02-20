@@ -13,14 +13,25 @@ export const SearchResultsStyle = {
         font-size: 36px;
         color: #a9a9a9;
         font-weight: 600;
-        
-        & span{
+
+        & span {
           font-weight: 800;
         }
-        
+
         @media screen and (max-width: 425px) {
           font-size: 30px;
         }
       }
-`
+    `,
+
+    Parent: styled.div`
+      width: 100%;
+      display: flex;
+      flex-grow: 1;
+    `,
+
+    SearchProducts: styled.div`
+      width: 100%;
+      display: flex;
+    `
 }

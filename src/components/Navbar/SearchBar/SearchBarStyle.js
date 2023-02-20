@@ -131,7 +131,7 @@ export const SearchBarStyle = {
       box-shadow: 0 4px 4px rgb(0 0 0 / 25%);
       border-radius: 0 0 12px 12px;
       transition: 0.2s ease;
-      padding: 25px 0;
+      padding: 10px 0 25px 0;
 
       ${(props) => {
         if (props.fullscreen === true) {
@@ -186,6 +186,7 @@ export const SearchBarStyle = {
         width: 100%;
         display: flex;
         justify-content: space-between;
+        padding-top: 10px;
       }
     `,
 
@@ -201,22 +202,28 @@ export const SearchBarStyle = {
     SearchedList: styled.div`
       width: 100%;
       margin: 5px 0;
+    `,
+
+    ResentList: styled.div`
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column-reverse;
+      padding: 0 17px;
 
       & > div {
-        width: 100%;
         display: flex;
         justify-content: space-between;
-        padding: 10px 17px;
+        align-items: center;
+        margin: 10px 0;
+        cursor: pointer;
+      }
 
-        & > div {
-          cursor: pointer;
-        }
-
-        & i {
-          cursor: pointer;
-        }
+      & i {
+        cursor: pointer;
       }
     `,
+
     PopularSearched: styled.div`
       & h4 {
         padding: 0 17px;

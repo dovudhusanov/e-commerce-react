@@ -1,8 +1,8 @@
 import React from 'react';
 import {ScrollTop} from "../../middleware/scrollTop";
 import ChangeTitle from "../../middleware/changeTitle";
-import Products from "../../components/Products/Products";
 import {useSelector} from "react-redux";
+import {Products} from "../../components";
 
 function Home() {
     ScrollTop();
