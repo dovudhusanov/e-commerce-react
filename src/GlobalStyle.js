@@ -44,6 +44,10 @@ const GlobalStyles = createGlobalStyle`
     letter-spacing: 0.2px;
     font-weight: 400;
   }
+  
+  .error-valid{
+    border-color: red!important;
+  }
 `
 
 export default GlobalStyles

@@ -72,11 +72,12 @@ function SearchBar({setShowCategories}) {
     }
 
     window.addEventListener("keydown", (e) => {
-        if (e.keyCode === (18 && 83)) {
+        if (e.keyCode === (83 && 18)) {
             setShowSearchBar(true);
             ref.current.focus();
         }
     })
+
     return (
         <SearchBarStyle.Search onClick={handleOpenSearchBar} fullscreen={fullscreen} showSearchBar={showSearchBar}>
             <SearchBarStyle.BackIcon onClick={handleBack} fullscreen={fullscreen}>

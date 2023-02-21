@@ -1,0 +1,35 @@
+import {SignupType} from "../constants/SignupType";
+
+const initialState = {
+    isSigningUp: false,
+    signupError: null,
+};
+
+export function SignupReducer(state = initialState, action) {
+    switch (action.type) {
+        case SignupType.SIGNUP_START:
+            return {
+                ...state,
+                isSigningUp: true,
+            };
+        case SignupType.SIGNUP_SUCCESS:
+            return {
+                ...state,
+                isSigningUp: false,
+                signupError: null,
+            };
+        case SignupType.SIGNUP_FAILURE:
+            return {
+                ...state,
+                isSigningUp: false,
+                signupError: action.payload,
+            };
+        case SignupType.ACCESS_TOKEN_EXPIRED:
+            return state;
+        case SignupType.ACCESS_TOKEN_REFRESHED:
+            localStorage.setItem('access_token', action.payload.access_token);
+            return state;
+        default:
+            return state;
+    }
+}

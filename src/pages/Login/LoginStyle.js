@@ -83,7 +83,10 @@ export const AuthStyle = {
     `,
 
     ErrorValid: styled.span`
-
+      color: red;
+      font-size: 15px;
+      position: relative!important;
+      top: 7px!important;
     `,
 
     Button: styled.button`

@@ -1,4 +1,4 @@
 import axiosInstance from ".";
 
 export const SignupApi = (userInfo) =>
-    axiosInstance.post("/auth/signup", userInfo);
+    axiosInstance.post("/account/signup", userInfo);

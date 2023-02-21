@@ -31,7 +31,7 @@ function Login() {
         dispatch(loginStart());
         try {
             const {phoneNumber, password} = value
-            const user = await LoginApi({phoneNumber: "+998" + phoneNumber, password})
+            const user = await LoginApi({phone: "+998" + phoneNumber, password})
             dispatch(loginSuccess(user.data))
         } catch (error) {
             console.log(error)
