@@ -9,7 +9,7 @@ import {ProductType} from "../../constants/ProductType";
 import {Button} from "../index";
 import Product from "./Product/Product";
 
-function Products({products, lenght}) {
+function Products({products, lenght, }) {
     return (
         <>
             {products?.length === 0 ? (
@@ -25,6 +25,7 @@ function Products({products, lenght}) {
                 <ProductStyle.Products>
                     {products.slice(lenght ? (0, 25) : 0,).map((product, index) => (
                        <Product
+                            key={product.id}
                             product={product}
                             index={index}
                        />

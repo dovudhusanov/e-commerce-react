@@ -31,7 +31,6 @@ function Product({product, index}) {
     }
 
     function ProdcutButton({productItem, index}) {
-
         const handleAdd = (productItem) => {
             dispatch(addToCart(productItem))
         }
@@ -42,7 +41,7 @@ function Product({product, index}) {
 
     return (
         <ProductStyle.ProdcutCard key={product.id}>
-         <Link to="/">
+         <Link to={`/categories/${product.pathName}/${product.id}`}>
              <img src={product.image} alt={product.productName}/>
              <ProductStyle.Price>{USDollar.format(product.price)}</ProductStyle.Price>
              <ProductStyle.ProductInfo>

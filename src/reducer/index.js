@@ -4,7 +4,6 @@ import {SignupReducer} from "./SignupReducer"
 import {ProductsReducer} from "./ProductsReducer";
 import {ProductReducer} from "./ProductReducer";
 // import {WhishlistReducer} from "./WishlistReducer";
-
 export const rootReducer = combineReducers({
     LoginReducer: LoginReducer,
     SignupReducer: SignupReducer,
