@@ -15,7 +15,11 @@ function Signup() {
     ChangeTitle("Sign Up")
 
     const Schema = Yup.object().shape({
-        email: Yup.string().email('Invalid email').required('Required'),
+        firstName: Yup.string()
+            .min(2, 'First name must be at least 2 characters')
+            .max(25, 'First name must be at most 25 characters')
+            .required('First name is required'),
+        email: Yup.string().email('Invalid email'),
         password: Yup.string()
             .min(8, 'Password must be at least 8 characters')
             .required('Required'),
@@ -35,8 +39,8 @@ function Signup() {
         email: "",
         firstName: "",
         lastName: "",
-        password: "",
         phoneNumber: "",
+        password: "",
         confirmPassword: ""
     };
 
@@ -106,7 +110,8 @@ function Signup() {
                             <AuthStyle.DoubleInput>
                                 <AuthStyle.InputParent className="double-input">
                                     <label htmlFor="phoneNumber">Phone Number:</label>
-                                    <AuthStyle.Input className={errors.phoneNumber && touched.phoneNumber ? 'error-valid phone-number-input' : 'phone-number-input'}>
+                                    <AuthStyle.Input
+                                        className={errors.phoneNumber && touched.phoneNumber ? 'error-valid phone-number-input' : 'phone-number-input'}>
                                         <div>+998</div>
                                         <Field
                                             type="tel"
@@ -118,39 +123,38 @@ function Signup() {
                                     </AuthStyle.Input>
                                     <ErrorMessage name="phoneNumber" component={TextError}/>
                                 </AuthStyle.InputParent>
-                            </AuthStyle.DoubleInput>
-                            <AuthStyle.InputParent>
+                            <AuthStyle.InputParent className="double-input">
                                 <label htmlFor="email">Email:</label>
-                                <AuthStyle.Input>
+                                <AuthStyle.Input className={errors.email && touched.email ? 'error-valid phone-number-input' : 'phone-number-input'}>
                                     <Field
                                         type="email"
                                         placeholder="example@gmail.com"
                                         name="email"
                                         id="email"
                                     />
-                                    <AuthStyle.ErrorValid></AuthStyle.ErrorValid>
                                 </AuthStyle.Input>
+                                <ErrorMessage name="email" component={TextError}/>
                             </AuthStyle.InputParent>
+                            </AuthStyle.DoubleInput>
                             <AuthStyle.DoubleInput>
                                 <AuthStyle.InputParent className="double-input">
                                     <label htmlFor="password">Password:</label>
                                     <AuthStyle.Input>
                                         <Field
-                                            type="text"
+                                            type="password"
                                             placeholder="password"
                                             name="password"
                                             id="password"
                                             className={errors.password && touched.password ? 'error-valid' : ''}
                                         />
                                         <ErrorMessage name="password" component={TextError}/>
-                                        <AuthStyle.ErrorValid></AuthStyle.ErrorValid>
                                     </AuthStyle.Input>
                                 </AuthStyle.InputParent>
                                 <AuthStyle.InputParent className="double-input">
                                     <label htmlFor="confirmPassword">Confirm Password:</label>
                                     <AuthStyle.Input>
-                                        <input
-                                            type="text"
+                                        <Field
+                                            type="password"
                                             placeholder="Confirm Password"
                                             name="confirmPassword"
                                             id="confirmPassword"
