@@ -207,7 +207,27 @@ export const products = [
             {
                 id: 1,
                 image: img
-            }
+            },
+            {
+                id: 2,
+                image: img1
+            },
+            {
+                id: 3,
+                image: img2
+            },
+            {
+                id: 4,
+                image: img3
+            },
+            {
+                id: 5,
+                image: img4
+            },
+            {
+                id: 6,
+                image: img5
+            },
         ],
         descr: "Потрясающий экран, реальная плавная прокрутка",
         price: "400",

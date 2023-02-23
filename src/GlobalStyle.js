@@ -48,6 +48,10 @@ const GlobalStyles = createGlobalStyle`
   .error-valid{
     border-color: red!important;
   }
+
+  .activeImage {
+    border: 2px solid red;
+  }
 `
 
 export default GlobalStyles
