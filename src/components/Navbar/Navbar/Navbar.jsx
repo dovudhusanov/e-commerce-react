@@ -1,30 +1,36 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {NavbarStyle} from "./NavbarStyle"
 import SearchBar from "../SearchBar/search";
-import NavTop from "../NavTop/NavTop";
-import {Link} from "react-router-dom";
+import {Link, NavLink} from "react-router-dom";
 import {useSelector} from "react-redux";
 import "./Navbar.css"
-import NavbarCategoryModal from "../NavbarCategoryModal/NavbarCategoryModal";
 import NavbarBottom from "../NavbarBottom/NavbarBottom";
+import {Button} from "../../index";
 
 function Navbar() {
-    const [showCategories, setShowCategories] = useState(false)
 
-    window.addEventListener("click", () => {
-        setShowCategories(false)
-    })
+    const [isScrolled, setIsScrolled] = useState(false);
 
-    const openCategoryBtn = (e) => {
-        e.stopPropagation();
-        setShowCategories(prevState => !prevState)
-    }
+    useEffect(() => {
+        const handleScroll = () => {
+            const isTop = window.scrollY > 0;
+            if (isTop !== isScrolled) {
+                setIsScrolled(isTop);
+            }
+        };
+        document.addEventListener("scroll", handleScroll);
+        return () => {
+            document.removeEventListener("scroll", handleScroll);
+        };
+    }, [isScrolled]);
 
-    const user = useSelector(state => state.LoginReducer)
+    const navbarStyle = {
+        boxShadow: isScrolled ? "0 4px 6px -1px rgba(0,0,0,0.15)" : "none",
+    };
+
     return (
         <>
-            <NavTop/>
-            <NavbarStyle.Navbar>
+            <NavbarStyle.Navbar style={navbarStyle}>
                 <div className="container">
                     <NavbarStyle.NavbarItems>
                         <div style={{display: "flex", alignItems: "center"}}>
@@ -34,33 +40,19 @@ function Navbar() {
                             <Link to="/"><NavbarStyle.Logo>e-commerce</NavbarStyle.Logo></Link>
                         </div>
                         <NavbarStyle.SearchBar>
-                            <NavbarStyle.CategoryButton onClick={openCategoryBtn} className={showCategories ? "open-categories" : ""}>
-                                <NavbarStyle.CategoryIcon>
-                                    <NavbarStyle.CategoryBtnRect>
-                                        <div></div>
-                                    </NavbarStyle.CategoryBtnRect>
-                                    <NavbarStyle.CategoryBtnTop></NavbarStyle.CategoryBtnTop>
-                                    <NavbarStyle.CategoryBtnBottom></NavbarStyle.CategoryBtnBottom>
-                                </NavbarStyle.CategoryIcon>
-                                <NavbarStyle.CategoryButtonText>Category</NavbarStyle.CategoryButtonText>
-                            </NavbarStyle.CategoryButton>
-                            <SearchBar setShowCategories={setShowCategories}/>
+                            <SearchBar/>
                         </NavbarStyle.SearchBar>
                         <NavbarStyle.NavbarRight>
-                            {localStorage.getItem("user")
-                                ?
-                                <Link to="/profile"><i className="fa-light fa-user"></i><span>{user?.name}</span></Link>
-                                : <Link to="/login"><i className="fa-light fa-user"></i><span>Login</span></Link>
-                            }
-                            <Link to="/saved"><i className="fa-light fa-heart"></i><span>Saved</span></Link>
-                            <Link to="/cart"><i className="fa-light fa-cart-shopping"></i><span>Cart</span></Link>
+                            <NavLink to="/login" className="auth-icon"><Button><span>Log in</span></Button></NavLink>
+                            <NavLink to="/signup" className="auth-icon"><Button><span>Sign up</span></Button></NavLink>
+                            <NavLink to="/cart" className="cart-icon"><Button><i className="fa-light fa-cart-shopping"></i></Button></NavLink>
                         </NavbarStyle.NavbarRight>
                     </NavbarStyle.NavbarItems>
-                    <NavbarBottom setShowCategories={setShowCategories}/>
                 </div>
+                <NavbarBottom/>
             </NavbarStyle.Navbar>
-            <NavbarCategoryModal showCategory={showCategories} setShowCategory={setShowCategories}/>
         </>
     );
 }
+
 export default Navbar;

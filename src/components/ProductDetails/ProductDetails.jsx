@@ -36,6 +36,7 @@ function ProductDetails() {
                         <ProductImages>
                             <SliderSwiper
                                 images={productItem.sliderImages}
+                                length={productItem.sliderImages.length}
                             />
                         </ProductImages>
                           <ProductInfo>

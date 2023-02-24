@@ -19,6 +19,15 @@ function SliderSwiper({images}) {
     const [slidesPerView, setSlidesPerView] = useState(images.length / 2);
 
     React.useEffect(() => {
+        if(images.length === 3) {
+            setSlidesPerView(3)
+        } else if (images.length === 2) {
+            setSlidesPerView(2)
+        } else if (images.length === 1) {
+            setSlidesPerView(0)
+        } else if(images.length > 8) {
+            setSlidesPerView(4)
+        }
         setLoading(true)
     }, [])
     return (
@@ -44,7 +53,7 @@ function SliderSwiper({images}) {
                             </div>
                         ))}
                     </Swiper>
-                    <Swiper
+                   <Swiper
                         onSwiper={setThumbsSwiper}
                         loop={true}
                         spaceBetween={10}
@@ -52,13 +61,17 @@ function SliderSwiper({images}) {
                         modules={[FreeMode, Navigation, Thumbs]}
                         className="mySwiper"
                     >
-                        {images.map(item => (
-                            <div key={item.id}>
-                                <SwiperSlide>
-                                    <img src={item.image} alt={item.id} className="slider-img"/>
-                                </SwiperSlide>
-                            </div>
-                        ))}
+                       {images.length > 1  &&
+                        <>
+                            {images.map(item => (
+                                <div key={item.id}>
+                                    <SwiperSlide>
+                                        <img src={item.image} alt={item.id} className="slider-img"/>
+                                    </SwiperSlide>
+                                </div>
+                            ))}
+                        </>
+                       }
                     </Swiper>
                 </>
             )}

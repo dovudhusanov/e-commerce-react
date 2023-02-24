@@ -53,12 +53,11 @@ export const SearchBarStyle = {
         transition: box-shadow .2s ease;
         border-radius: 4px;
         position: relative;
-        left: 20px;
 
         ${(props) => {
-          if(props.showSearchBar === true) {
+          if(props.showSearchBar) {
             return `
-                border-radius: 4px 4px 0 0 !imortant;
+                border-radius: 4px 4px 0 0 !important;
               `
           }
         }};
@@ -67,15 +66,12 @@ export const SearchBarStyle = {
           if (props.fullscreen === true) {
             return `
               @media screen and (max-width: 820px) {
-                border-radius: 9px !imortant;
+                border-radius: 9px !important;
               }
             `
           }
         }};
-
-        @media screen and (max-width: 990px) {
-          left: 0;
-        }
+        
 
         @media screen and (max-width: 820px) {
           background-color: #eaeaea;
@@ -118,8 +114,6 @@ export const SearchBarStyle = {
     SearchBar: styled.div`
       width: 100%;
       position: absolute;
-      left: 20px;
-      right: 0;
       top: calc(100%);
       background-color: #fff;
       visibility: hidden;
@@ -143,7 +137,7 @@ export const SearchBarStyle = {
                 top: -87px !important;
                 z-index: 1005 !important;
                 border-radius: 0 !important;
-                padding: 100px 0 25px 0;
+                padding: 70px 0 25px 0;
                }
             `
         }
@@ -250,12 +244,12 @@ export const SearchBarStyle = {
       justify-content: center;
       position: absolute;
       top: 0;
-      right: -20px;
+      right: 0;
       border: none;
       z-index: 1;
       width: 15%;
       border-radius: 0 4px 4px 0;
-      background: rgba(118, 121, 127, 0.05);
+      background-color: rgba(49, 49, 196, 0.05);
       height: 40px;
       cursor: pointer;
 
@@ -277,7 +271,7 @@ export const SearchBarStyle = {
       justify-content: center;
       position: absolute;
       top: 0;
-      right: 35px;
+      right: 70px;
       border: none;
       z-index: 1;
       width: 15%;
@@ -289,19 +283,19 @@ export const SearchBarStyle = {
       }
 
       @media screen and (max-width: 990px) {
-        right: 40px;
+        right: 50px;
       }
       
       @media screen and (max-width: 820px) {
-        right: 80px;
+        right: 70px;
       }
       
       @media screen and (max-width: 650px) {
-        right: 60px;
+        right: 60px !important;
       }
 
-      @media screen and (max-width: 650px) {
-        right: 45px;
+      @media screen and (max-width: 470px) {
+        right: 45px !important;
       }
     `,
 }

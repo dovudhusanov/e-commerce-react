@@ -47,7 +47,7 @@ export const ProductInfo = styled.div`
 `
 
 export const ProductName = styled.h1`
-
+  font-size: ;
 `
 
 export const ProductDescription = styled.span`

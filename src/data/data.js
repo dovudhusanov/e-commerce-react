@@ -20,7 +20,11 @@ export const products = [
             {
                 id: 1,
                 image: img
-            }
+            },
+            {
+                id: 2,
+                image: img1
+            },
         ],
         descr: "Потрясающий экран, реальная плавная прокрутка",
         price: "400",
@@ -39,7 +43,27 @@ export const products = [
             {
                 id: 1,
                 image: img1
-            }
+            },
+             {
+                id: 2,
+                image: img1
+            },
+            {
+                id: 3,
+                image: img2
+            },
+            {
+                id: 4,
+                image: img3
+            },
+            {
+                id: 5,
+                image: img4
+            },
+            {
+                id: 6,
+                image: img5
+            },
         ],
         descr: "Smart Watch for you Ecase Leather Folio",
         price: "32",
@@ -59,7 +83,27 @@ export const products = [
             {
                 id: 1,
                 image: img2
-            }
+            },
+             {
+                id: 2,
+                image: img1
+            },
+            {
+                id: 3,
+                image: img2
+            },
+            {
+                id: 4,
+                image: img3
+            },
+            {
+                id: 5,
+                image: img4
+            },
+            {
+                id: 6,
+                image: img5
+            },
         ],
         descr: "Keyboard mekhanik Ecase Leather Folio",
         price: "50",
@@ -78,7 +122,27 @@ export const products = [
             {
                 id: 1,
                 image: img3
-            }
+            },
+             {
+                id: 2,
+                image: img1
+            },
+            {
+                id: 3,
+                image: img2
+            },
+            {
+                id: 4,
+                image: img3
+            },
+            {
+                id: 5,
+                image: img4
+            },
+            {
+                id: 6,
+                image: img5
+            },
         ],
         descr: "Airpods 2.2 white for you",
         price: "110",
@@ -97,7 +161,27 @@ export const products = [
             {
                 id: 1,
                 image: img4
-            }
+            },
+             {
+                id: 2,
+                image: img1
+            },
+            {
+                id: 3,
+                image: img2
+            },
+            {
+                id: 4,
+                image: img3
+            },
+            {
+                id: 5,
+                image: img4
+            },
+            {
+                id: 6,
+                image: img5
+            },
         ],
         descr: "Soft Sportswear for you",
         price: "55",
@@ -116,7 +200,27 @@ export const products = [
             {
                 id: 1,
                 image: img5
-            }
+            },
+             {
+                id: 2,
+                image: img1
+            },
+            {
+                id: 3,
+                image: img2
+            },
+            {
+                id: 4,
+                image: img3
+            },
+            {
+                id: 5,
+                image: img4
+            },
+            {
+                id: 6,
+                image: img5
+            },
         ],
         descr: "Electrosh Wash Machine for you",
         price: "200",
@@ -134,7 +238,27 @@ export const products = [
             {
                 id: 1,
                 image: img7
-            }
+            },
+             {
+                id: 2,
+                image: img1
+            },
+            {
+                id: 3,
+                image: img2
+            },
+            {
+                id: 4,
+                image: img3
+            },
+            {
+                id: 5,
+                image: img4
+            },
+            {
+                id: 6,
+                image: img5
+            },
         ],
         descr: "Shoe Sneakers for you",
         price: "95",
@@ -153,7 +277,27 @@ export const products = [
             {
                 id: 1,
                 image: img7
-            }
+            },
+             {
+                id: 2,
+                image: img1
+            },
+            {
+                id: 3,
+                image: img2
+            },
+            {
+                id: 4,
+                image: img3
+            },
+            {
+                id: 5,
+                image: img4
+            },
+            {
+                id: 6,
+                image: img5
+            },
         ],
         descr: "Wet Fruits",
         price: "22",
@@ -171,7 +315,27 @@ export const products = [
             {
                 id: 1,
                 image: img8
-            }
+            },
+             {
+                id: 2,
+                image: img1
+            },
+            {
+                id: 3,
+                image: img2
+            },
+            {
+                id: 4,
+                image: img3
+            },
+            {
+                id: 5,
+                image: img4
+            },
+            {
+                id: 6,
+                image: img5
+            },
         ],
         descr: "Sports Products for you",
         price: "310",
@@ -189,7 +353,27 @@ export const products = [
             {
                 id: 1,
                 image: img
-            }
+            },
+             {
+                id: 2,
+                image: img1
+            },
+            {
+                id: 3,
+                image: img2
+            },
+            {
+                id: 4,
+                image: img3
+            },
+            {
+                id: 5,
+                image: img4
+            },
+            {
+                id: 6,
+                image: img5
+            },
         ],
         descr: "Потрясающий экран, реальная плавная прокрутка",
         price: "400",
@@ -245,7 +429,27 @@ export const products = [
             {
                 id: 1,
                 image: img
-            }
+            },
+             {
+                id: 2,
+                image: img1
+            },
+            {
+                id: 3,
+                image: img2
+            },
+            {
+                id: 4,
+                image: img3
+            },
+            {
+                id: 5,
+                image: img4
+            },
+            {
+                id: 6,
+                image: img5
+            },
         ],
         descr: "Потрясающий экран, реальная плавная прокрутка",
         price: "400",
@@ -263,7 +467,27 @@ export const products = [
             {
                 id: 1,
                 image: img8
-            }
+            },
+             {
+                id: 2,
+                image: img1
+            },
+            {
+                id: 3,
+                image: img2
+            },
+            {
+                id: 4,
+                image: img3
+            },
+            {
+                id: 5,
+                image: img4
+            },
+            {
+                id: 6,
+                image: img5
+            },
         ],
         descr: "Sports Products for you",
         price: "310",
@@ -280,7 +504,27 @@ export const products = [
             {
                 id: 1,
                 image: img8
-            }
+            },
+             {
+                id: 2,
+                image: img1
+            },
+            {
+                id: 3,
+                image: img2
+            },
+            {
+                id: 4,
+                image: img3
+            },
+            {
+                id: 5,
+                image: img4
+            },
+            {
+                id: 6,
+                image: img5
+            },
         ],
         descr: "Sports Products for you",
         price: "310",
@@ -297,7 +541,27 @@ export const products = [
             {
                 id: 1,
                 image: img8
-            }
+            },
+             {
+                id: 2,
+                image: img1
+            },
+            {
+                id: 3,
+                image: img2
+            },
+            {
+                id: 4,
+                image: img3
+            },
+            {
+                id: 5,
+                image: img4
+            },
+            {
+                id: 6,
+                image: img5
+            },
         ],
         descr: "Sports Products for you",
         price: "310",
@@ -315,7 +579,27 @@ export const products = [
             {
                 id: 1,
                 image: img6
-            }
+            },
+             {
+                id: 2,
+                image: img1
+            },
+            {
+                id: 3,
+                image: img2
+            },
+            {
+                id: 4,
+                image: img3
+            },
+            {
+                id: 5,
+                image: img4
+            },
+            {
+                id: 6,
+                image: img5
+            },
         ],
         descr: "Shoe Sneakers for you",
         price: "95",
@@ -334,7 +618,27 @@ export const products = [
             {
                 id: 1,
                 image: img6
-            }
+            },
+             {
+                id: 2,
+                image: img1
+            },
+            {
+                id: 3,
+                image: img2
+            },
+            {
+                id: 4,
+                image: img3
+            },
+            {
+                id: 5,
+                image: img4
+            },
+            {
+                id: 6,
+                image: img5
+            },
         ],
         descr: "Shoe Sneakers for you",
         price: "95",
@@ -354,7 +658,27 @@ export const products = [
             {
                 id: 1,
                 image: img6
-            }
+            },
+             {
+                id: 2,
+                image: img1
+            },
+            {
+                id: 3,
+                image: img2
+            },
+            {
+                id: 4,
+                image: img3
+            },
+            {
+                id: 5,
+                image: img4
+            },
+            {
+                id: 6,
+                image: img5
+            },
         ],
         descr: "Shoe Sneakers for you",
         price: "95",
@@ -372,7 +696,27 @@ export const products = [
             {
                 id: 1,
                 image: img4
-            }
+            },
+             {
+                id: 2,
+                image: img1
+            },
+            {
+                id: 3,
+                image: img2
+            },
+            {
+                id: 4,
+                image: img3
+            },
+            {
+                id: 5,
+                image: img4
+            },
+            {
+                id: 6,
+                image: img5
+            },
         ],
         descr: "Soft Sportswear for you",
         price: "55",
@@ -390,7 +734,27 @@ export const products = [
             {
                 id: 1,
                 image: img4
-            }
+            },
+             {
+                id: 2,
+                image: img1
+            },
+            {
+                id: 3,
+                image: img2
+            },
+            {
+                id: 4,
+                image: img3
+            },
+            {
+                id: 5,
+                image: img4
+            },
+            {
+                id: 6,
+                image: img5
+            },
         ],
         descr: "Soft Sportswear for you",
         price: "55",
@@ -408,7 +772,27 @@ export const products = [
             {
                 id: 1,
                 image: img4
-            }
+            },
+             {
+                id: 2,
+                image: img1
+            },
+            {
+                id: 3,
+                image: img2
+            },
+            {
+                id: 4,
+                image: img3
+            },
+            {
+                id: 5,
+                image: img4
+            },
+            {
+                id: 6,
+                image: img5
+            },
         ],
         descr: "Soft Sportswear for you",
         price: "55",
@@ -426,7 +810,27 @@ export const products = [
             {
                 id: 1,
                 image: img5
-            }
+            },
+             {
+                id: 2,
+                image: img1
+            },
+            {
+                id: 3,
+                image: img2
+            },
+            {
+                id: 4,
+                image: img3
+            },
+            {
+                id: 5,
+                image: img4
+            },
+            {
+                id: 6,
+                image: img5
+            },
         ],
         descr: "Electrosh Wash Machine for you",
         price: "200",
@@ -444,7 +848,27 @@ export const products = [
             {
                 id: 1,
                 image: img5
-            }
+            },
+             {
+                id: 2,
+                image: img1
+            },
+            {
+                id: 3,
+                image: img2
+            },
+            {
+                id: 4,
+                image: img3
+            },
+            {
+                id: 5,
+                image: img4
+            },
+            {
+                id: 6,
+                image: img5
+            },
         ],
         descr: "Electrosh Wash Machine for you",
         price: "200",
@@ -462,7 +886,27 @@ export const products = [
             {
                 id: 1,
                 image: img5
-            }
+            },
+             {
+                id: 2,
+                image: img1
+            },
+            {
+                id: 3,
+                image: img2
+            },
+            {
+                id: 4,
+                image: img3
+            },
+            {
+                id: 5,
+                image: img4
+            },
+            {
+                id: 6,
+                image: img5
+            },
         ],
         descr: "Electrosh Wash Machine for you",
         price: "200",
@@ -480,7 +924,27 @@ export const products = [
             {
                 id: 1,
                 image: img5
-            }
+            },
+             {
+                id: 2,
+                image: img1
+            },
+            {
+                id: 3,
+                image: img2
+            },
+            {
+                id: 4,
+                image: img3
+            },
+            {
+                id: 5,
+                image: img4
+            },
+            {
+                id: 6,
+                image: img5
+            },
         ],
         descr: "Electrosh Wash Machine for you",
         price: "200",
@@ -499,7 +963,27 @@ export const products = [
             {
                 id: 1,
                 image: img7
-            }
+            },
+             {
+                id: 2,
+                image: img1
+            },
+            {
+                id: 3,
+                image: img2
+            },
+            {
+                id: 4,
+                image: img3
+            },
+            {
+                id: 5,
+                image: img4
+            },
+            {
+                id: 6,
+                image: img5
+            },
         ],
         descr: "Wet Fruits",
         price: "22",
@@ -516,7 +1000,27 @@ export const products = [
             {
                 id: 1,
                 image: img7
-            }
+            },
+             {
+                id: 2,
+                image: img1
+            },
+            {
+                id: 3,
+                image: img2
+            },
+            {
+                id: 4,
+                image: img3
+            },
+            {
+                id: 5,
+                image: img4
+            },
+            {
+                id: 6,
+                image: img5
+            },
         ],
         descr: "Wet Fruits",
         price: "22",
@@ -535,7 +1039,27 @@ export const products = [
             {
                 id: 1,
                 image: img7
-            }
+            },
+             {
+                id: 2,
+                image: img1
+            },
+            {
+                id: 3,
+                image: img2
+            },
+            {
+                id: 4,
+                image: img3
+            },
+            {
+                id: 5,
+                image: img4
+            },
+            {
+                id: 6,
+                image: img5
+            },
         ],
         descr: "Wet Fruits",
         price: "22",
@@ -553,7 +1077,27 @@ export const products = [
             {
                 id: 1,
                 image: img3
-            }
+            },
+             {
+                id: 2,
+                image: img1
+            },
+            {
+                id: 3,
+                image: img2
+            },
+            {
+                id: 4,
+                image: img3
+            },
+            {
+                id: 5,
+                image: img4
+            },
+            {
+                id: 6,
+                image: img5
+            },
         ],
         descr: "Airpods 2.2 white for you",
         price: "110",
@@ -572,7 +1116,27 @@ export const products = [
             {
                 id: 1,
                 image: img9
-            }
+            },
+             {
+                id: 2,
+                image: img1
+            },
+            {
+                id: 3,
+                image: img2
+            },
+            {
+                id: 4,
+                image: img3
+            },
+            {
+                id: 5,
+                image: img4
+            },
+            {
+                id: 6,
+                image: img5
+            },
         ],
         descr: "Auto commodities for you water",
         price: "110",
@@ -590,7 +1154,27 @@ export const products = [
             {
                 id: 1,
                 image: img9
-            }
+            },
+             {
+                id: 2,
+                image: img1
+            },
+            {
+                id: 3,
+                image: img2
+            },
+            {
+                id: 4,
+                image: img3
+            },
+            {
+                id: 5,
+                image: img4
+            },
+            {
+                id: 6,
+                image: img5
+            },
         ],
         descr: "Auto commodities for you water",
         price: "110",
@@ -608,7 +1192,27 @@ export const products = [
             {
                 id: 1,
                 image: img9
-            }
+            },
+             {
+                id: 2,
+                image: img1
+            },
+            {
+                id: 3,
+                image: img2
+            },
+            {
+                id: 4,
+                image: img3
+            },
+            {
+                id: 5,
+                image: img4
+            },
+            {
+                id: 6,
+                image: img5
+            },
         ],
         descr: "Auto commodities for you water",
         price: "110",
@@ -626,7 +1230,27 @@ export const products = [
             {
                 id: 1,
                 image: img9
-            }
+            },
+             {
+                id: 2,
+                image: img1
+            },
+            {
+                id: 3,
+                image: img2
+            },
+            {
+                id: 4,
+                image: img3
+            },
+            {
+                id: 5,
+                image: img4
+            },
+            {
+                id: 6,
+                image: img5
+            },
         ],
         descr: "Auto commodities for you water",
         price: "110",
@@ -644,7 +1268,27 @@ export const products = [
             {
                 id: 1,
                 image: img10
-            }
+            },
+             {
+                id: 2,
+                image: img1
+            },
+            {
+                id: 3,
+                image: img2
+            },
+            {
+                id: 4,
+                image: img3
+            },
+            {
+                id: 5,
+                image: img4
+            },
+            {
+                id: 6,
+                image: img5
+            },
         ],
         descr: "Glue for you and other think",
         price: "110",
@@ -662,7 +1306,27 @@ export const products = [
             {
                 id: 1,
                 image: img10
-            }
+            },
+             {
+                id: 2,
+                image: img1
+            },
+            {
+                id: 3,
+                image: img2
+            },
+            {
+                id: 4,
+                image: img3
+            },
+            {
+                id: 5,
+                image: img4
+            },
+            {
+                id: 6,
+                image: img5
+            },
         ],
         descr: "Glue for you and other think",
         price: "110",
@@ -680,7 +1344,27 @@ export const products = [
             {
                 id: 1,
                 image: img10
-            }
+            },
+             {
+                id: 2,
+                image: img1
+            },
+            {
+                id: 3,
+                image: img2
+            },
+            {
+                id: 4,
+                image: img3
+            },
+            {
+                id: 5,
+                image: img4
+            },
+            {
+                id: 6,
+                image: img5
+            },
         ],
         descr: "Glue for you and other think",
         price: "110",
@@ -698,7 +1382,27 @@ export const products = [
             {
                 id: 1,
                 image: img10
-            }
+            },
+             {
+                id: 2,
+                image: img1
+            },
+            {
+                id: 3,
+                image: img2
+            },
+            {
+                id: 4,
+                image: img3
+            },
+            {
+                id: 5,
+                image: img4
+            },
+            {
+                id: 6,
+                image: img5
+            },
         ],
         descr: "Glue for you and other think",
         price: "110",
@@ -716,7 +1420,27 @@ export const products = [
             {
                 id: 1,
                 image: img11
-            }
+            },
+             {
+                id: 2,
+                image: img1
+            },
+            {
+                id: 3,
+                image: img2
+            },
+            {
+                id: 4,
+                image: img3
+            },
+            {
+                id: 5,
+                image: img4
+            },
+            {
+                id: 6,
+                image: img5
+            },
         ],
         descr: "Book about life Stiv Jobs",
         price: "110",
@@ -734,7 +1458,27 @@ export const products = [
             {
                 id: 1,
                 image: img11
-            }
+            },
+             {
+                id: 2,
+                image: img1
+            },
+            {
+                id: 3,
+                image: img2
+            },
+            {
+                id: 4,
+                image: img3
+            },
+            {
+                id: 5,
+                image: img4
+            },
+            {
+                id: 6,
+                image: img5
+            },
         ],
         descr: "Book about life Stiv Jobs",
         price: "110",
@@ -752,7 +1496,27 @@ export const products = [
             {
                 id: 1,
                 image: img11
-            }
+            },
+             {
+                id: 2,
+                image: img1
+            },
+            {
+                id: 3,
+                image: img2
+            },
+            {
+                id: 4,
+                image: img3
+            },
+            {
+                id: 5,
+                image: img4
+            },
+            {
+                id: 6,
+                image: img5
+            },
         ],
         descr: "Book about life Stiv Jobs",
         price: "110",
@@ -770,7 +1534,27 @@ export const products = [
             {
                 id: 1,
                 image: img11
-            }
+            },
+             {
+                id: 2,
+                image: img1
+            },
+            {
+                id: 3,
+                image: img2
+            },
+            {
+                id: 4,
+                image: img3
+            },
+            {
+                id: 5,
+                image: img4
+            },
+            {
+                id: 6,
+                image: img5
+            },
         ],
         descr: "Book about life Stiv Jobs",
         price: "110",
@@ -786,51 +1570,61 @@ export const categoryList = [
     {
         id: 1,
         categoryName: "Electronic",
-        pathName: "Electronic"
+        pathName: "Electronic",
+        icon: <i className="fa-regular fa-computer"></i>
     },
     {
         id: 2,
         categoryName: "Household appliances",
-        pathName: "Household-appliances"
+        pathName: "Household-appliances",
+        icon: <i className="fa-regular fa-blender"></i>
     },
     {
         id: 3,
         categoryName: "Clothes",
-        pathName: "Clothes"
+        pathName: "Clothes",
+        icon: <i className="fa-solid fa-shirt"></i>
     },
     {
         id: 4,
         categoryName: "Shoes",
-        pathName: "Shoes"
+        pathName: "Shoes",
+        icon: <i className="fa-regular fa-boot-heeled"></i>
     },
     {
         id: 5,
         categoryName: "Accessories",
-        pathName: "Accessories"
+        pathName: "Accessories",
+        icon: <i className="fa-regular fa-mobile-notch"></i>
     },
     {
         id: 6,
         categoryName: "Auto commodities",
-        pathName: "Auto-commodities"
+        pathName: "Auto-commodities",
+        icon: <i className="fa-solid fa-car"></i>
     },
     {
         id: 7,
         categoryName: "Construction and repair",
-        pathName: "Construction-and-repair"
+        pathName: "Construction-and-repair",
+        icon: <i className="fa-regular fa-wrench"></i>
     },
     {
         id: 8,
         categoryName: "Food products",
-        pathName: "Food-products"
+        pathName: "Food-products",
+        icon: <i className="fa-regular fa-burger-soda"></i>
     },
     {
         id: 9,
         categoryName: "Books",
-        pathName: "Books"
+        pathName: "Books",
+        icon: <i className="fa-regular fa-book"></i>
     },
     {
         id: 10,
         categoryName: "Sports product",
-        pathName: "Sports-product"
+        pathName: "Sports-product",
+        icon: <i className="fa-regular fa-football"></i>
     }
 ]

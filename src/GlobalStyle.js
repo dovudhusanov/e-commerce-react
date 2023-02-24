@@ -33,6 +33,16 @@ const GlobalStyles = createGlobalStyle`
     padding: 0 15px;
   }
   
+  .main-app{
+    margin-top: 70px;
+  }
+  
+  @media screen and (max-width: 820px) {
+    .main-app{
+      margin-top: 15px;
+    }
+  }
+  
   a.active{
     font-weight: 700;
   }

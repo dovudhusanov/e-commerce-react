@@ -35,26 +35,26 @@ function Product({product, index}) {
             dispatch(addToCart(productItem))
         }
         return (
-            <Button style={{fontSize: "12px"}} onClick={() => handleAdd(productItem)}>Add to Cart</Button>
+            <Button style={{fontSize: "12px"}} onClick={(e) => handleAdd(productItem)}>Add to Cart</Button>
         );
     }
 
     return (
         <ProductStyle.ProdcutCard key={product.id}>
-         <Link to={`/categories/${product.pathName}/${product.id}`}>
-             <img src={product.image} alt={product.productName}/>
-             <ProductStyle.Price>{USDollar.format(product.price)}</ProductStyle.Price>
-             <ProductStyle.ProductInfo>
-                 <span>{product.productName} {product.descr.slice(0, 20)}</span>
-                 <div>
-                     <div>
-                         <i className="fa-light fa-eye"></i>
-                         <ProductSaveButton productItem={product}/>
-                     </div>
-                     <ProdcutButton productItem={product} index={index}/>
-                 </div>
-             </ProductStyle.ProductInfo>
-         </Link>
+            <Link to={`/categories/${product.pathName}/${product.id}`}>
+                <img src={product.image} alt={product.productName}/>
+            </Link>
+            <ProductStyle.Price>{USDollar.format(product.price)}</ProductStyle.Price>
+            <ProductStyle.ProductInfo>
+                <span>{product.productName} {product.descr.slice(0, 20)}</span>
+                <div>
+                    <div>
+                        <i className="fa-light fa-eye"></i>
+                        <ProductSaveButton productItem={product}/>
+                    </div>
+                    <ProdcutButton productItem={product} index={index}/>
+                </div>
+            </ProductStyle.ProductInfo>
         </ProductStyle.ProdcutCard>
     );
 }

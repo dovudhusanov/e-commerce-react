@@ -12,17 +12,16 @@ function SearchBar({setShowCategories}) {
     const ref = useRef()
     const navigate = useNavigate();
 
-    localStorage.setItem("resently-rearch", JSON.stringify(resentSearch))
+    localStorage.setItem("recently-search", JSON.stringify(resentSearch))
 
     window.addEventListener("click", () => {
         setShowSearchBar(false)
     })
 
-    const handleOpenSearchBar = useCallback((e) => {
+    const handleOpenSearchBar = (e) => {
         e.stopPropagation();
         setShowSearchBar(true);
-        setShowCategories(false);
-    })
+    }
 
     const handleSearch = (e) => {
         e.preventDefault();
@@ -34,13 +33,13 @@ function SearchBar({setShowCategories}) {
         ScrollTop()
     }
 
-    const handleResentlySearch = (e, resentItem) => {
+    const handleRecentlySearch = (e, resentItem) => {
         e.preventDefault();
         e.stopPropagation();
         setShowSearchBar(false);
         setFullscreen(false);
         navigate(`/search?query=${resentItem}`);
-        JSON.parse(localStorage.getItem("resently-rearch"))
+        JSON.parse(localStorage.getItem("recently-search"))
         ScrollTop()
     }
 
@@ -95,7 +94,7 @@ function SearchBar({setShowCategories}) {
                 />
                 <SearchBarStyle.ClearBtn>
                     {query ? <i className="fa-solid fa-circle-xmark" onClick={handleClearSearch}
-                                style={{fontSize: "16px"}}></i> : <SearchBarStyle.Span>Alt + S</SearchBarStyle.Span>}
+                                style={{fontSize: "16px"}}></i> : null}
                 </SearchBarStyle.ClearBtn>
                 <SearchBarStyle.SearchBtn type="submit" onClick={handleSearch} disabled={query ? false : true}>
                     <i className="fa-solid fa-magnifying-glass"></i>
@@ -108,7 +107,7 @@ function SearchBar({setShowCategories}) {
                         <SearchBarStyle.SearchedList>
                             <SearchBarStyle.ResentList>
                                 {resentSearch?.map((resentValue, index) => (
-                                    <div key={index} onClick={(e) => handleResentlySearch(e, resentValue.resentVal)}>
+                                    <div key={index} onClick={(e) => handleRecentlySearch(e, resentValue.resentVal)}>
                                         <div><i className="fa-light fa-clock"></i><span>{resentValue.resentVal}</span>
                                         </div>
                                         <i className="fa-solid fa-xmark"
