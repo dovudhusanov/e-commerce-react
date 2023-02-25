@@ -1,11 +1,18 @@
 import React from 'react';
-import {useParams} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import {useSelector} from "react-redux";
 import {Products} from "../../components";
+import {ScrollTop} from "../../middleware/scrollTop";
+import changeTitle from "../../middleware/changeTitle";
+import {Location} from "../../components/ProductDetails/ProductDetails.styles";
 
 function Categories() {
 
     const {categoryName} = useParams()
+
+    ScrollTop()
+
+    changeTitle(categoryName.split("-").join(" "))
 
     const products = useSelector(state => state.ProductsReducer)
 
@@ -13,7 +20,10 @@ function Categories() {
 
     return (
         <div className="container">
-            <h1 style={{marginTop: "40px"}}>{categoryName.split("-").join(" ")}</h1>
+            <Location>
+                <Link to="/">Home</Link> <i className="fa-solid fa-angle-right"></i> {categoryName.split("-").join(" ")}
+            </Location>
+            <h2 style={{marginTop: 30}}>{categoryName.split("-").join(" ")}</h2>
             <Products products={filteredCategory}/>
         </div>
     );

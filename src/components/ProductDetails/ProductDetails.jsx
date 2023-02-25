@@ -21,14 +21,20 @@ import SliderSwiper from "./SliderSwiper/SliderSwiper";
 import {Button} from "../index";
 import {USDollar} from "../../middleware/PriceFormatter";
 import {addToCart, deleteProductFromCart} from "../../action/ProductAction";
+import {ScrollTop} from "../../middleware/scrollTop";
+import changeTitle from "../../middleware/changeTitle";
 
 function ProductDetails() {
+
+    ScrollTop()
 
     const {productId} = useParams()
 
     const products = useSelector(state => state.ProductsReducer)
 
     const product = products.products.filter(product => product.id == productId)
+
+    changeTitle(product.map(name => name.productName))
 
     const filterWithQuantity = useSelector(state => state.ProductReducer.filter(id => id.id == productId)) || null
 
