@@ -6,20 +6,20 @@ import {deleteProductFromCart, addToCart} from "../../action/ProductAction";
 import {ProductType} from "../../constants/ProductType";
 
 function CartProduct({
-                         id,
-                         image,
-                         productName,
-                         descr,
-                         price,
-                         quantity,
-                         product,
-                         setIsBuy,
-                         checkbox,
-                         setCheck,
-                         isFavourite
-                     }) {
-    const [save, setSave] = useState(false)
+     id,
+     image,
+     productName,
+     descr,
+     price,
+     quantity,
+     product,
+     setIsBuy,
+     checkbox,
+     setCheck,
+     isFavourite
+}){
 
+    const [save, setSave] = useState(false)
 
     const dispatch = useDispatch()
 

@@ -40,7 +40,7 @@ function Product({product, index}) {
     }
 
     return (
-        <ProductStyle.ProdcutCard key={product.id}>
+        <ProductStyle.ProdcutCard>
             <Link to={`/categories/${product.pathName}/${product.id}`}>
                 <img src={product.image} alt={product.productName}/>
             </Link>

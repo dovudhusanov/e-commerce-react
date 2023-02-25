@@ -33,6 +33,12 @@ const GlobalStyles = createGlobalStyle`
     padding: 0 15px;
   }
   
+  .product-container{
+    box-shadow: 1px 2px 16px 3px #363A4514;
+    border-radius: 10px;
+    max-width: 1210px;
+  }
+  
   .main-app{
     margin-top: 70px;
   }

@@ -1,11 +1,7 @@
-import React, {useState} from 'react';
-import {useDispatch} from "react-redux";
-import {addToCart} from "../../action/ProductAction";
+import React from 'react';
 import {ProductStyle} from "../../pages/Home/HomeStyle";
-import {USDollar} from "../../middleware/PriceFormatter";
 import EmptyImg from "../../assets/whishlist-empty.png"
 import {Link} from "react-router-dom";
-import {ProductType} from "../../constants/ProductType";
 import {Button} from "../index";
 import Product from "./Product/Product";
 

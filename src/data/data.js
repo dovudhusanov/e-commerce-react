@@ -33,7 +33,10 @@ export const products = [
         quantity: 1,
         selected: true,
         isFavourite: true,
-        pathName: "Electronic"
+        pathName: "Electronic",
+        productCondition: "new",
+        memory: "32GB",
+        RAM: "4GB"
     },
     {
         id: 2,
@@ -72,7 +75,10 @@ export const products = [
         quantity: 1,
         selected: true,
         isFavourite: true,
-        pathName: "Accessories"
+        pathName: "Accessories",
+        ProductCondition: "new",
+        Memory: "32GB",
+        RAM: "4GB"
 
     },
     {
@@ -112,7 +118,10 @@ export const products = [
         quantity: 1,
         selected: true,
         isFavourite: false,
-        pathName: "Accessories"
+        pathName: "Accessories",
+        ProductCondition: "new",
+        Memory: "32GB",
+        RAM: "4GB"
     },
     {
         id: 4,
@@ -151,7 +160,10 @@ export const products = [
         quantity: 1,
         selected: true,
         isFavourite: false,
-        pathName: "Accessories"
+        pathName: "Accessories",
+        ProductCondition: "new",
+        Memory: "32GB",
+        RAM: "4GB"
     },
     {
         id: 5,
@@ -190,7 +202,10 @@ export const products = [
         quantity: 1,
         selected: true,
         isFavourite: false,
-        pathName: "Clothes"
+        pathName: "Clothes",
+        ProductCondition: "new",
+        Memory: "32GB",
+        RAM: "4GB"
     },
     {
         id: 6,
@@ -229,7 +244,10 @@ export const products = [
         quantity: 1,
         selected: true,
         isFavourite: false,
-        pathName: "Household-appliances"
+        pathName: "Household-appliances",
+        ProductCondition: "new",
+        Memory: "32GB",
+        RAM: "4GB"
     }, {
         id: 7,
         productName: "Shoes",
@@ -267,7 +285,10 @@ export const products = [
         quantity: 1,
         selected: true,
         isFavourite: false,
-        pathName: "Shoes"
+        pathName: "Shoes",
+        ProductCondition: "new",
+        Memory: "32GB",
+        RAM: "4GB"
     },
     {
         id: 8,
@@ -305,7 +326,10 @@ export const products = [
         quantity: 1,
         selected: true,
         isFavourite: false,
-        pathName: "Food-products"
+        pathName: "Food-products",
+        ProductCondition: "new",
+        Memory: "32GB",
+        RAM: "4GB"
     },
     {
         id: 9,
@@ -343,7 +367,10 @@ export const products = [
         quantity: 1,
         selected: true,
         isFavourite: false,
-        pathName: "Sports-product"
+        pathName: "Sports-product",
+        ProductCondition: "new",
+        Memory: "32GB",
+        RAM: "4GB"
     },
     {
         id: 10,
@@ -382,7 +409,10 @@ export const products = [
         quantity: 1,
         selected: true,
         isFavourite: true,
-        pathName: "Electronic"
+        pathName: "Electronic",
+        ProductCondition: "new",
+        Memory: "32GB",
+        RAM: "4GB"
     }, {
         id: 11,
         productName: "Samsung Galaxy A51 Red 64 GB",
@@ -420,7 +450,10 @@ export const products = [
         quantity: 1,
         selected: true,
         isFavourite: true,
-        pathName: "Electronic"
+        pathName: "Electronic",
+        ProductCondition: "new",
+        Memory: "32GB",
+        RAM: "4GB"
     }, {
         id: 12,
         productName: "Samsung Galaxy A51 Red 64 GB",
@@ -458,7 +491,10 @@ export const products = [
         quantity: 1,
         selected: true,
         isFavourite: true,
-        pathName: "Electronic"
+        pathName: "Electronic",
+        ProductCondition: "new",
+        Memory: "32GB",
+        RAM: "4GB"
     }, {
         id: 13,
         productName: "Sports Products",
@@ -495,7 +531,10 @@ export const products = [
         quantity: 1,
         selected: true,
         isFavourite: false,
-        pathName: "Sports-product"
+        pathName: "Sports-product",
+        ProductCondition: "new",
+        Memory: "32GB",
+        RAM: "4GB"
     }, {
         id: 14,
         productName: "Sports Products",
@@ -532,7 +571,10 @@ export const products = [
         quantity: 1,
         selected: true,
         isFavourite: false,
-        pathName: "Sports-product"
+        pathName: "Sports-product",
+        ProductCondition: "new",
+        Memory: "32GB",
+        RAM: "4GB"
     }, {
         id: 15,
         productName: "Sports Products",
@@ -569,7 +611,10 @@ export const products = [
         quantity: 1,
         selected: true,
         isFavourite: false,
-        pathName: "Sports-product"
+        pathName: "Sports-product",
+        ProductCondition: "new",
+        Memory: "32GB",
+        RAM: "4GB"
     },
     {
         id: 16,
@@ -608,7 +653,10 @@ export const products = [
         quantity: 1,
         selected: true,
         isFavourite: false,
-        pathName: "Shoes"
+        pathName: "Shoes",
+        ProductCondition: "new",
+        Memory: "32GB",
+        RAM: "4GB"
     },
     {
         id: 17,
@@ -647,7 +695,10 @@ export const products = [
         quantity: 1,
         selected: true,
         isFavourite: false,
-        pathName: "Shoes"
+        pathName: "Shoes",
+        ProductCondition: "new",
+        Memory: "32GB",
+        RAM: "4GB"
     },
 
     {
@@ -687,7 +738,10 @@ export const products = [
         quantity: 1,
         selected: true,
         isFavourite: false,
-        pathName: "Shoes"
+        pathName: "Shoes",
+        ProductCondition: "new",
+        Memory: "32GB",
+        RAM: "4GB"
     }, {
         id: 19,
         productName: "Sportswear",
@@ -725,7 +779,10 @@ export const products = [
         quantity: 1,
         selected: true,
         isFavourite: false,
-        pathName: "Clothes"
+        pathName: "Clothes",
+        ProductCondition: "new",
+        Memory: "32GB",
+        RAM: "4GB"
     }, {
         id: 20,
         productName: "Sportswear",
@@ -763,7 +820,10 @@ export const products = [
         quantity: 1,
         selected: true,
         isFavourite: false,
-        pathName: "Clothes"
+        pathName: "Clothes",
+        ProductCondition: "new",
+        Memory: "32GB",
+        RAM: "4GB"
     }, {
         id: 21,
         productName: "Sportswear",
@@ -801,7 +861,10 @@ export const products = [
         quantity: 1,
         selected: true,
         isFavourite: false,
-        pathName: "Clothes"
+        pathName: "Clothes",
+        ProductCondition: "new",
+        Memory: "32GB",
+        RAM: "4GB"
     }, {
         id: 22,
         productName: "Wash Machine",
@@ -839,7 +902,10 @@ export const products = [
         quantity: 1,
         selected: true,
         isFavourite: false,
-        pathName: "Household-appliances"
+        pathName: "Household-appliances",
+        ProductCondition: "new",
+        Memory: "32GB",
+        RAM: "4GB"
     }, {
         id: 23,
         productName: "Wash Machine",
@@ -877,7 +943,10 @@ export const products = [
         quantity: 1,
         selected: true,
         isFavourite: false,
-        pathName: "Household-appliances"
+        pathName: "Household-appliances",
+        ProductCondition: "new",
+        Memory: "32GB",
+        RAM: "4GB"
     }, {
         id: 24,
         productName: "Wash Machine",
@@ -915,7 +984,10 @@ export const products = [
         quantity: 1,
         selected: true,
         isFavourite: false,
-        pathName: "Household-appliances"
+        pathName: "Household-appliances",
+        ProductCondition: "new",
+        Memory: "32GB",
+        RAM: "4GB"
     }, {
         id: 25,
         productName: "Wash Machine",
@@ -953,7 +1025,10 @@ export const products = [
         quantity: 1,
         selected: true,
         isFavourite: false,
-        pathName: "Household-appliances"
+        pathName: "Household-appliances",
+        ProductCondition: "new",
+        Memory: "32GB",
+        RAM: "4GB"
     },
     {
         id: 26,
@@ -991,7 +1066,10 @@ export const products = [
         quantity: 1,
         selected: true,
         isFavourite: false,
-        pathName: "Food-products"
+        pathName: "Food-products",
+        ProductCondition: "new",
+        Memory: "32GB",
+        RAM: "4GB"
     }, {
         id: 27,
         productName: "Fruits",
@@ -1028,7 +1106,10 @@ export const products = [
         quantity: 1,
         selected: true,
         isFavourite: false,
-        pathName: "Food-products"
+        pathName: "Food-products",
+        ProductCondition: "new",
+        Memory: "32GB",
+        RAM: "4GB"
 
     },
     {
@@ -1067,7 +1148,10 @@ export const products = [
         quantity: 1,
         selected: true,
         isFavourite: false,
-        pathName: "Food-products"
+        pathName: "Food-products",
+        ProductCondition: "new",
+        Memory: "32GB",
+        RAM: "4GB"
     },
     {
         id: 29,
@@ -1106,7 +1190,10 @@ export const products = [
         quantity: 1,
         selected: true,
         isFavourite: false,
-        pathName: "Accessories"
+        pathName: "Accessories",
+        ProductCondition: "new",
+        Memory: "32GB",
+        RAM: "4GB"
     },
     {
         id: 30,
@@ -1144,7 +1231,10 @@ export const products = [
         quantity: 1,
         selected: true,
         isFavourite: false,
-        pathName: "Auto-commodities"
+        pathName: "Auto-commodities",
+        ProductCondition: "new",
+        Memory: "32GB",
+        RAM: "4GB"
     },
     {
         id: 31,
@@ -1182,7 +1272,10 @@ export const products = [
         quantity: 1,
         selected: true,
         isFavourite: false,
-        pathName: "Auto-commodities"
+        pathName: "Auto-commodities",
+        ProductCondition: "new",
+        Memory: "32GB",
+        RAM: "4GB"
     },
     {
         id: 32,
@@ -1220,7 +1313,10 @@ export const products = [
         quantity: 1,
         selected: true,
         isFavourite: false,
-        pathName: "Auto-commodities"
+        pathName: "Auto-commodities",
+        ProductCondition: "new",
+        Memory: "32GB",
+        RAM: "4GB"
     },
     {
         id: 33,
@@ -1258,7 +1354,10 @@ export const products = [
         quantity: 1,
         selected: true,
         isFavourite: false,
-        pathName: "Auto-commodities"
+        pathName: "Auto-commodities",
+        ProductCondition: "new",
+        Memory: "32GB",
+        RAM: "4GB"
     },
     {
         id: 34,
@@ -1296,7 +1395,10 @@ export const products = [
         quantity: 1,
         selected: true,
         isFavourite: false,
-        pathName: "Construction-and-repair"
+        pathName: "Construction-and-repair",
+        ProductCondition: "new",
+        Memory: "32GB",
+        RAM: "4GB"
     },
     {
         id: 35,
@@ -1334,7 +1436,10 @@ export const products = [
         quantity: 1,
         selected: true,
         isFavourite: false,
-        pathName: "Construction-and-repair"
+        pathName: "Construction-and-repair",
+        ProductCondition: "new",
+        Memory: "32GB",
+        RAM: "4GB"
     },
     {
         id: 36,
@@ -1372,7 +1477,10 @@ export const products = [
         quantity: 1,
         selected: true,
         isFavourite: false,
-        pathName: "Construction-and-repair"
+        pathName: "Construction-and-repair",
+        ProductCondition: "new",
+        Memory: "32GB",
+        RAM: "4GB"
     },
     {
         id: 37,
@@ -1410,7 +1518,10 @@ export const products = [
         quantity: 1,
         selected: true,
         isFavourite: false,
-        pathName: "Construction-and-repair"
+        pathName: "Construction-and-repair",
+        ProductCondition: "new",
+        Memory: "32GB",
+        RAM: "4GB"
     },
     {
         id: 38,
@@ -1448,7 +1559,10 @@ export const products = [
         quantity: 1,
         selected: true,
         isFavourite: false,
-        pathName: "Books"
+        pathName: "Books",
+        ProductCondition: "new",
+        Memory: "32GB",
+        RAM: "4GB"
     },
     {
         id: 39,
@@ -1486,7 +1600,10 @@ export const products = [
         quantity: 1,
         selected: true,
         isFavourite: false,
-        pathName: "Books"
+        pathName: "Books",
+        ProductCondition: "new",
+        Memory: "32GB",
+        RAM: "4GB"
     },
     {
         id: 40,
@@ -1524,7 +1641,10 @@ export const products = [
         quantity: 1,
         selected: true,
         isFavourite: false,
-        pathName: "Books"
+        pathName: "Books",
+        ProductCondition: "new",
+        Memory: "32GB",
+        RAM: "4GB"
     },
     {
         id: 41,
@@ -1562,7 +1682,10 @@ export const products = [
         quantity: 1,
         selected: true,
         isFavourite: false,
-        pathName: "Books"
+        pathName: "Books",
+        ProductCondition: "new",
+        Memory: "32GB",
+        RAM: "4GB"
     },
 ]
 

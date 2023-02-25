@@ -23,10 +23,12 @@ export const NavbarBottomItem = styled.div`
   &  a {
     padding: 17px 25px;
     color: var(--color-blue);
-
-    :nth-child(2) {
-      position: relative;
-      left: 7px;
+    transition: 0.3s ease;
+    
+    &:hover{
+      font-weight: 400;
+      background-color: var(--color-blue);
+      color: white;
     }
   }
 
@@ -41,7 +43,10 @@ export const NavbarBottomItem = styled.div`
       display: flex;
       justify-content: space-between;
       align-items: center;
-      width: 270px;
+    }
+    
+    & > div{
+      margin-left: 20px;
     }
   }
 `
@@ -52,6 +57,12 @@ export const NavbarBottomRight = styled.div`
   
   & a{
     position: relative;
+    &:hover{
+      & > .cart-length{
+        background: var(--color-white)!important;
+        color: var(--color-blue);
+      }
+    }
   }
   
   .active{
@@ -164,4 +175,5 @@ export const CartLength = styled.p`
   color: white;
   border-radius: 50%;
   font-size: 11px;
+  transition: 0.3s ease;
 `
