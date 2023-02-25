@@ -34,7 +34,7 @@ function NavbarBottom() {
     return (
         <NavbarBottomStyle.NavbarBottom>
             <div className="container">
-                <CategoriesModal showCategories={showCategories}/>
+                <CategoriesModal showCategories={showCategories} setShowCategories={setShowCategories}/>
             </div>
             <div className="container">
                 <NavbarBottomItem>
@@ -57,7 +57,7 @@ function NavbarBottom() {
                         <NavLink to="/saved"><i
                             className="fa-light fa-heart"></i><span>Saved</span></NavLink>
                         <NavLink to="/cart"><CartLength
-                            className="cart-length">{productLength?.length || state?.length}</CartLength> <i
+                            className="cart-length">{productLength?.length || state?.length || 0}</CartLength> <i
                             className="fa-light fa-cart-shopping"></i><span>Cart</span></NavLink>
                     </NavbarBottomRight>
                 </NavbarBottomItem>
