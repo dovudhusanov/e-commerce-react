@@ -169,8 +169,8 @@ export const CartLength = styled.p`
   align-items: center;
   top: 8px;
   left: 32px;
-  width: 15px;
-  height: 15px;
+  width: 16px;
+  height: 16px;
   background: var(--color-blue);
   color: white;
   border-radius: 50%;
