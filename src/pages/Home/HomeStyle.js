@@ -211,35 +211,5 @@ export const ProductStyle = {
       @media screen and (max-width: 359px) {
         top: 207px !important;
       }
-    `,
-
-    Empty: styled.div`
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      & div {
-        margin-top: 100px;
-        text-align: center;
-
-        & img {
-          width: 300px;
-        }
-
-        & h1 {
-          font-size: 30px;
-          color: #a9a9a9;
-          margin: 25px 0 10px 0;
-
-          @media screen and (max-width: 425px) {
-            font-size: 25px;
-          }
-        }
-
-        & button {
-          margin-top: 15px;
-        }
-      }
     `
 }

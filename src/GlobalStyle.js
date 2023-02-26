@@ -9,6 +9,11 @@ const GlobalStyles = createGlobalStyle`
     list-style: none;
     font-family: "Montserrat", sans-serif;
   }
+  
+  ::selection {
+    background-color: var(--color-blue);
+    color: var(--color-white)
+  }
 
   img {
     max-width: 100%;

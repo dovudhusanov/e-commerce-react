@@ -89,13 +89,13 @@ export const CategoryButton = styled.button`
   font-weight: 500;
   text-decoration: none;
   border-radius: 4px;
-  background-color: rgba(49, 49, 196, 0.1);
+  background-color: rgb(32, 145, 249, 0.1);
   color: var(--color-blue);
   position: relative;
   padding: 20px;
 
   &:hover {
-    background-color: rgba(49, 49, 196, 0.13);
+    background-color: rgb(32, 145, 249, 0.2);
   }
 
   @media screen and (max-width: 990px) {
@@ -127,7 +127,7 @@ export const CategoryBtnRect = styled.div`
 
   & div {
     transition: all .11s .11s ease-out;
-    background-color: #e5e5ff;
+    background-color: rgb(234,241,253);
     width: 100%;
     height: 100%;
     border-radius: 1px;

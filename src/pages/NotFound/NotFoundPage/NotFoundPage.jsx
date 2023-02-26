@@ -2,6 +2,7 @@ import React, {useEffect} from 'react';
 import {NotFoundPageStyle} from "./NotFoundPageStyle";
 import {Link, useNavigate} from "react-router-dom";
 import ChangeTitle from "../../../middleware/changeTitle";
+import {Button} from "../../../components";
 
 function NotFoundPage() {
 
@@ -17,7 +18,7 @@ function NotFoundPage() {
             <NotFoundPageStyle.NotFound>
                 <h1>Nothing found :(</h1>
                 <Link to="/">
-                    <button>Back to Home</button>
+                    <Button>Back to Home</Button>
                 </Link>
             </NotFoundPageStyle.NotFound>
         </div>

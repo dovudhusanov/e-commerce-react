@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const ButtonStyle = {
     Button: styled.button`
-      background-color: rgba(49, 49, 196, 0.1);
+      background-color: rgb(32, 145, 249, 0.1);
       color: var(--color-blue);
       transition: all .2s;
       font-size: .875rem;
