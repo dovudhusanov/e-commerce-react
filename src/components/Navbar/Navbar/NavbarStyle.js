@@ -74,21 +74,37 @@ export const NavbarStyle = {
       align-content: center;
       width: 152px;
 
-      & .cart-icon {
+      & .icon-nav {
+        position: relative;
         display: none;
-        & button{
+        margin-left: 7px;
+        
+        &:hover{
+          & p{
+            background-color: white!important;
+            color: var(--color-blue);
+          }
+        }
+
+        & p {
+          top: 1px;
+          left: 20px;
+        }
+
+        & button {
           padding: 9px 10px;
         }
-        & i{
+
+        & i {
           padding-right: 0;
         }
       }
 
       @media screen and (max-width: 820px) {
-        display: inline;
+        //display: inline;
         width: auto;
-          & .cart-icon {
-            display: block;
+        & .icon-nav {
+          display: block;
         }
       }
 
@@ -100,6 +116,10 @@ export const NavbarStyle = {
         & button {
           background-color: var(--color-blue);
           color: white;
+        }
+        & p{
+          background-color: white!important;
+          color: var(--color-blue);
         }
       }
 
@@ -118,7 +138,7 @@ export const NavbarStyle = {
         & button {
           padding: 5px 5px;
         }
-        
+
         & a {
           & span {
             position: static;

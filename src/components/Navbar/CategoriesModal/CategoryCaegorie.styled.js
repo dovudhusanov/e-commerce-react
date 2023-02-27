@@ -8,10 +8,11 @@ export const CategoryModal = styled.ul`
   z-index: 999;
   box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
   position: absolute;
-  top: 45px;
+  top: -20px;
   visibility: hidden;
   opacity: 0;
-  transition: 0.2s ease;
+  transition: 0.3s ease all;
+  transform: scale(.7);
   
   .active{
     background-color: var(--color-blue);
@@ -55,7 +56,8 @@ export const CategoryModal = styled.ul`
           return `
             visibility: visible;
             opacity: 1;
-            top: 65px
+            top: 70px;
+            transform: scale(1);
           `
       }
   }}

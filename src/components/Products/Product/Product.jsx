@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {ProductStyle} from "../../../pages/Home/HomeStyle";
 import {USDollar} from "../../../middleware/PriceFormatter";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {ProductType} from "../../../constants/ProductType";
 import {addToCart} from "../../../action/ProductAction";
 import {Button} from "../../index";
@@ -30,12 +30,15 @@ function Product({product, index}) {
         );
     }
 
-    function ProdcutButton({productItem, index}) {
+    function ProdcutButton({productItem, i}) {
+
         const handleAdd = (productItem) => {
             dispatch(addToCart(productItem))
         }
         return (
-            <Button style={{fontSize: "12px"}} onClick={(e) => handleAdd(productItem)}>Add to Cart</Button>
+            <>
+                <Button style={{fontSize: "12px"}} onClick={(e) => handleAdd(productItem)}>Add to Cart</Button>
+            </>
         );
     }
 
@@ -50,9 +53,9 @@ function Product({product, index}) {
                 <div>
                     <div>
                         <i className="fa-light fa-eye"></i>
-                        <ProductSaveButton productItem={product}/>
+                        <ProductSaveButton productItem={product} i={index}/>
                     </div>
-                    <ProdcutButton productItem={product} index={index}/>
+                    <ProdcutButton productItem={product}/>
                 </div>
             </ProductStyle.ProductInfo>
         </ProductStyle.ProdcutCard>

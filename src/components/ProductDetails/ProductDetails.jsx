@@ -22,8 +22,8 @@ import {Button} from "../index";
 import {USDollar} from "../../middleware/PriceFormatter";
 import {addToCart, deleteProductFromCart} from "../../action/ProductAction";
 import {ScrollTop} from "../../middleware/scrollTop";
-import {NotFoundPage} from "../../pages";
 import changeTitle from "../../middleware/changeTitle";
+import {NotFoundPage} from "../../pages";
 
 function ProductDetails() {
 
@@ -39,7 +39,7 @@ function ProductDetails() {
 
     changeTitle(product?.map(name => name.productName))
 
-    const filterWithQuantity = useSelector(state => state.ProductReducer.filter(id => id.id == productId)) || null
+    const filterWithQuantity = useSelector( state=> state.ProductReducer.filter((id) => id.id == productId)) || null
 
     const [save, setSave] = useState(false)
 
@@ -53,10 +53,12 @@ function ProductDetails() {
 
     const handleAdd = (productItem) => {
         dispatch(addToCart(productItem))
+        setIsBuy(prevState => !prevState)
     }
 
     const handleDelete = (productItem) => {
         dispatch(deleteProductFromCart(productItem.id))
+        setIsBuy(prevState => !prevState)
     }
 
     return (
@@ -100,30 +102,23 @@ function ProductDetails() {
                                                         {filterWithQuantity[index]?.quantity >= 1 ? (
                                                             <CounterForQuantity>
                                                                 <div>
-                                                                    <button onClick={() => {
-                                                                        setIsBuy(prevState => !prevState)
-                                                                        handleDelete(productItem)
-                                                                    }}><i className="fa-sharp fa-regular fa-minus"></i>
+                                                                    <button onClick={() => handleDelete(productItem)}><i
+                                                                        className="fa-sharp fa-regular fa-minus"></i>
                                                                     </button>
                                                                     <span
                                                                         className="secondText">{filterWithQuantity[index]?.quantity}</span>
-                                                                    <button onClick={() => {
-                                                                        setIsBuy(prevState => !prevState)
-                                                                        handleAdd(productItem)
-                                                                    }}><i className="fa-sharp fa-solid fa-plus"></i>
+                                                                    <button onClick={() => handleAdd(productItem)}><i
+                                                                        className="fa-sharp fa-solid fa-plus"></i>
                                                                     </button>
                                                                 </div>
                                                                 <DeleteProduct
                                                                     onClick={() => deleteProduct(productItem.id)}><i
-                                                                    className="fa-solid fa-trash"></i>Delete
-                                                                </DeleteProduct>
+                                                                    className="fa-solid fa-trash"></i>Delete</DeleteProduct>
                                                             </CounterForQuantity>
                                                         ) : (
-                                                            <Button className="add-btn" onClick={() => {
-                                                                setIsBuy(prev => !prev)
-                                                                handleAdd(productItem)
-                                                            }
-                                                            }>Add to Cart</Button>
+                                                            <Button className="add-btn"
+                                                                    onClick={() => handleAdd(productItem)}>Add to
+                                                                Cart</Button>
                                                         )}
                                                     </Counter>
                                                 </ProductInfoCard>

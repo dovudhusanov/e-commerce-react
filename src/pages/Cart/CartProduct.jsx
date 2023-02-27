@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {CartStyle} from "./CartStyle";
 import {USDollar} from "../../middleware/PriceFormatter";
 import {useDispatch} from "react-redux";
-import {deleteProductFromCart, addToCart} from "../../action/ProductAction";
+import {deleteProductFromCart, addToCart, uploadProduct} from "../../action/ProductAction";
 import {ProductType} from "../../constants/ProductType";
 
 function CartProduct({
