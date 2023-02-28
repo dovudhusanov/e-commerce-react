@@ -26,7 +26,7 @@ function App() {
                     <Route path="/categories/:categoryName" element={<Categories/>}/>
                     <Route path="categories/:category/:productId" element={<ProductDetails/>}/>
                     <Route path="/cart" element={<Cart/>}/>
-                    <Route path="/saved" element={<Saved/>}/>
+                    <Route path="/wishlist" element={<Saved/>}/>
                     <Route path="/search" element={<SearchResults
                         searchParams={new URLSearchParams(window.location.search).get("query")}/>}/>
                     <Route path="/signup" element={<Signup/>}/>

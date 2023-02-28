@@ -19,7 +19,9 @@ function Cart() {
 
     useEffect(() => {
         dispatch(uploadProduct())
-    }, [])
+    }, [window.location.href])
+
+    console.log(window.location.href)
 
     const products = useSelector(state => state.ProductReducer)
 

@@ -1,12 +1,9 @@
 import React from 'react';
 import {ProductStyle} from "../../pages/Home/HomeStyle";
-import EmptyImg from "../../assets/whishlist-empty.png"
-import {Link} from "react-router-dom";
-import {Button} from "../index";
 import Product from "./Product/Product";
 import {NotFoundPage} from "../../pages";
 
-function Products({products, lenght, }) {
+function Products({products, lenght,}) {
     return (
         <>
             {products?.length === 0 ? (

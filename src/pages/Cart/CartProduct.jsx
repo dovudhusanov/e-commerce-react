@@ -50,7 +50,6 @@ function CartProduct({
                         <div>
                             <button onClick={() => {
                                 setSave(prevState => !prevState)
-                                dispatch({type: ProductType.TOOGLE_FAVOURITE, payload: id})
                             }}><i className="fa-sharp fa-solid fa-heart"></i> Save
                             </button>
                             <button onClick={() => deleteProduct(id)}><i className="fa-solid fa-trash"></i>Delete

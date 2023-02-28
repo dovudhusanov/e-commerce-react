@@ -1,23 +1,30 @@
-import React from 'react';
-import {useSelector} from "react-redux";
-import Products from "../../components/Products/Products";
+import React, {useEffect} from 'react';
+import {useDispatch, useSelector} from "react-redux";
+import {Products} from "../../components";
+import {uploadProduct} from "../../action/ProductAction";
+import {uploadWhishlist} from "../../action/WishlistAction";
 
 function Saved() {
 
-    const products = useSelector(state => state.ProductReducer)
+    const whishlist = useSelector(state => state.WhishlistReducer)
+    console.log(whishlist)
 
-    const isFavourite = products.filter((product) => product.isFavourite)
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch(uploadProduct())
+        dispatch(uploadWhishlist())
+    }, [window.location.href])
 
     return (
         <div className="container">
-            {isFavourite?.length > 0 && (
+            {whishlist?.length === 0 ? (
                 <>
-                    <h1>My Wishlist</h1>
-                    <Products products={isFavourite}/>
+                   Empty
                 </>
+            ) : (
+                <Products products={whishlist}/>
             )}
-
-
         </div>
     );
 }

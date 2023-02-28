@@ -37,8 +37,10 @@ function Navbar() {
                             <NavLink to="/signup" className="auth-icon"><Button><span>Sign up</span></Button></NavLink>
                             <NavLink to="/login" className="icon-nav"><Button><i
                                 className="fa-regular fa-user"></i></Button></NavLink>
-                            <NavLink to="/cart" className="icon-nav"><CartLength
-                                className="cart-length">{productLength?.length || state?.length || 0}</CartLength>
+                            <NavLink to="/cart" className="icon-nav">
+                                {productLength?.length === 0 || state?.length === 0 ? null : (
+                                    <CartLength className="cart-length">{productLength?.length || state?.length}</CartLength>
+                                )}
                                 <Button><i className="fa-light fa-cart-shopping"></i></Button></NavLink>
                         </NavbarStyle.NavbarRight>
                     </NavbarStyle.NavbarItems>

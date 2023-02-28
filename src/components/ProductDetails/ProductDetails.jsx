@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Link, useParams} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {
@@ -20,10 +20,11 @@ import {
 import SliderSwiper from "./SliderSwiper/SliderSwiper";
 import {Button} from "../index";
 import {USDollar} from "../../middleware/PriceFormatter";
-import {addToCart, deleteProductFromCart} from "../../action/ProductAction";
+import {addToCart, deleteProductFromCart, uploadProduct} from "../../action/ProductAction";
 import {ScrollTop} from "../../middleware/scrollTop";
 import changeTitle from "../../middleware/changeTitle";
 import {NotFoundPage} from "../../pages";
+import {uploadWhishlist} from "../../action/WishlistAction";
 
 function ProductDetails() {
 
@@ -45,6 +46,11 @@ function ProductDetails() {
 
     const dispatch = useDispatch()
 
+    useEffect(() => {
+        dispatch(uploadProduct())
+        dispatch(uploadWhishlist())
+    }, [window.location.href])
+
     const [isBuy, setIsBuy] = useState(false)
 
     const deleteProduct = (id) => {
@@ -60,6 +66,14 @@ function ProductDetails() {
         dispatch(deleteProductFromCart(productItem.id))
         setIsBuy(prevState => !prevState)
     }
+
+    const productWhislist = useSelector(state => state.ProductReducer)
+
+    const whishlist = useSelector(state => state.WhishlistReducer.filter(whishlistFilter => whishlistFilter.id === productId
+
+
+    ))
+    console.log(whishlist)
 
     return (
         <>
@@ -91,11 +105,9 @@ function ProductDetails() {
                                             </ProductImages>
                                             <ProductInfo>
                                                 <ProductInfoCard>
-                                                    <PriceAndAddSaved save={save}>
+                                                    <PriceAndAddSaved whishlist={whishlist.length !== 0 && whishlist} save={save}>
                                                         <Price>Price: <span>{USDollar.format(productItem.price)}</span></Price>
-                                                        <button onClick={() => {
-                                                            setSave(prevState => !prevState)
-                                                        }}><i className="fa-sharp fa-solid fa-heart"></i> Save
+                                                        <button><i className="fa-sharp fa-solid fa-heart"></i> Save
                                                         </button>
                                                     </PriceAndAddSaved>
                                                     <Counter>

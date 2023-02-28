@@ -16,5 +16,19 @@ export const ButtonStyle = {
         background-color: var(--color-blue);
         color: white;
       }
+      
+      ${(props) => {
+          if(props.productAdded) {
+              return `
+                background-color: var(--color-blue);
+                color: white;
+              `
+          } else {
+              return `
+                background-color: rgb(32, 145, 249, 0.1);
+                color: var(--color-blue);
+              `
+          }
+      }}
     `
 }

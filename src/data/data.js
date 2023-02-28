@@ -47,7 +47,7 @@ export const products = [
                 id: 1,
                 image: img1
             },
-             {
+            {
                 id: 2,
                 image: img1
             },
@@ -90,7 +90,7 @@ export const products = [
                 id: 1,
                 image: img2
             },
-             {
+            {
                 id: 2,
                 image: img1
             },
@@ -132,7 +132,7 @@ export const products = [
                 id: 1,
                 image: img3
             },
-             {
+            {
                 id: 2,
                 image: img1
             },
@@ -174,7 +174,7 @@ export const products = [
                 id: 1,
                 image: img4
             },
-             {
+            {
                 id: 2,
                 image: img1
             },
@@ -216,7 +216,7 @@ export const products = [
                 id: 1,
                 image: img5
             },
-             {
+            {
                 id: 2,
                 image: img1
             },
@@ -257,7 +257,7 @@ export const products = [
                 id: 1,
                 image: img7
             },
-             {
+            {
                 id: 2,
                 image: img1
             },
@@ -299,7 +299,7 @@ export const products = [
                 id: 1,
                 image: img7
             },
-             {
+            {
                 id: 2,
                 image: img1
             },
@@ -340,7 +340,7 @@ export const products = [
                 id: 1,
                 image: img8
             },
-             {
+            {
                 id: 2,
                 image: img1
             },
@@ -381,7 +381,7 @@ export const products = [
                 id: 1,
                 image: img
             },
-             {
+            {
                 id: 2,
                 image: img1
             },
@@ -463,7 +463,7 @@ export const products = [
                 id: 1,
                 image: img
             },
-             {
+            {
                 id: 2,
                 image: img1
             },
@@ -504,7 +504,7 @@ export const products = [
                 id: 1,
                 image: img8
             },
-             {
+            {
                 id: 2,
                 image: img1
             },
@@ -544,7 +544,7 @@ export const products = [
                 id: 1,
                 image: img8
             },
-             {
+            {
                 id: 2,
                 image: img1
             },
@@ -584,7 +584,7 @@ export const products = [
                 id: 1,
                 image: img8
             },
-             {
+            {
                 id: 2,
                 image: img1
             },
@@ -625,7 +625,7 @@ export const products = [
                 id: 1,
                 image: img6
             },
-             {
+            {
                 id: 2,
                 image: img1
             },
@@ -667,7 +667,7 @@ export const products = [
                 id: 1,
                 image: img6
             },
-             {
+            {
                 id: 2,
                 image: img1
             },
@@ -710,7 +710,7 @@ export const products = [
                 id: 1,
                 image: img6
             },
-             {
+            {
                 id: 2,
                 image: img1
             },
@@ -751,7 +751,7 @@ export const products = [
                 id: 1,
                 image: img4
             },
-             {
+            {
                 id: 2,
                 image: img1
             },
@@ -792,7 +792,7 @@ export const products = [
                 id: 1,
                 image: img4
             },
-             {
+            {
                 id: 2,
                 image: img1
             },
@@ -833,7 +833,7 @@ export const products = [
                 id: 1,
                 image: img4
             },
-             {
+            {
                 id: 2,
                 image: img1
             },
@@ -874,7 +874,7 @@ export const products = [
                 id: 1,
                 image: img5
             },
-             {
+            {
                 id: 2,
                 image: img1
             },
@@ -915,7 +915,7 @@ export const products = [
                 id: 1,
                 image: img5
             },
-             {
+            {
                 id: 2,
                 image: img1
             },
@@ -956,7 +956,7 @@ export const products = [
                 id: 1,
                 image: img5
             },
-             {
+            {
                 id: 2,
                 image: img1
             },
@@ -997,7 +997,7 @@ export const products = [
                 id: 1,
                 image: img5
             },
-             {
+            {
                 id: 2,
                 image: img1
             },
@@ -1039,7 +1039,7 @@ export const products = [
                 id: 1,
                 image: img7
             },
-             {
+            {
                 id: 2,
                 image: img1
             },
@@ -1079,7 +1079,7 @@ export const products = [
                 id: 1,
                 image: img7
             },
-             {
+            {
                 id: 2,
                 image: img1
             },
@@ -1121,7 +1121,7 @@ export const products = [
                 id: 1,
                 image: img7
             },
-             {
+            {
                 id: 2,
                 image: img1
             },
@@ -1162,7 +1162,7 @@ export const products = [
                 id: 1,
                 image: img3
             },
-             {
+            {
                 id: 2,
                 image: img1
             },
@@ -1204,7 +1204,7 @@ export const products = [
                 id: 1,
                 image: img9
             },
-             {
+            {
                 id: 2,
                 image: img1
             },
@@ -1245,7 +1245,7 @@ export const products = [
                 id: 1,
                 image: img9
             },
-             {
+            {
                 id: 2,
                 image: img1
             },
@@ -1286,7 +1286,7 @@ export const products = [
                 id: 1,
                 image: img9
             },
-             {
+            {
                 id: 2,
                 image: img1
             },
@@ -1327,7 +1327,7 @@ export const products = [
                 id: 1,
                 image: img9
             },
-             {
+            {
                 id: 2,
                 image: img1
             },
@@ -1368,7 +1368,7 @@ export const products = [
                 id: 1,
                 image: img10
             },
-             {
+            {
                 id: 2,
                 image: img1
             },
@@ -1409,7 +1409,7 @@ export const products = [
                 id: 1,
                 image: img10
             },
-             {
+            {
                 id: 2,
                 image: img1
             },
@@ -1450,7 +1450,7 @@ export const products = [
                 id: 1,
                 image: img10
             },
-             {
+            {
                 id: 2,
                 image: img1
             },
@@ -1491,7 +1491,7 @@ export const products = [
                 id: 1,
                 image: img10
             },
-             {
+            {
                 id: 2,
                 image: img1
             },
@@ -1532,7 +1532,7 @@ export const products = [
                 id: 1,
                 image: img11
             },
-             {
+            {
                 id: 2,
                 image: img1
             },
@@ -1573,7 +1573,7 @@ export const products = [
                 id: 1,
                 image: img11
             },
-             {
+            {
                 id: 2,
                 image: img1
             },
@@ -1614,7 +1614,7 @@ export const products = [
                 id: 1,
                 image: img11
             },
-             {
+            {
                 id: 2,
                 image: img1
             },
@@ -1655,7 +1655,7 @@ export const products = [
                 id: 1,
                 image: img11
             },
-             {
+            {
                 id: 2,
                 image: img1
             },
@@ -1750,4 +1750,28 @@ export const categoryList = [
         pathName: "Sports-product",
         icon: <i className="fa-regular fa-football"></i>
     }
+]
+
+export const faqData = [
+    {
+        id: 1,
+        question: "",
+        answer: ""
+    }, {
+        id: 2,
+        question: "",
+        answer: ""
+    }, {
+        id: 3,
+        question: "",
+        answer: ""
+    }, {
+        id: 4,
+        question: "",
+        answer: ""
+    }, {
+        id: 5,
+        question: "",
+        answer: ""
+    },
 ]

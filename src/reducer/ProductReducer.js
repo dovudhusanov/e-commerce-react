@@ -22,12 +22,6 @@ export const ProductReducer = (state = [], action) => {
                     ? {...product, selected: !product.selected}
                     : product
             );
-        case ProductType.TOOGLE_FAVOURITE:
-            return state?.map(product =>
-                product.id === action.payload
-                    ? {...product, isFavourite: !product.isFavourite}
-                    : product
-            );
         case ProductType.DELETE_PRODUCT:
             const removeProductIdx = state?.findIndex((product) => product.id == action.payload)
             if (removeProductIdx >= 0) {

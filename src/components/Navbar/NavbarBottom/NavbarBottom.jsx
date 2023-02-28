@@ -3,15 +3,12 @@ import {
     NavbarBottomStyle,
     NavbarBottomRight,
     CategoryButton,
-    CategoryIcon,
-    CategoryBtnRect,
-    CategoryBtnTop, CategoryBtnBottom, NavbarBottomItem, CartLength
+    NavbarBottomItem, CartLength
 } from "./NavbarBottomStyle";
-import {Link, NavLink} from "react-router-dom";
-import {categoryList} from "../../../data/data";
-import {Button} from "../../index";
+import {NavLink} from "react-router-dom";
 import {useSelector} from "react-redux";
 import CategoriesModal from "../CategoriesModal/CategoriesModal";
+import BtnCategoryIcon from "../CategoryIcon";
 
 function NavbarBottom() {
 
@@ -40,13 +37,7 @@ function NavbarBottom() {
                 <NavbarBottomItem>
                     <div>
                         <CategoryButton onClick={openCategoryBtn} className={showCategories ? "open-categories" : ""}>
-                            <CategoryIcon>
-                                <CategoryBtnRect>
-                                    <div></div>
-                                </CategoryBtnRect>
-                                <CategoryBtnTop></CategoryBtnTop>
-                                <CategoryBtnBottom></CategoryBtnBottom>
-                            </CategoryIcon>
+                           <BtnCategoryIcon />
                         </CategoryButton>
                         <div>
                             <NavLink to="/faq">FAQ</NavLink>
@@ -54,11 +45,11 @@ function NavbarBottom() {
                         </div>
                     </div>
                     <NavbarBottomRight>
-                        <NavLink to="/saved"><i
-                            className="fa-light fa-heart"></i><span>Saved</span></NavLink>
-                        <NavLink to="/cart"><CartLength
-                            className="cart-length">{productLength?.length || state?.length || 0}</CartLength> <i
-                            className="fa-light fa-cart-shopping"></i><span>Cart</span></NavLink>
+                        <NavLink to="/wishlist"><i
+                            className="fa-light fa-heart"></i><span>Wishlist</span></NavLink>
+                        <NavLink to="/cart">{productLength?.length === 0 || state?.length === 0 ? null : (
+                            <CartLength className="cart-length">{productLength?.length || state?.length}</CartLength>
+                        )}<i className="fa-light fa-cart-shopping"></i><span>Cart</span></NavLink>
                     </NavbarBottomRight>
                 </NavbarBottomItem>
             </div>

@@ -1,44 +1,49 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {ProductStyle} from "../../../pages/Home/HomeStyle";
 import {USDollar} from "../../../middleware/PriceFormatter";
 import {useDispatch, useSelector} from "react-redux";
-import {ProductType} from "../../../constants/ProductType";
-import {addToCart} from "../../../action/ProductAction";
+import {addToCart, uploadProduct} from "../../../action/ProductAction";
 import {Button} from "../../index";
 import {Link} from "react-router-dom";
+import {addWhishlist, deleteProductFromWhishlist, uploadWhishlist} from "../../../action/WishlistAction";
 
-function Product({product, index}) {
+function Product({product}) {
 
     const dispatch = useDispatch()
-    const [saved, setSaved] = useState(false);
+
+    useEffect(() => {
+        dispatch(uploadProduct())
+        dispatch(uploadWhishlist())
+    }, [window.location.href])
+
+    const whishlist = useSelector(state => state.WhishlistReducer.filter(whishlistFilter => whishlistFilter.id === product.id))
 
     function ProductSaveButton({productItem}) {
 
         const handleAdd = () => {
-            setSaved(!saved)
-            dispatch({type: ProductType.TOOGLE_FAVOURITE, payload: productItem.id})
+            dispatch(addWhishlist(productItem))
         };
 
         const handleRemove = () => {
-            setSaved(!saved)
-            dispatch({type: ProductType.TOOGLE_FAVOURITE, payload: productItem.id})
+            dispatch(deleteProductFromWhishlist({id: productItem.id}))
         }
 
         return (
-            <i>{productItem.isFavourite ? <i className="fa-solid fa-heart" onClick={handleRemove}></i> :
-                <i className="fa-light fa-heart" onClick={handleAdd}></i>}  </i>
+            <i>{whishlist.length !== 0 ? <i className="fa-solid fa-heart" onClick={handleRemove}></i> :
+                <i className="fa-light fa-heart" onClick={handleAdd}></i>}</i>
         );
     }
 
-    function ProdcutButton({productItem, i}) {
+    function ProdcutButton({productItem}) {
 
         const handleAdd = (productItem) => {
             dispatch(addToCart(productItem))
         }
+
+        const productAdded = useSelector(state => state.ProductReducer.filter(productFilter => productFilter.id === product.id))
+
         return (
-            <>
-                <Button style={{fontSize: "12px"}} onClick={(e) => handleAdd(productItem)}>Add to Cart</Button>
-            </>
+            <Button productAdded={productAdded} style={{fontSize: "12px"}} onClick={() => handleAdd(productItem)}>{productAdded.length !== 0 ? "Added" : "Add to Cart"}</Button>
         );
     }
 
@@ -53,7 +58,7 @@ function Product({product, index}) {
                 <div>
                     <div>
                         <i className="fa-light fa-eye"></i>
-                        <ProductSaveButton productItem={product} i={index}/>
+                        <ProductSaveButton productItem={product} id={product.id}/>
                     </div>
                     <ProdcutButton productItem={product}/>
                 </div>
