@@ -1,9 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import {CartStyle} from "./CartStyle";
 import {USDollar} from "../../middleware/PriceFormatter";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {deleteProductFromCart, addToCart, uploadProduct} from "../../action/ProductAction";
 import {ProductType} from "../../constants/ProductType";
+import {addWhishlist, deleteProductFromWhishlist, uploadWhishlist} from "../../action/WishlistAction";
 
 function CartProduct({
      id,
@@ -23,6 +24,11 @@ function CartProduct({
 
     const dispatch = useDispatch()
 
+    useEffect(() => {
+        dispatch(uploadProduct())
+        dispatch(uploadWhishlist())
+    }, [window.location.href])
+
     const deleteProduct = (id) => {
         dispatch(deleteProductFromCart({id}))
     }
@@ -35,9 +41,19 @@ function CartProduct({
         dispatch(deleteProductFromCart(productItem.id))
     }
 
+    const handleAddWhishlist = () => {
+        dispatch(addWhishlist(product))
+    }
+
+    const handleRemoveWhishlist = () => {
+        dispatch(deleteProductFromWhishlist({id}))
+    }
+
+    const whishlist = useSelector(state => state.WhishlistReducer.filter(filteredId => filteredId.id === id))
+
     return (
         <CartStyle.ProductItems>
-            <CartStyle.ProductLeft save={isFavourite}>
+            <CartStyle.ProductLeft save={isFavourite} whishlist={whishlist.length !== 0 && whishlist}>
                 <input type="checkbox" checked={checkbox} onChange={(e) => {
                     setCheck(!checkbox)
                     dispatch({type: ProductType.TOGGLE_PRODUCT, payload: id})
@@ -48,10 +64,13 @@ function CartProduct({
                         <h3>{productName}</h3>
                         <span className="secondText">{descr}</span>
                         <div>
-                            <button onClick={() => {
-                                setSave(prevState => !prevState)
-                            }}><i className="fa-sharp fa-solid fa-heart"></i> Save
-                            </button>
+                            {whishlist.length !== 0 ? (
+                                <button onClick={handleRemoveWhishlist}><i className="fa-sharp fa-solid fa-heart"></i> Saved
+                                </button>
+                            ) : (
+                                <button onClick={handleAddWhishlist}><i className="fa-sharp fa-solid fa-heart"></i> Save
+                                </button>
+                            )}
                             <button onClick={() => deleteProduct(id)}><i className="fa-solid fa-trash"></i>Delete
                             </button>
                         </div>

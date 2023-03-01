@@ -1,26 +1,19 @@
-import React, {useState} from 'react';
-import {Title, FaqItemWrapper, FaqQuestion, FaqAnswer} from "./FAQ.styled";
+import React from 'react';
 import {faqData} from "../../data/data";
+import FaqList from "./FaqList";
+import {Title, FAQItem} from "./FAQ.styled";
 
 function Faq() {
-
-    const [active, setActive] = useState(false)
-
     return (
-        <div className="container">
-            <Title>Frequently asked questions</Title>
-
-            <FaqItemWrapper>
-                {faqData.map((faqItem) => (
-                    <>
-                        <FaqQuestion key={faqItem.id} active={active} onClick={() => setActive(!active)}>
-                            <span>{faqItem.question}</span>
-                            <span>{active ? "-" : "+"}</span>
-                        </FaqQuestion>
-                        <FaqAnswer active={active}>{faqItem.answer}</FaqAnswer>
-                    </>
-                ))}
-            </FaqItemWrapper>
+        <div style={{margin: "50px 0"}}>
+            <div className="container">
+                <Title>Frequently asked questions</Title>
+                <FAQItem>
+                    {faqData.map((faq) => (
+                        <FaqList key={faq.id} question={faq.question} answer={faq.answer} />
+                    ))}
+                </FAQItem>
+            </div>
         </div>
     );
 }

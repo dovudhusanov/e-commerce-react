@@ -144,6 +144,12 @@ export const PriceAndAddSaved = styled.div`
         return `
                 background-color: var(--color-blue);
                 color: white;
+                & i {
+                   color: white !important;
+                }
+                &:hover {
+                  background-color: var(--color-blue) !important;
+                }
               `
       } else {
         return `

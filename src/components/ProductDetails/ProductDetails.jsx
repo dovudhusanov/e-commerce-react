@@ -15,7 +15,6 @@ import {
     CounterForQuantity,
     Counter,
     DeleteProduct
-
 } from "./ProductDetails.styles";
 import SliderSwiper from "./SliderSwiper/SliderSwiper";
 import {Button} from "../index";
@@ -24,7 +23,7 @@ import {addToCart, deleteProductFromCart, uploadProduct} from "../../action/Prod
 import {ScrollTop} from "../../middleware/scrollTop";
 import changeTitle from "../../middleware/changeTitle";
 import {NotFoundPage} from "../../pages";
-import {uploadWhishlist} from "../../action/WishlistAction";
+import {addWhishlist, deleteProductFromWhishlist, uploadWhishlist} from "../../action/WishlistAction";
 
 function ProductDetails() {
 
@@ -67,13 +66,15 @@ function ProductDetails() {
         setIsBuy(prevState => !prevState)
     }
 
-    const productWhislist = useSelector(state => state.ProductReducer)
+    const handleAddWhishlist = (productItem) => {
+        dispatch(addWhishlist(productItem))
+    }
 
-    const whishlist = useSelector(state => state.WhishlistReducer.filter(whishlistFilter => whishlistFilter.id === productId
+    const handleRemoveWhishlist = (productItemId) => {
+        dispatch(deleteProductFromWhishlist({id: productItemId.id}))
+    }
 
-
-    ))
-    console.log(whishlist)
+    const whishlist = useSelector(state => state.WhishlistReducer.filter(whishlistFilter => whishlistFilter.id == productId))
 
     return (
         <>
@@ -107,8 +108,13 @@ function ProductDetails() {
                                                 <ProductInfoCard>
                                                     <PriceAndAddSaved whishlist={whishlist.length !== 0 && whishlist} save={save}>
                                                         <Price>Price: <span>{USDollar.format(productItem.price)}</span></Price>
-                                                        <button><i className="fa-sharp fa-solid fa-heart"></i> Save
-                                                        </button>
+                                                        {whishlist.length !== 0 ? (
+                                                            <button onClick={() => handleRemoveWhishlist(productItem)}><i className="fa-sharp fa-solid fa-heart"></i> Saved
+                                                            </button>
+                                                        ) : (
+                                                            <button onClick={() => handleAddWhishlist(productItem)}><i className="fa-sharp fa-solid fa-heart"></i> Save
+                                                            </button>
+                                                        )}
                                                     </PriceAndAddSaved>
                                                     <Counter>
                                                         {filterWithQuantity[index]?.quantity >= 1 ? (

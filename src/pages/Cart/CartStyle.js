@@ -163,18 +163,22 @@ export const CartStyle = {
             color: var(--color-blue);
 
             ${(props) => {
-              if (props.save) {
+              if(props.whishlist) {
                 return `
-                    background-color: var(--color-blue);
-                    color: white;
-                            
-                    & i {
-                        color: white !important;
-                    }
-                    &:hover {
-                       background-color: var(--color-blue) !important;
-            }
-                 `
+                background-color: var(--color-blue);
+                color: white;
+                & i {
+                   color: white !important;
+                }
+                &:hover {
+                  background-color: var(--color-blue) !important;
+                }
+              `
+              } else {
+                return `
+                background-color: rgb(32, 145, 249, 0.1);
+                color: var(--color-blue);
+              `
               }
             }}
             &:hover {
