@@ -2,7 +2,7 @@ import styled, {css} from "styled-components";
 
 css`
   html, body {
-    overflow-y: scroll!important;
+    overflow-y: scroll !important;
   }
 `
 
@@ -42,9 +42,13 @@ export const FaqQuestion = styled.div`
   font-size: 20px;
   cursor: pointer;
   transition: 0.3s ease-in-out;
+  
+  @media screen and (max-width: 425px) {
+    font-size: 18px;
+  }
 
   ${(props) => {
-    if(props.active) {
+    if (props.active) {
       return `
             padding: 20px;
           `
@@ -59,14 +63,28 @@ export const FaqAnswer = styled.div`
   padding: 0 20px 20px 20px;
   font-size: 15px;
   opacity: 0;
-  
+
   ${(props) => {
-    if(props.active) {
+    if (props.active) {
       return `
             max-height: 600px;
             min-height: initial !important;
             opacity: 1;
           `
+    }
+  }}
+`
+
+export const Arrow = styled.span`
+  position: relative;
+  transition: 0.3s ease;
+  margin-left: 12px;
+
+  ${(props) => {
+    if (props.active) {
+      return `
+        transform: rotate(180deg);
+      `
     }
   }}
 `

@@ -12,13 +12,13 @@ export const Siderbar = styled.div`
   text-align: left;
   z-index: 999;
   transition: 0.3s ease;
-  
+
   ${(props) => {
-      if(props.sModal) {
-          return `
+    if (props.sModal) {
+      return `
             left: 0
           `
-      }
+    }
   }}
 `
 
@@ -38,7 +38,7 @@ export const Close = styled.button`
   background-color: transparent;
   border: none;
   font-size: 20px;
-  
+
   & i {
     cursor: pointer;
   }
@@ -47,8 +47,8 @@ export const Close = styled.button`
 export const AuthLinks = styled.div`
   font-size: .875rem;
   font-weight: 500;
-  
-  & a{
+
+  & a {
     text-decoration: underline;
     color: var(--color-black);
   }
@@ -114,20 +114,29 @@ export const DownArrow = styled.div`
   line-height: 1.2em;
   font-size: 21px;
   color: var(--color-blue);
+  transition: 0.3s ease;
+
+  ${(props) => {
+    if (props.active) {
+      return `
+          transform: rotate(180deg);|
+        `
+    }
+  }}
 `
 
 export const CategoryList = styled.div`
   max-height: 0;
   overflow: hidden;
   transition: all 0.3s ease;
-  
+
   ${(props) => {
-      if(props.active) {
-          return `
-            max-height: 600px;
-            min-height: initial !important;
-          `
-      }
+    if (props.active) {
+      return `
+              max-height: 600px;
+              min-height: initial !important;
+            `
+    }
   }}
 `
 
@@ -174,8 +183,8 @@ export const InnerBtnText = styled.div`
   height: 100%;
   display: flex;
   align-items: center;
-  
-  & a{
+
+  & a {
     font-size: 13px;
     font-weight: 500;
     color: black;
@@ -187,15 +196,15 @@ export const Split = styled.div`
   height: 1px;
   margin-left: auto;
   width: 100%;
-  background: rgba(118,121,127,0.2);
+  background: rgba(118, 121, 127, 0.2);
   border-left: 16px solid #fff;
 `
 
 export const CategoryLink = styled.div`
-  & .short{
+  & .short {
     border-left-width: 53px;
   }
-  
+
   & i {
     color: var(--color-blue);
     font-size: 16px;

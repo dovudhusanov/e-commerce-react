@@ -20,11 +20,13 @@ function Product({product}) {
 
     function ProductSaveButton({productItem}) {
 
-        const handleAdd = () => {
+        const handleAdd = (e) => {
+            e.stopPropagation()
             dispatch(addWhishlist(productItem))
         };
 
-        const handleRemove = () => {
+        const handleRemove = (e) => {
+            e.stopPropagation()
             dispatch(deleteProductFromWhishlist({id: productItem.id}))
         }
 
@@ -36,34 +38,40 @@ function Product({product}) {
 
     function ProdcutButton({productItem}) {
 
-        const handleAdd = (productItem) => {
+        const handleAdd = (e, productItem) => {
+            e.stopPropagation()
             dispatch(addToCart(productItem))
         }
 
         const productAdded = useSelector(state => state.ProductReducer.filter(productFilter => productFilter.id === product.id))
 
         return (
-            <Button productAdded={productAdded} style={{fontSize: "12px"}} onClick={() => handleAdd(productItem)}>{productAdded.length !== 0 ? "Added" : "Add to Cart"}</Button>
+            <Button productAdded={productAdded} style={{fontSize: "12px"}}
+                    onClick={(e) => handleAdd(e, productItem)}>{productAdded.length !== 0 ? "Added" : "Add to Cart"}</Button>
         );
     }
 
     return (
-        <ProductStyle.ProdcutCard>
-            <Link to={`/categories/${product.pathName}/${product.id}`}>
-                <img src={product.image} alt={product.productName}/>
-            </Link>
-            <ProductStyle.Price>{USDollar.format(product.price)}</ProductStyle.Price>
-            <ProductStyle.ProductInfo>
-                <span>{product.productName} {product.descr.slice(0, 20)}</span>
-                <div>
+        <ProductStyle.Product>
+            <ProductStyle.ProdcutCard>
+                <Link to={`/categories/${product.pathName}/${product.id}`}>
+                    <img src={product.image} alt={product.productName}/>
+                </Link>
+                <ProductStyle.Price>{USDollar.format(product.price)}</ProductStyle.Price>
+                <ProductStyle.ProductInfo>
+                    <span>{product.productName} {product.descr.slice(0, 20)}</span>
                     <div>
-                        <i className="fa-light fa-eye"></i>
-                        <ProductSaveButton productItem={product} id={product.id}/>
+                        <div>
+                            <Link to={`/categories/${product.pathName}/${product.id}`}>
+                            <i className="fa-light fa-eye"></i>
+                            </Link>
+                            <ProductSaveButton productItem={product} id={product.id}/>
+                        </div>
+                        <ProdcutButton productItem={product}/>
                     </div>
-                    <ProdcutButton productItem={product}/>
-                </div>
-            </ProductStyle.ProductInfo>
-        </ProductStyle.ProdcutCard>
+                </ProductStyle.ProductInfo>
+            </ProductStyle.ProdcutCard>
+        </ProductStyle.Product>
     );
 }
 

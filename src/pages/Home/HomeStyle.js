@@ -1,65 +1,78 @@
 import styled from "styled-components";
 
 export const ProductStyle = {
+
+    Product: styled.div`
+      display: flex;
+      flex-grow: 1;
+      flex-basis: 20%;
+      max-width: 20%;
+      height: 100%;
+
+      @media screen and (max-width: 1159px) {
+        flex-basis: 25%;
+        max-width: 25%;
+      }
+      
+      @media screen and (max-width: 1045px) {
+        flex-basis: 33%;
+        max-width: 33%;
+      }
+
+      @media screen and (max-width: 625px) {
+        flex-basis: 50%;
+        max-width: 50%;
+      }
+
+      @media screen and (max-width: 360px) {
+        flex-basis: 80%;
+        max-width: 80%;
+        margin: 10px;
+      }
+    `,
+
     Products: styled.div`
       width: 100%;
       display: flex;
-      justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
       margin-top: 50px;
 
-      @media screen and (max-width: 1189px) {
-        justify-content: space-evenly;
-      }
-
-      @media screen and (max-width: 500px) {
-        justify-content: space-between;
-      }
-
-      @media screen and (max-width: 620px) {
-        justify-content: space-evenly;
-      }
-
-      @media screen and (max-width: 430px) {
-        justify-content: space-between;
-      }
-
-      @media screen and (max-width: 359px) {
-        justify-content: center !important;
-        flex-direction: column
+      @media screen and (max-width: 375px) {
+        justify-content: center;
       }
     `,
 
     ProdcutCard: styled.div`
-      max-width: 250px;
-      width: 250px;
+      width: 100%;
+      height: 100%;
       border-radius: 8px;
       box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
-      margin: 20px;
+      margin: 6px;
       position: relative;
       transition: 0.3s ease;
+      
 
-      @media screen and (max-width: 620px) {
-        max-width: 200px;
-        margin: 20px 0;
-      }
-
-      @media screen and (max-width: 490px) {
-        max-width: 180px;
-      }
-
-      @media screen and (max-width: 400px) {
-        max-width: 170px;
-      }
-
-      @media screen and (max-width: 380px) {
-        max-width: 160px !important;
-      }
-
-      @media screen and (max-width: 359px) {
-        max-width: 100% !important;
-      }
+      //@media screen and (max-width: 620px) {
+      //  max-width: 200px;
+      //  margin: 20px 0;
+      //}
+      //
+      //@media screen and (max-width: 490px) {
+      //  max-width: 180px;
+      //}
+      //
+      //@media screen and (max-width: 400px) {
+      //  max-width: 170px;
+      //}
+      //
+      //@media screen and (max-width: 380px) {
+      //  max-width: 160px !important;
+      //}
+      //
+      //@media screen and (max-width: 359px) {
+      //  max-width: 100% !important;
+      //}
     }
 
     &:hover {
@@ -80,28 +93,30 @@ export const ProductStyle = {
         height: 160px;
       }
 
-      @media screen and (max-width: 359px) {
-        height: 220px !important;
+      @media screen and (max-width: 380px) {
+        height: 130px !important;
+      }
+
+      @media screen and (max-width: 360px) {
+        height: 170px!important;
       }
 
     }
 
-    @media screen and (max-width: 620px) {
+    @media screen and (max-width: 715px) {
       & button {
         font-size: 11px !important;
-        padding: 6px 6px;
+        padding: 10px 8px;
       }
     }
 
-    @media screen and (max-width: 359px) {
+    @media screen and (max-width: 363px) {
       & button {
-        font-size: 13px !important;
-        padding: 8px 10px !important;
-        width: 120px !important;
+        font-size: 10px !important;
+        padding: 8px 6px;
       }
     }
     
-
     & > div {
 
     `,
@@ -117,8 +132,8 @@ export const ProductStyle = {
         padding: 5px 13px;
       }
 
-      @media screen and (max-width: 359px) {
-        height: 120px;
+      @media screen and (max-width: 380px) {
+        height: 110px;
         padding: 5px 13px 15px 13px !important;
       }
 
@@ -134,10 +149,14 @@ export const ProductStyle = {
         }
 
         & i {
-          margin-right: 15px;
           color: var(--color-blue);
           font-size: 16px;
+          display: inline;
 
+          :nth-child(1) {
+            margin-right: 15px;
+          }
+          
           & i {
             cursor: pointer;
           }
@@ -147,12 +166,10 @@ export const ProductStyle = {
           }
           
           @media screen and (max-width: 400px) {
-            margin-right: 5px !important;
-            font-size: 16px!important;
-          }
-
-          @media screen and (max-width: 359px) {
-            margin-right: 15px !important;
+            :nth-child(1) {
+              margin-right: 5px!important;
+            }
+            font-size: 14px!important;
           }
         }
       }
@@ -208,8 +225,12 @@ export const ProductStyle = {
         font-size: 13px;
       }
 
-      @media screen and (max-width: 359px) {
-        top: 207px !important;
+      @media screen and (max-width: 380px) {
+        top: 117px !important;
+      }
+      
+      @media screen and (max-width: 360px) {
+        top: 157px !important;
       }
     `
 }

@@ -62,7 +62,7 @@ function Cart() {
                         ))}
                     </CartStyle.CartProducts>
                     <CartStyle.CheckOut>
-                       <div>
+                       <CartStyle.Card>
                            <CartStyle.Total>
                                <h1>Total</h1>
                                <h1>{USDollar.format(totalPriceBuilder(products, checkbox))}</h1>
@@ -73,7 +73,14 @@ function Cart() {
                                <Button style={{marginBottom: "20px", marginTop: "20px"}}>Go to Checkout</Button>
                                <span className="secondText">By ordering, you agree to the terms of use of the trading platform</span>
                            </CartStyle.CheckoutItems>
-                       </div>
+                       </CartStyle.Card>
+                        <CartStyle.MobileBottomFooter>
+                            <div>
+                                <span>My order</span>
+                                <span>{USDollar.format(totalPriceBuilder(products, checkbox))}</span>
+                            </div>
+                            <Button>Go to Checkout</Button>
+                        </CartStyle.MobileBottomFooter>
                     </CartStyle.CheckOut>
                 </CartStyle.CartMain>
             )}

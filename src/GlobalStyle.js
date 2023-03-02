@@ -22,6 +22,7 @@ const GlobalStyles = createGlobalStyle`
 
   html body {
     //background-color: #f6f7ff;
+    overflow-y: scroll;
   }
 
   :root {

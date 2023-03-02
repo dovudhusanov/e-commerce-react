@@ -10,7 +10,7 @@ export const CartStyle = {
       @media screen and (max-width: 1070px) {
         flex-direction: column;
         align-items: center;
-        margin-top: 0;
+        margin-top: -20px;
       }
     `,
 
@@ -121,12 +121,19 @@ export const CartStyle = {
           @media screen and (max-width: 626px) {
             margin-top: 10px;
           }
+
+          & a {
+            color: #484848;
+
+            &:hover {
+              color: black;
+            }
+          }
         }
 
         & span {
           font-size: 14px;
           color: grey;
-          padding: 20px 0;
         }
 
         & div {
@@ -163,7 +170,7 @@ export const CartStyle = {
             color: var(--color-blue);
 
             ${(props) => {
-              if(props.whishlist) {
+              if (props.whishlist) {
                 return `
                 background-color: var(--color-blue);
                 color: white;
@@ -263,12 +270,15 @@ export const CartStyle = {
         margin-top: 0;
         margin-bottom: 20px;
       }
+    `,
 
-      & > div {
-        border-radius: 8px;
-        padding: 30px;
-        background: rgb(255, 255, 255);
-        box-shadow: rgb(0 0 0 / 7%) 0px 4px 20px;
+    Card: styled.div`
+      border-radius: 8px;
+      padding: 30px;
+      background: rgb(255, 255, 255);
+      box-shadow: rgb(0 0 0 / 7%) 0px 4px 20px;
+      @media screen and (max-width: 1070px) {
+        display: none;
       }
     `,
 
@@ -289,4 +299,45 @@ export const CartStyle = {
         }
       }
     `,
+
+    MobileBottomFooter: styled.div`
+      width: 100%;
+      position: fixed;
+      display: flex;
+      justify-content: space-between;
+      bottom: 0;
+      left: 0;
+      padding: 0.625rem 1rem;
+      z-index: 1;
+      box-shadow: 0 -1px 3px 0 rgb(0 0 0 / 10%), 0 -1px 2px 0 rgb(0 0 0 / 20%);
+      border-radius: 0;
+      align-items: center;
+      background-color: white;
+      
+      & button{
+        font-size: 12px!important;
+        padding: 10px 15px!important;
+      }
+      
+      @media screen and (min-width: 1071px) {
+        display: none;
+      }
+      
+      & > div{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        
+        & span{
+          font-size: .75rem;
+          color: #757575;
+          &:nth-child(2) {
+            font-weight: 600;
+            line-height: 1.75rem;
+            font-size: 1.25rem;
+            color: black;
+          }
+        }
+      }
+    `
 }

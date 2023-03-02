@@ -41,6 +41,14 @@
     height: 80%;
 }
 
+.mySwiper2 img{
+    cursor: grab;
+}
+
+.mySwiper2 img:active{
+    cursor: grabbing;
+}
+
 @media screen and (max-width: 1049px) {
     .mySwiper2{
         max-width: 100%;

@@ -33,8 +33,9 @@ function MobileSidebar({sModal, setSModal}) {
                 <CategoryButton onClick={() => setActive(prevState => !prevState)}>
                     <Icon><CategoryIcon /></Icon>
                     <IconName>Category</IconName>
-                    <DownArrow><i className="fa-regular fa-angle-down"></i></DownArrow>
+                    <DownArrow active={active}><i className="fa-regular fa-angle-down"></i></DownArrow>
                 </CategoryButton>
+                {active && <Split />}
                 <CategoryList active={active}>
                     {categoryList.map((list) => (
                         <CategoryLink id={list.id} onClick={() => setSModal(false)}>

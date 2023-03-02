@@ -5,22 +5,21 @@ import {useDispatch, useSelector} from "react-redux";
 import {deleteProductFromCart, addToCart, uploadProduct} from "../../action/ProductAction";
 import {ProductType} from "../../constants/ProductType";
 import {addWhishlist, deleteProductFromWhishlist, uploadWhishlist} from "../../action/WishlistAction";
+import {Link} from "react-router-dom";
 
 function CartProduct({
-     id,
-     image,
-     productName,
-     descr,
-     price,
-     quantity,
-     product,
-     setIsBuy,
-     checkbox,
-     setCheck,
-     isFavourite
-}){
-
-    const [save, setSave] = useState(false)
+                         id,
+                         image,
+                         productName,
+                         descr,
+                         price,
+                         quantity,
+                         product,
+                         setIsBuy,
+                         checkbox,
+                         setCheck,
+                         isFavourite
+                     }) {
 
     const dispatch = useDispatch()
 
@@ -61,11 +60,16 @@ function CartProduct({
                 <div>
                     <img src={image} alt={productName}/>
                     <div>
-                        <h3>{productName}</h3>
+                        <h3>
+                            <Link to={`/categories/${product.pathName}/${id}`}>
+                                {productName}
+                            </Link>
+                        </h3>
                         <span className="secondText">{descr}</span>
                         <div>
                             {whishlist.length !== 0 ? (
-                                <button onClick={handleRemoveWhishlist}><i className="fa-sharp fa-solid fa-heart"></i> Saved
+                                <button onClick={handleRemoveWhishlist}><i
+                                    className="fa-sharp fa-solid fa-heart"></i> Saved
                                 </button>
                             ) : (
                                 <button onClick={handleAddWhishlist}><i className="fa-sharp fa-solid fa-heart"></i> Save
