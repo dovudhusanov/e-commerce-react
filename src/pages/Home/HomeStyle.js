@@ -23,12 +23,6 @@ export const ProductStyle = {
         flex-basis: 50%;
         max-width: 50%;
       }
-
-      @media screen and (max-width: 360px) {
-        flex-basis: 80%;
-        max-width: 80%;
-        margin: 10px;
-      }
     `,
 
     Products: styled.div`
@@ -51,28 +45,6 @@ export const ProductStyle = {
       margin: 6px;
       position: relative;
       transition: 0.3s ease;
-      
-
-      //@media screen and (max-width: 620px) {
-      //  max-width: 200px;
-      //  margin: 20px 0;
-      //}
-      //
-      //@media screen and (max-width: 490px) {
-      //  max-width: 180px;
-      //}
-      //
-      //@media screen and (max-width: 400px) {
-      //  max-width: 170px;
-      //}
-      //
-      //@media screen and (max-width: 380px) {
-      //  max-width: 160px !important;
-      //}
-      //
-      //@media screen and (max-width: 359px) {
-      //  max-width: 100% !important;
-      //}
     }
 
     &:hover {
@@ -97,10 +69,6 @@ export const ProductStyle = {
         height: 130px !important;
       }
 
-      @media screen and (max-width: 360px) {
-        height: 170px!important;
-      }
-
     }
 
     @media screen and (max-width: 715px) {
@@ -112,7 +80,6 @@ export const ProductStyle = {
 
     @media screen and (max-width: 363px) {
       & button {
-        font-size: 10px !important;
         padding: 8px 6px;
       }
     }
@@ -133,7 +100,7 @@ export const ProductStyle = {
       }
 
       @media screen and (max-width: 380px) {
-        height: 110px;
+        height: 130px;
         padding: 5px 13px 15px 13px !important;
       }
 
@@ -190,14 +157,6 @@ export const ProductStyle = {
       @media screen and (max-width: 400px) {
         font-size: 11px;
       }
-
-      @media screen and (max-width: 380px) {
-        font-size: 12px;
-      }
-
-      @media screen and (max-width: 359px) {
-        font-size: 13px;
-      }
     }
 
     {`,
@@ -227,10 +186,6 @@ export const ProductStyle = {
 
       @media screen and (max-width: 380px) {
         top: 117px !important;
-      }
-      
-      @media screen and (max-width: 360px) {
-        top: 157px !important;
       }
     `
 }

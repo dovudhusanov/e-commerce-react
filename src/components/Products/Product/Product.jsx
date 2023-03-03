@@ -11,10 +11,28 @@ function Product({product}) {
 
     const dispatch = useDispatch()
 
+    const [isMobile, setIsMobile] = useState(false);
+
     useEffect(() => {
         dispatch(uploadProduct())
         dispatch(uploadWhishlist())
     }, [window.location.href])
+
+    useEffect(() => {
+        const mediaQuery = window.matchMedia('(max-width: 350px)');
+        setIsMobile(mediaQuery.matches);
+
+        const handleMediaQueryChange = (event) => {
+            setIsMobile(event.matches);
+        };
+
+        mediaQuery.addListener(handleMediaQueryChange);
+
+        return () => {
+            mediaQuery.removeListener(handleMediaQueryChange);
+        };
+    }, []);
+
 
     const whishlist = useSelector(state => state.WhishlistReducer.filter(whishlistFilter => whishlistFilter.id === product.id))
 
@@ -47,7 +65,7 @@ function Product({product}) {
 
         return (
             <Button productAdded={productAdded} style={{fontSize: "12px"}}
-                    onClick={(e) => handleAdd(e, productItem)}>{productAdded.length !== 0 ? "Added" : "Add to Cart"}</Button>
+                    onClick={(e) => handleAdd(e, productItem)}>{productAdded.length !== 0 ? "Added" : (isMobile ? "Add" : "Add to Cart")}</Button>
         );
     }
 
