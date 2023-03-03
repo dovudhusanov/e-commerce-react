@@ -273,10 +273,14 @@ export const CartStyle = {
     `,
 
     Card: styled.div`
+      position: sticky;
+      top: 2rem;
       border-radius: 8px;
       padding: 30px;
       background: rgb(255, 255, 255);
-      box-shadow: rgb(0 0 0 / 7%) 0px 4px 20px;
+      box-shadow: rgb(0 0 0 / 7%) 0 4px 20px;
+      margin-bottom: 70px;
+      
       @media screen and (max-width: 1070px) {
         display: none;
       }
