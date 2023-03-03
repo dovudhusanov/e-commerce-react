@@ -12,7 +12,6 @@ function Home() {
         <div className="container">
             <Products
                 products={products.products}
-                lenght={10}
             />
         </div>
     );

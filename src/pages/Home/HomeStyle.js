@@ -31,10 +31,6 @@ export const ProductStyle = {
       align-items: center;
       flex-wrap: wrap;
       margin-top: 50px;
-
-      @media screen and (max-width: 375px) {
-        justify-content: center;
-      }
     `,
 
     ProdcutCard: styled.div`

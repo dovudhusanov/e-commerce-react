@@ -32,6 +32,5 @@ export const SearchResultsStyle = {
 
     SearchProducts: styled.div`
       width: 100%;
-      display: flex;
     `
 }

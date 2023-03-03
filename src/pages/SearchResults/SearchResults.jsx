@@ -4,7 +4,7 @@ import {ScrollTop} from "../../middleware/scrollTop";
 import ChangeTitle from "../../middleware/changeTitle";
 import {SearchApi} from "../../api/SearchApi";
 import {useSelector} from "react-redux";
-import Product from "../../components/Products/Product/Product";
+import Products from "../../components/Products/Products";
 
 function SearchResults({searchParams}) {
     const [results, setResults] = useState([]);
@@ -25,6 +25,8 @@ function SearchResults({searchParams}) {
         product?.descr?.toLowerCase().includes(queryName.toLowerCase())
     );
 
+    filteredProducts.map(ma => console.log(ma))
+
     return (
         <div>
             {Object.keys(filteredProducts).length === 0 ? (
@@ -39,13 +41,9 @@ function SearchResults({searchParams}) {
                         <h1>Search Results by Query "{queryName}"</h1>
                         <SearchResultsStyle.Parent>
                             <SearchResultsStyle.SearchProducts>
-                                {filteredProducts?.map((result, index) => (
-                                    <Product
-                                        key={result.id}
-                                        product={result}
-                                        index={index}
-                                    />
-                                ))}
+                                <Products
+                                    products={filteredProducts}
+                                />
                             </SearchResultsStyle.SearchProducts>
                         </SearchResultsStyle.Parent>
                     </div>
