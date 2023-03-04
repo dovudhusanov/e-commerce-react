@@ -1792,9 +1792,175 @@ export const faqData = [
         id: 5,
         question: "How to change the phone number in the profile?\n",
         answer: "If you have changed your phone number, just register a new account. But remember: when you re-register, you will not be able to see information on old orders or leave reviews for them.\n"
-    },{
+    }, {
         id: 6,
         question: "Delivery Terms\n",
         answer: "The delivery date is always displayed during the payment of the order and immediately after it. We recommend paying attention to this. Delivery time depends on the distance of your city from the Uzum warehouse.\n"
+    },
+]
+
+export const filterData = [
+    {
+        id: 1,
+        items: [{
+            id: 1, title: "Color", item: [
+                {
+                    id: 1,
+                    color: "black",
+                    colorName: "black"
+                },
+                {
+                    id: 2,
+                    color: "cyan",
+                    colorName: "light blue"
+                },
+                {
+                    id: 3,
+                    color: "green",
+                    colorName: "green"
+                },
+                {
+                    id: 4,
+                    color: "grey",
+                    colorName: "grey"
+                },
+                {
+                    id: 5,
+                    color: "pink",
+                    colorName: "pink"
+                },
+                {
+                    id: 6,
+                    color: "white",
+                    colorName: "white"
+                },
+                {
+                    id: 7,
+                    color: "blue",
+                    colorName: "blue"
+                },
+                {
+                    id: 8,
+                    color: "red",
+                    colorName: "red"
+                },
+                {
+                    id: 9,
+                    color: "yellow",
+                    colorName: "yellow"
+                },
+                {
+                    id: 10,
+                    color: "coral",
+                    colorName: "brown"
+                },
+            ]
+        }]
+    },
+    {
+        id: 2,
+        items: [{
+            id: 2, title: "Size", item: [
+                {
+                    id: 1,
+                    size: "XS",
+                },
+                {
+                    id: 2,
+                    size: "S",
+                },
+                {
+                    id: 3,
+                    size: "M",
+                },
+                {
+                    id: 4,
+                    size: "L",
+                }
+            ]
+        }]
+    },
+    {
+        id: 3,
+        items: [{
+            id: 3, title: "Brand", item: [
+                {
+                    id: 1,
+                    brand: "Nike",
+                },
+                {
+                    id: 2,
+                    brand: "Adidas",
+                },
+                {
+                    id: 3,
+                    brand: "Puma",
+                },
+                {
+                    id: 4,
+                    brand: "Levi's",
+                },
+                {
+                    id: 5,
+                    brand: "Rebook",
+                },
+                {
+                    id: 6,
+                    brand: "H&M",
+                },
+                {
+                    id: 7,
+                    brand: "Ck",
+                },
+                {
+                    id: 8,
+                    brand: "Gucci",
+                },
+                {
+                    id: 9,
+                    brand: "Supreme",
+                },
+                {
+                    id: 10,
+                    brand: "Polo",
+                },
+            ]
+        }]
+    },
+    {
+        id: 4,
+        items: [{
+            id: 4, title: "Price", item: [
+                {
+                    id: 1,
+                    price: 1200,
+                },
+                {
+                    id: 2,
+                    priceFrom: 600,
+                    priceTo: 1200
+                },
+                {
+                    id: 3,
+                    priceFrom: 300,
+                    priceTo: 600
+                },
+                {
+                    id: 4,
+                    priceFrom: 150,
+                    priceTo: 300
+                },
+                {
+                    id: 5,
+                    priceFrom: 50,
+                    priceTo: 150
+                },
+                {
+                    id: 6,
+                    priceFrom: 7,
+                    priceTo: 50
+                },
+            ]
+        }]
     },
 ]

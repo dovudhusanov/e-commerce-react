@@ -14,3 +14,25 @@ export const Location = styled.span`
     }
   }
 `
+
+export const Title = styled.h2`
+  text-align: center;
+  color: var(--color-black);
+  font-size: 30px;
+  position: relative;
+  top: -10px;
+`
+
+export const FilterButton = styled.button`
+  background-color: transparent;
+  border: none;
+  font-size: 16px;
+  color: #5e5e5e;
+  text-transform: uppercase;
+  font-weight: 500;
+  cursor: pointer;
+  
+  & i {
+    color: var(--color-blue);
+  }
+`
