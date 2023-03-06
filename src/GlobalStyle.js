@@ -45,10 +45,6 @@ const GlobalStyles = createGlobalStyle`
     max-width: 1210px;
   }
   
-  .main-app{
-    margin-top: 70px;
-  }
-  
   @media screen and (max-width: 820px) {
     .main-app{
       margin-top: 15px;

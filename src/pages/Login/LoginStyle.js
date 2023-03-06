@@ -11,7 +11,6 @@ export const AuthStyle = {
       max-width: 550px;
       width: 550px;
       padding: 20px;
-      margin-top: 50px;
 
       & h1 {
         color: var(--color-black);

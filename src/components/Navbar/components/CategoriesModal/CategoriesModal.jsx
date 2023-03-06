@@ -1,7 +1,7 @@
 import React from 'react';
 import {CategoryModal, CategoryModalItems} from "./CategoryCaegorie.styled";
 import {NavLink} from "react-router-dom";
-import {categoryList} from "../../../data/data";
+import {categoryList} from "../../../../data/data";
 
 function CategoriesModal({showCategories, setShowCategories}) {
     return (

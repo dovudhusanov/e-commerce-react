@@ -3,7 +3,7 @@ import axios from "axios";
 const api_url = process.env.API_URL
 
 const axiosInstance = axios.create({
-    baseURL: `https://3de1-94-141-68-175.ap.ngrok.io`,
+    baseURL: `https://abdusattor0707.pythonanywhere.com`,
 });
 
 axiosInstance.interceptors.response.use((response) => response,
@@ -13,16 +13,16 @@ axiosInstance.interceptors.response.use((response) => response,
         if (
             error.response.status === 401 &&
             !originalRequest._retry &&
-            localStorage.getItem('refresh_token')
+            localStorage.getItem('refresh')
         ) {
             originalRequest._retry = true;
             try {
-                const response = await axios.post('/account/refresh', {
-                    refresh_token: localStorage.getItem('refresh_token'),
+                const response = await axios.post('/account/refresh/', {
+                    refresh: localStorage.getItem('refresh'),
                 });
-                localStorage.setItem('access_token', response.data.access_token);
+                localStorage.setItem('access', response.data.access);
                 axiosInstance.defaults.headers.common['Authorization'] =
-                    'Bearer ' + response.data.access_token;
+                    'Bearer ' + response.data.access;
                 return axiosInstance(originalRequest);
             } catch (error) {
                 console.log(error);

@@ -13,9 +13,9 @@ import {
     Split, CategoryList, CategoryLink
 } from "./MobileSidear.styles";
 import {Link} from "react-router-dom";
-import {categoryList} from "../../../data/data";
+import {categoryList} from "../../../../data/data";
 import MobileInnerBtn from "./MobileInnerBtn/MobileInnerBtn";
-import {CategoryIcon, ContactUs, FAQ, MyOrder, Whishlist} from "../../../assets/icons";
+import {CategoryIcon, ContactUs, FAQ, MyOrder, Whishlist} from "../../../../assets/icons";
 
 function MobileSidebar({sModal, setSModal}) {
 

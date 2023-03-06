@@ -31,6 +31,8 @@ export const FilterButton = styled.button`
   text-transform: uppercase;
   font-weight: 500;
   cursor: pointer;
+  position: relative;
+  top: 10px;
   
   & i {
     color: var(--color-blue);

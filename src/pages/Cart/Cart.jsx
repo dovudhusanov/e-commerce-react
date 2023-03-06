@@ -4,11 +4,10 @@ import CartProduct from "./CartProduct";
 import {Link} from "react-router-dom";
 import Button from "../../components/Button/Button";
 import {USDollar} from "../../middleware/PriceFormatter";
-import {ScrollTop} from "../../middleware/scrollTop";
-import ChangeTitle from "../../middleware/changeTitle";
 import {useDispatch, useSelector} from "react-redux";
 import {totalPriceBuilder} from "../../reducer/ProductReducer";
 import {uploadProduct} from "../../action/ProductAction";
+import {ChangeTitle, ScrollTop} from "../../middleware";
 
 function Cart() {
 

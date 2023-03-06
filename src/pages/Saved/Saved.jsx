@@ -6,8 +6,12 @@ import {uploadWhishlist} from "../../action/WishlistAction";
 import {NotFoundPageStyle} from "../NotFound/NotFoundPage/NotFoundPageStyle";
 import {Link} from "react-router-dom";
 import img from "../../assets/whishlist-empty.png"
+import {ChangeTitle, ScrollTop} from "../../middleware";
 
 function Saved() {
+
+    ScrollTop()
+    ChangeTitle("My Whishlist")
 
     const whishlist = useSelector(state => state.WhishlistReducer)
     console.log(whishlist)

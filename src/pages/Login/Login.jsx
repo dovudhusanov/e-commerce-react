@@ -4,11 +4,10 @@ import "./LoginStyle.css"
 import {useDispatch} from "react-redux";
 import {loginFailure, loginStart, loginSuccess} from "../../action/AuthLoginAction";
 import {LoginApi} from "../../api/LoginApi";
-import {Link} from "react-router-dom";
-import {ScrollTop} from "../../middleware/scrollTop";
-import ChangeTitle from "../../middleware/changeTitle";
+import {Link, useNavigate} from "react-router-dom";
 import * as Yup from "yup";
 import {ErrorMessage, Field, Form, Formik} from "formik";
+import {ChangeTitle, ScrollTop} from "../../middleware";
 
 function Login() {
 
@@ -36,12 +35,18 @@ function Login() {
 
     const dispatch = useDispatch()
 
+    const navigate = useNavigate()
+
     const handleSubmit = async (values) => {
         dispatch(loginStart());
         try {
             const {phoneNumber, password} = values
-            const user = await LoginApi({phone: "+998" + phoneNumber, password})
-            dispatch(loginSuccess(user.data))
+            const response = await LoginApi({phone: "+998" + phoneNumber, password})
+            dispatch(loginSuccess(response.data))
+            const {access, refresh} = response.data
+            localStorage.setItem('access', access);
+            localStorage.setItem('refresh', refresh);
+            navigate("/")
         } catch (error) {
             console.log(error)
             dispatch(loginFailure())

@@ -1,7 +1,7 @@
 import React, {useCallback, useRef, useState} from 'react';
 import {SearchBarStyle} from "./SearchBarStyle"
 import {useNavigate} from "react-router-dom";
-import {ScrollTop} from "../../../middleware/scrollTop";
+import {ScrollTop} from "../../../../middleware";
 
 function SearchBar({setShowCategories}) {
     const [query, setQuery] = useState('');

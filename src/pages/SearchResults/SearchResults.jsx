@@ -1,10 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import {SearchResultsStyle} from "./SearchResultsStyle";
-import {ScrollTop} from "../../middleware/scrollTop";
-import ChangeTitle from "../../middleware/changeTitle";
 import {SearchApi} from "../../api/SearchApi";
 import {useSelector} from "react-redux";
 import Products from "../../components/Products/Products";
+import {ChangeTitle, ScrollTop} from "../../middleware";
 
 function SearchResults({searchParams}) {
     const [results, setResults] = useState([]);

@@ -2,9 +2,20 @@ import React, {useState} from 'react';
 import OtpInput from 'react18-input-otp';
 import {VerifyApi} from "../../api/VerifyApi";
 import {VerifyCodeStyle} from "./VerifyCodeStyle";
+import {ChangeTitle} from "../../middleware";
+import {signFailure, signSuccess} from "../../action/SignupAction";
+import {useDispatch} from "react-redux";
+import {useNavigate} from "react-router-dom";
 
-export default function VerifyCode() {
+export default function VerifyCode({phone}) {
+
+    ChangeTitle("Verify your phone number")
+
     const [otp, setOtp] = useState('');
+
+    const dispatch = useDispatch()
+
+    const navigate = useNavigate()
 
     const handleChange = (enteredOtp) => {
         setOtp(enteredOtp);
@@ -13,10 +24,15 @@ export default function VerifyCode() {
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
-            const verifyCode = await VerifyApi(otp)
-            console.log(verifyCode)
-        } catch (e) {
-            console.log(e)
+            const response = await VerifyApi({phone: "+998" + phone, code: otp})
+            dispatch(signSuccess(response.data))
+            const {access, refresh} = response.data;
+            localStorage.setItem('access', access);
+            localStorage.setItem('refresh', refresh);
+            navigate("/")
+        } catch (error) {
+            dispatch(signFailure(error))
+            console.log(error)
         }
     }
 
@@ -31,6 +47,7 @@ export default function VerifyCode() {
                     shouldAutoFocus
                     value={otp}
                     separator={<span>-</span>}
+                    numInputs={6}
                 />
                 <button type="submit">Send</button>
             </VerifyCodeStyle.Form>

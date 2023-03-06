@@ -10,12 +10,14 @@ export const NotFoundPageStyle = {
       flex-direction: column;
       margin-top: 150px;
       background-color: white;
-      position: absolute;
-      top: 0;
-      left: 0;
+      
+      & img{
+        width: 300px;
+      }
 
       & h1 {
-        font-size: 38px;
+        font-size: 20px;
+        margin-top: 15px;
         color: #a9a9a9;
 
         @media screen and (max-width: 425px) {

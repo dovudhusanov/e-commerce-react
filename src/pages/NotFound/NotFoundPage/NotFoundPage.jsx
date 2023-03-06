@@ -1,8 +1,8 @@
 import React, {useEffect} from 'react';
 import {NotFoundPageStyle} from "./NotFoundPageStyle";
 import {Link, useNavigate} from "react-router-dom";
-import ChangeTitle from "../../../middleware/changeTitle";
 import {Button} from "../../../components";
+import {ChangeTitle} from "../../../middleware";
 
 function NotFoundPage() {
 

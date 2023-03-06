@@ -20,10 +20,9 @@ import SliderSwiper from "./SliderSwiper/SliderSwiper";
 import {Button} from "../index";
 import {USDollar} from "../../middleware/PriceFormatter";
 import {addToCart, deleteProductFromCart, uploadProduct} from "../../action/ProductAction";
-import {ScrollTop} from "../../middleware/scrollTop";
-import changeTitle from "../../middleware/changeTitle";
 import {NotFoundPage} from "../../pages";
 import {addWhishlist, deleteProductFromWhishlist, uploadWhishlist} from "../../action/WishlistAction";
+import {ChangeTitle, ScrollTop} from "../../middleware";
 
 function ProductDetails() {
 
@@ -37,7 +36,7 @@ function ProductDetails() {
         .filter(productFiltered => productFiltered.pathName == category)
         .filter(product => product.id == productId)
 
-    changeTitle(product?.map(name => name.productName))
+    ChangeTitle(product?.map(name => name.productName))
 
     const filterWithQuantity = useSelector( state=> state.ProductReducer.filter((id) => id.id == productId)) || null
 

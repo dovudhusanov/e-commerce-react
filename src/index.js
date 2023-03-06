@@ -5,7 +5,6 @@ import {BrowserRouter} from "react-router-dom";
 import {Provider} from "react-redux";
 import {store} from "./store/configStore";
 import GlobalStyles from "./GlobalStyle";
-import ScrollToTop from "./middleware/scrollToTop/scrollToTop";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -14,7 +13,6 @@ root.render(
             <BrowserRouter>
                 <GlobalStyles />
                 <App/>
-                <ScrollToTop />
             </BrowserRouter>
         </Provider>
     </React.StrictMode>

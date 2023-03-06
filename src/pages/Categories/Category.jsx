@@ -2,11 +2,10 @@ import React, {useState} from 'react';
 import {Link, useParams} from "react-router-dom";
 import {useSelector} from "react-redux";
 import {Products} from "../../components";
-import {ScrollTop} from "../../middleware/scrollTop";
-import changeTitle from "../../middleware/changeTitle";
 import {Location} from "../../components/ProductDetails/ProductDetails.styles";
 import {FilterButton, Title} from "./Categories.styled";
 import FilterCategory from "./FilterCategory/FilterCategory";
+import {ChangeTitle, ScrollTop} from "../../middleware";
 
 function Category() {
 
@@ -16,7 +15,7 @@ function Category() {
 
     ScrollTop()
 
-    changeTitle(categoryName.split("-").join(" "))
+    ChangeTitle(categoryName.split("-").join(" "))
 
     const products = useSelector(state => state.ProductsReducer)
 

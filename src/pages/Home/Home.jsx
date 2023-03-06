@@ -1,13 +1,13 @@
 import React from 'react';
-import {ScrollTop} from "../../middleware/scrollTop";
-import ChangeTitle from "../../middleware/changeTitle";
 import {useSelector} from "react-redux";
 import {Products} from "../../components";
+import {ChangeTitle, ScrollTop} from "../../middleware";
 
 function Home() {
     ScrollTop();
     ChangeTitle("E-Commerce")
-    const products = useSelector(state => state.ProductsReducer)
+    const products = useSelector(state => state.ProductsReducer);
+
     return (
         <div className="container">
             <Products

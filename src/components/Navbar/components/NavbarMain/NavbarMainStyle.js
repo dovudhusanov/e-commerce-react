@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const NavbarStyle = {
+export const NavbarMainStyle = {
     Navbar: styled.div`
       width: 100%;
       padding: 13px 0 55px 0;
