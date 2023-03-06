@@ -29,7 +29,6 @@ export default function VerifyCode({phone}) {
             const {access, refresh} = response.data;
             localStorage.setItem('access', access);
             localStorage.setItem('refresh', refresh);
-            navigate("/")
         } catch (error) {
             dispatch(signFailure(error))
             console.log(error)
