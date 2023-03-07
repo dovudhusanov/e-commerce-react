@@ -9,10 +9,10 @@ function Profile() {
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
-    const ref = localStorage.getItem("refresh")
+    const refresh = localStorage.getItem("refresh")
 
     async function handleLogout() {
-        const res = await LogoutApi(ref)
+        const res = await LogoutApi({refresh: refresh})
         console.log(res)
         localStorage.removeItem("access");
         localStorage.removeItem("refresh")
