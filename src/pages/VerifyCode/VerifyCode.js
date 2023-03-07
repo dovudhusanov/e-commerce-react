@@ -26,7 +26,6 @@ export default function VerifyCode({phone}) {
         try {
             const response = await VerifyApi({phone: "+998" + phone, code: otp})
             dispatch(signSuccess(response.data))
-            const {access, refresh} = response.data;
             console.log(response)
             navigate("/login")
         } catch (error) {
