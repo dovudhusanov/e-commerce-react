@@ -88,6 +88,13 @@ export const AuthStyle = {
       top: 7px!important;
     `,
 
+    Error: styled.span`
+      color: red;
+      font-size: 15px;
+      text-align: center;
+      display: block;
+    `,
+
     Button: styled.button`
       color: var(--color-white);
       border-radius: 10px;

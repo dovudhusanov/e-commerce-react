@@ -15,7 +15,16 @@ function App() {
         if (window.location.pathname === "/search" && window.location.search === "?query=" || window.location.search === "?query") {
             navigate("/")
         }
-    }, [navigate])
+
+        if(localStorage.getItem("access") && window.location.pathname === "/login") {
+            navigate("/")
+        }
+
+        if(localStorage.getItem("access") && window.location.pathname === "/signup") {
+            navigate("/")
+        }
+    }, [window.location, navigate])
+
 
     return (
         <>
@@ -24,16 +33,20 @@ function App() {
                     <Route path="/" element={<Home/>}/>
                     <Route path="/faq" element={<FAQ/>}/>
                     <Route path="/my-orders" element={<MyOrders/>}/>
-                    <Route path="/profile" element={<Profile />} />
+                    <Route path="/wishlist" element={<Saved/>}/>
+                    {localStorage.getItem("access") && <Route path="/profile" element={<Profile />} />}
                     <Route path="/categories/:categoryName" element={<Categories/>}/>
                     <Route path="categories/:category/:productId" element={<ProductDetails/>}/>
                     <Route path="/cart" element={<Cart/>}/>
-                    <Route path="/wishlist" element={<Saved/>}/>
                     <Route path="/search" element={<SearchResults
                         searchParams={new URLSearchParams(window.location.search).get("query")}/>}/>
-                    <Route path="/signup" element={<Signup/>}/>
-                    <Route path="/login" element={<Login/>}/>
-                    <Route path="/verify-phone-number" element={<VerifyCode/>}/>
+                    {!localStorage.getItem("access") && (
+                        <>
+                            <Route path="/signup" element={<Signup/>}/>
+                            <Route path="/login" element={<Login/>}/>
+                            <Route path="/verify-phone-number" element={<VerifyCode/>}/>
+                        </>
+                    )}
                     <Route path="/*" element={<NotFoundPage/>}/>
                 </Routes>
             </BaseLayout>

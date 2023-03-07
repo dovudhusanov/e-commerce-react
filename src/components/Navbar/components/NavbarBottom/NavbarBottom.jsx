@@ -1,11 +1,11 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
     NavbarBottomStyle,
     NavbarBottomRight,
     CategoryButton,
     NavbarBottomItem, CartLength
 } from "./NavbarBottomStyle";
-import {NavLink} from "react-router-dom";
+import {NavLink, useNavigate} from "react-router-dom";
 import {useSelector} from "react-redux";
 import CategoriesModal from "../CategoriesModal/CategoriesModal";
 import BtnCategoryIcon from "../CategoryIcon";
@@ -27,6 +27,16 @@ function NavbarBottom() {
     window.addEventListener("click", () => {
         setShowCategories(false)
     })
+
+    const navigate = useNavigate()
+
+    useEffect(() => {
+        if(!localStorage.getItem("access") && window.location.pathname === "/wishlist") {
+            navigate("/login")
+        } else if(!localStorage.getItem("access") && window.location.pathname === "/my-orders") {
+            navigate("/login")
+        }
+    }, [window.location, navigate])
 
     return (
         <NavbarBottomStyle.NavbarBottom>

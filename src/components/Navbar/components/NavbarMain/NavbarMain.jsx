@@ -32,7 +32,7 @@ function NavbarMain() {
                         <NavbarMainStyle.SearchBar>
                             <SearchBar/>
                         </NavbarMainStyle.SearchBar>
-                        <NavbarMainStyle.NavbarRight>
+                        <NavbarMainStyle.NavbarRight user={localStorage.getItem("access")}>
                             {localStorage.getItem("access") ? (
                                 <NavLink to="/profile"><Button>Profile</Button></NavLink>
                             ) : (

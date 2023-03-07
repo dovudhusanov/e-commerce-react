@@ -46,10 +46,7 @@ function Signup() {
         dispatch(signStart())
         try {
             const {phoneNumber, password} = value
-            const response = await SignupApi({phone: "+998" + phoneNumber, password})
-            const {access, refresh} = response.data;
-            localStorage.setItem('access', access);
-            localStorage.setItem('refresh', refresh);
+            await SignupApi({phone: "+998" + phoneNumber, password})
             setIsPhoneNumberSubmitted(true)
         } catch (error) {
             console.log(error)

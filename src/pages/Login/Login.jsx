@@ -8,6 +8,7 @@ import {Link, useNavigate} from "react-router-dom";
 import * as Yup from "yup";
 import {ErrorMessage, Field, Form, Formik} from "formik";
 import {ChangeTitle, ScrollTop} from "../../middleware";
+import axiosInstance from "../../api";
 
 function Login() {
 
@@ -32,6 +33,7 @@ function Login() {
     };
 
     const [showPass, setShowPass] = useState(false)
+    const [error, setError] = useState(false)
 
     const dispatch = useDispatch()
 
@@ -46,10 +48,12 @@ function Login() {
             const {access, refresh} = response.data
             localStorage.setItem('access', access);
             localStorage.setItem('refresh', refresh);
+            axiosInstance.defaults.headers.common['Authorization'] = `Bearer ${access}`;
             navigate("/")
         } catch (error) {
             console.log(error)
             dispatch(loginFailure())
+            setError(true)
         }
     }
 
@@ -102,6 +106,7 @@ function Login() {
                                     <ErrorMessage name="password" component={TextError}/>
                                 </AuthStyle.Input>
                             </AuthStyle.InputParent>
+                            <AuthStyle.Error>{error && "Phone number or password is incorrect"}</AuthStyle.Error>
                             <AuthStyle.Button type="submit">Login</AuthStyle.Button>
                             <AuthStyle.BottomText>Create an account <Link to="/signup">Sign
                                 Up</Link></AuthStyle.BottomText>

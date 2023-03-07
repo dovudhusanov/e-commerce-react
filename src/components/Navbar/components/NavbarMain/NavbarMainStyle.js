@@ -73,6 +73,14 @@ export const NavbarMainStyle = {
       justify-content: space-between;
       align-content: center;
       width: 152px;
+      
+      ${(props) => {
+          if(props.user) {
+              return `
+                 width: initial;
+              `
+          }
+      }}
 
       & .icon-nav {
         position: relative;
@@ -106,6 +114,16 @@ export const NavbarMainStyle = {
         & .icon-nav {
           display: block;
         }
+
+        ${(props) => {
+          if(props.user) {
+            return `
+                 & .icon-nav {
+                    display: none !important;
+                   }
+              `
+          }
+        }}
       }
 
       & button {
