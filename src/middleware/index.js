@@ -1,3 +1,3 @@
-export {default as ChangeTitle} from "./changeTitle";
-export {default as ScrollTop} from "./scrollTop";
-export {default as ScrollToTop} from "./scrollToTop/scrollToTop"
+export {default as ChangeTitle} from "./change-title";
+export {default as ScrollTop} from "./scroll-top";
+export {default as ScrollToTop} from "./scroll-to-top/scrollToTop"

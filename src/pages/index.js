@@ -1,10 +1,10 @@
-export {default as Home} from "./Home/Home";
-export {default as Cart} from "./Cart/Cart";
-export {default as Saved} from "./Saved/Saved";
-export {default as Login} from "./Login/Login";
-export {default as Signup} from "./Signup/Signup";
-export {default as VerifyCode} from "./VerifyCode/VerifyCode";
-export {default as SearchResults} from "./SearchResults/SearchResults";
-export {default as Categories} from "./Categories/Category";
-
-export {default as NotFoundPage} from "./NotFound/NotFoundPage/NotFoundPage";
+export {default as Home} from "./home/home";
+export {default as Cart} from "./cart/cart";
+export {default as Saved} from "./saved/saved";
+export {default as Login} from "./login/login";
+export {default as Signup} from "./signup/signup";
+export {default as VerifyCode} from "./verify-code/verify-code";
+export {default as Profile} from "./profile/profile"
+export {default as SearchResults} from "./search-results/search-results";
+export {default as Categories} from "./categories/category";
+export {default as NotFoundPage} from "./not-found/not-found-page/not-found-page";

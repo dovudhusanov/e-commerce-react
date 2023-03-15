@@ -6,34 +6,19 @@ const axiosInstance = axios.create({
     baseURL: `https://abdusattor0707.pythonanywhere.com`,
 });
 
-axiosInstance.interceptors.response.use(
-    (response) => response,
-    async (error) => {
-        const originalRequest = error.config;
-        if (
-            error.response.status === 401 &&
-            !originalRequest._retry &&
-            localStorage.getItem('refresh')
-        ) {
-            originalRequest._retry = true;
-            try {
-                const response = await axiosInstance.post('/account/refresh/', {
-                    refresh: localStorage.getItem('refresh'),
-                });
-                localStorage.setItem('access', response.data.access);
-                axiosInstance.defaults.headers.common['Authorization'] =
-                    'Bearer ' + response.data.access;
-                originalRequest.headers['Authorization'] = 'Bearer ' + response.data.access; // add this line to set Authorization header for the original request
-                return axiosInstance(originalRequest);
-            } catch (error) {
-                console.log(error);
-            }
+axiosInstance.interceptors.request.use((req, error) => {
+    if (localStorage.getItem("access")) {
+        req.headers = {
+            Authorization: `Bearer ${localStorage.getItem("access")}`
         }
-
-        return Promise.reject(error);
     }
-);
 
+    return req;
+
+    if(error) {
+        return  Promise.reject(error)
+    }
+});
 
 export default axiosInstance;
 

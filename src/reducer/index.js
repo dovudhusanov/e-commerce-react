@@ -1,9 +1,9 @@
 import {combineReducers} from "redux";
-import {LoginReducer} from "./LoginReducer";
-import {SignupReducer} from "./SignupReducer"
-import {ProductsReducer} from "./ProductsReducer";
-import {ProductReducer} from "./ProductReducer";
-import {WhishlistReducer} from "./WhishlistReducer";
+import {LoginReducer} from "./login-reducer";
+import {SignupReducer} from "./signup-reducer"
+import {ProductsReducer} from "./products-reducer";
+import {ProductReducer} from "./product-reducer";
+import {WhishlistReducer} from "./whishlist-reducer";
 export const rootReducer = combineReducers({
     LoginReducer: LoginReducer,
     SignupReducer: SignupReducer,

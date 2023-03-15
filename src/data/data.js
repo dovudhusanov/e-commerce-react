@@ -322,7 +322,7 @@ export const products = [
         ],
         descr: "Wet Fruits",
         price: "22",
-        category: "Food Products",
+        category: "Food products",
         quantity: 1,
         selected: true,
         isFavourite: false,
@@ -333,7 +333,7 @@ export const products = [
     },
     {
         id: 9,
-        productName: "Sports Products",
+        productName: "Sports products",
         image: img8,
         sliderImages: [
             {
@@ -361,7 +361,7 @@ export const products = [
                 image: img5
             },
         ],
-        descr: "Sports Products for you",
+        descr: "Sports products for you",
         price: "310",
         category: "Sports product",
         quantity: 1,
@@ -497,7 +497,7 @@ export const products = [
         RAM: "4GB"
     }, {
         id: 13,
-        productName: "Sports Products",
+        productName: "Sports products",
         image: img8,
         sliderImages: [
             {
@@ -525,7 +525,7 @@ export const products = [
                 image: img5
             },
         ],
-        descr: "Sports Products for you",
+        descr: "Sports products for you",
         price: "310",
         category: "Sports product",
         quantity: 1,
@@ -537,7 +537,7 @@ export const products = [
         RAM: "4GB"
     }, {
         id: 14,
-        productName: "Sports Products",
+        productName: "Sports products",
         image: img8,
         sliderImages: [
             {
@@ -565,7 +565,7 @@ export const products = [
                 image: img5
             },
         ],
-        descr: "Sports Products for you",
+        descr: "Sports products for you",
         price: "310",
         category: "Sports product",
         quantity: 1,
@@ -577,7 +577,7 @@ export const products = [
         RAM: "4GB"
     }, {
         id: 15,
-        productName: "Sports Products",
+        productName: "Sports products",
         image: img8,
         sliderImages: [
             {
@@ -605,7 +605,7 @@ export const products = [
                 image: img5
             },
         ],
-        descr: "Sports Products for you",
+        descr: "Sports products for you",
         price: "310",
         category: "Sports product",
         quantity: 1,
@@ -1062,7 +1062,7 @@ export const products = [
         ],
         descr: "Wet Fruits",
         price: "22",
-        category: "Food Products",
+        category: "Food products",
         quantity: 1,
         selected: true,
         isFavourite: false,
@@ -1102,7 +1102,7 @@ export const products = [
         ],
         descr: "Wet Fruits",
         price: "22",
-        category: "Food Products",
+        category: "Food products",
         quantity: 1,
         selected: true,
         isFavourite: false,
@@ -1144,7 +1144,7 @@ export const products = [
         ],
         descr: "Wet Fruits",
         price: "22",
-        category: "Food Products",
+        category: "Food products",
         quantity: 1,
         selected: true,
         isFavourite: false,

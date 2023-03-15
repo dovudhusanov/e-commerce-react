@@ -1,5 +1,5 @@
-export {default as Navbar} from "./Navbar";
-export {default as Footer} from "./Footer";
-export {default as Products} from "./Products/Products";
-export {default as Button} from "./Button/Button";
-export {default as ProductDetails} from "./ProductDetails/ProductDetails"
+export {default as Navbar} from "./navbar";
+export {default as Footer} from "./footer";
+export {default as Products} from "./products/products";
+export {default as Button} from "./button/button";
+export {default as ProductDetails} from "./product-details/product-details"
