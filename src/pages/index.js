@@ -4,7 +4,6 @@ export {default as Saved} from "./saved/saved";
 export {default as Login} from "./login/login";
 export {default as Signup} from "./signup/signup";
 export {default as VerifyCode} from "./verify-code/verify-code";
-export {default as Profile} from "./profile/profile"
 export {default as SearchResults} from "./search-results/search-results";
 export {default as Categories} from "./categories/category";
 export {default as NotFoundPage} from "./not-found/not-found-page/not-found-page";

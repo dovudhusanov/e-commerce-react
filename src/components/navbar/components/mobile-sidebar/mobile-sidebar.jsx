@@ -15,7 +15,7 @@ import {
 import {Link} from "react-router-dom";
 import {categoryList} from "../../../../data/data";
 import MobileInnerBtn from "./mobile-inner-btn/mobile-inner-btn";
-import {CategoryIcon, ContactUs, FAQ, MyOrder, Whishlist} from "../../../../assets/icons";
+import {CategoryIcon, ContactUs, FAQ, MyOrder, Whishlist} from "../../../../icons";
 
 function MobileSidebar({sModal, setSModal}) {
 

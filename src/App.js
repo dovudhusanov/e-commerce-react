@@ -3,9 +3,8 @@ import {Home, Signup, Login, VerifyCode, NotFoundPage, SearchResults, Categories
 import {ProductDetails} from "./components";
 import {Route, Routes, useNavigate} from "react-router-dom";
 import FAQ from "./pages/faq/faq";
-import MyOrders from "./pages/my-orders/my-orders";
 import {BaseLayout} from "./layout/base-layout";
-import Profile from "./pages/profile/profile";
+import {MyInfos, MyOrders, Settings} from "./pages/profile";
 
 function App() {
 
@@ -15,13 +14,17 @@ function App() {
         if (window.location.pathname === "/search" && window.location.search === "?query=" || window.location.search === "?query") {
             navigate("/")
         }
-
-        if(localStorage.getItem("access") && window.location.pathname === "/login") {
+        if (localStorage.getItem("access") && window.location.pathname === "/login") {
             navigate("/")
         }
-
-        if(localStorage.getItem("access") && window.location.pathname === "/signup") {
+        if (localStorage.getItem("access") && window.location.pathname === "/signup") {
             navigate("/")
+        }
+        if (localStorage.getItem("access") && window.location.pathname === "/user") {
+            navigate("/user/info")
+        }
+        if (localStorage.getItem("access") && window.location.pathname === "/profile") {
+            navigate("/user/info")
         }
     }, [window.location, navigate])
 
@@ -32,9 +35,16 @@ function App() {
                 <Routes>
                     <Route path="/" element={<Home/>}/>
                     <Route path="/faq" element={<FAQ/>}/>
-                    <Route path="/my-orders" element={<MyOrders/>}/>
                     <Route path="/wishlist" element={<Saved/>}/>
-                    {localStorage.getItem("access") && <Route path="/profile" element={<Profile />} />}
+                    {localStorage.getItem("access") && (
+                        <>
+                            <Route path="/user" element={<MyInfos />} />
+                            <Route path="/profile" element={<MyInfos />} />
+                            <Route path="/user/my-orders" element={<MyOrders/>}/>
+                            <Route path="/user/info" element={<MyInfos />} />
+                            <Route path="/user/settings" element={<Settings />} />
+                        </>
+                    )}
                     <Route path="/categories/:categoryName" element={<Categories/>}/>
                     <Route path="categories/:category/:productId" element={<ProductDetails/>}/>
                     <Route path="/cart" element={<Cart/>}/>
