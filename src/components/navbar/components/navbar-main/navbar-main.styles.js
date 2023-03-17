@@ -73,23 +73,50 @@ export const NavbarMainStyles = {
       justify-content: space-between;
       align-content: center;
       width: 152px;
-      
+
+      & .user-cart {
+        position: relative;
+        display: none;
+        margin-left: 7px;
+
+        & p {
+          left: 20px; 
+          top: 2px;
+        }
+
+        @media screen and (max-width: 820px) {
+          display: block;
+        }
+        
+        @media screen and (max-width: 590px) {
+          & p {
+            left: 15px;
+            top: 0;
+            width: 14px;
+            height: 14px;
+          }
+        }
+
+        & i {
+          padding-right: 0;
+        }
+      }
+
       ${(props) => {
-          if(props.user) {
-              return `
+        if (props.user) {
+          return `
                  width: initial;
               `
-          }
+        }
       }}
-
       & .icon-nav {
         position: relative;
         display: none;
         margin-left: 7px;
-        
-        &:hover{
-          & p{
-            background-color: white!important;
+
+        &:hover {
+          & p {
+            background-color: white !important;
             color: var(--color-blue);
           }
         }
@@ -116,7 +143,7 @@ export const NavbarMainStyles = {
         }
 
         ${(props) => {
-          if(props.user) {
+          if (props.user) {
             return `
                  & .icon-nav {
                     display: none !important;
@@ -135,8 +162,9 @@ export const NavbarMainStyles = {
           background-color: var(--color-blue);
           color: white;
         }
-        & p{
-          background-color: white!important;
+
+        & p {
+          background-color: white !important;
           color: var(--color-blue);
         }
       }

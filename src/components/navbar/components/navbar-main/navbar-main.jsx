@@ -34,24 +34,35 @@ function NavbarMain() {
                         </NavbarMainStyles.SearchBar>
                         <NavbarMainStyles.NavbarRight user={localStorage.getItem("access")}>
                             {localStorage.getItem("access") ? (
-                                <NavLink to="/user/info"><Button>Profile</Button></NavLink>
+                                <>
+                                    <NavLink to="/user/info"><Button>Profile</Button></NavLink>
+                                    <NavLink to="/cart" className="user-cart">
+                                        {productLength?.length === 0 || state?.length === 0 ? null : (
+                                            <CartLength
+                                                className="cart-length">{productLength?.length || state?.length}</CartLength>
+                                        )}
+                                        <Button><i className="fa-light fa-cart-shopping"></i></Button></NavLink>
+                                </>
                             ) : (
                                 <>
-                                    <NavLink to="/login" className="auth-icon"><Button><span>Log in</span></Button></NavLink>
-                                    <NavLink to="/signup" className="auth-icon"><Button><span>Sign up</span></Button></NavLink>
+                                    <NavLink to="/login"
+                                             className="auth-icon"><Button><span>Log in</span></Button></NavLink>
+                                    <NavLink to="/signup"
+                                             className="auth-icon"><Button><span>Sign up</span></Button></NavLink>
                                 </>
                             )}
                             <NavLink to="/login" className="icon-nav"><Button><i
                                 className="fa-regular fa-user"></i></Button></NavLink>
                             <NavLink to="/cart" className="icon-nav">
                                 {productLength?.length === 0 || state?.length === 0 ? null : (
-                                    <CartLength className="cart-length">{productLength?.length || state?.length}</CartLength>
+                                    <CartLength
+                                        className="cart-length">{productLength?.length || state?.length}</CartLength>
                                 )}
                                 <Button><i className="fa-light fa-cart-shopping"></i></Button></NavLink>
                         </NavbarMainStyles.NavbarRight>
                     </NavbarMainStyles.NavbarItems>
                 </div>
-                <NavbarBottom />
+                <NavbarBottom/>
             </NavbarMainStyles.Navbar>
         </>
     );

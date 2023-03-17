@@ -172,6 +172,11 @@ export const InnerBtnIcon = styled.div`
   height: 100%;
   display: flex;
   align-items: center;
+  
+  & i{
+    font-size: 20px;
+    padding: 0 3px 0 1px;
+  }
 `
 
 export const InnerBtnText = styled.div`

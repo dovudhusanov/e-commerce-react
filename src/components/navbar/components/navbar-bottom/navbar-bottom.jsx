@@ -51,7 +51,7 @@ function NavbarBottom() {
                         </CategoryButton>
                         <div>
                             <NavLink to="/faq">FAQ</NavLink>
-                            <NavLink to="/my-orders">My Order</NavLink>
+                            <NavLink to="/user/my-orders">My Order</NavLink>
                         </div>
                     </div>
                     <NavbarBottomRight>
