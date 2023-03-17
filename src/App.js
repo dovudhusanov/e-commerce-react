@@ -4,7 +4,7 @@ import {ProductDetails} from "./components";
 import {Route, Routes, useNavigate} from "react-router-dom";
 import FAQ from "./pages/faq/faq";
 import {BaseLayout} from "./layout/base-layout";
-import {MyInfos, MyOrders, Settings} from "./pages/profile";
+import {ChangePassword, MyInfos, MyOrders, Settings} from "./pages/profile";
 
 function App() {
 
@@ -43,6 +43,7 @@ function App() {
                             <Route path="/user/my-orders" element={<MyOrders/>}/>
                             <Route path="/user/info" element={<MyInfos />} />
                             <Route path="/user/settings" element={<Settings />} />
+                            <Route path="/user/change-password" element={<ChangePassword />} />
                         </>
                     )}
                     <Route path="/categories/:categoryName" element={<Categories/>}/>

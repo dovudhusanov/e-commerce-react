@@ -1964,3 +1964,26 @@ export const filterData = [
         }]
     },
 ]
+
+export const userData = [
+    {
+        id: 1,
+        labelName: "Name",
+        key: "Dovudhon",
+    },
+    {
+        id: 2,
+        labelName: "Last Name",
+        key: "Husanov",
+    },
+    {
+        id: 3,
+        labelName: "Email",
+        key: "dovdkhonhusanov5007@gmail.com",
+    },
+    {
+        id: 4,
+        labelName: "Phone Number",
+        key: "+998 97 681 50 07",
+    },
+]
