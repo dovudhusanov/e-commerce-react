@@ -6,8 +6,9 @@ import {ChangeTitle} from "../../middleware";
 import {signFailure, signSuccess} from "../../action/signup-action";
 import {useDispatch} from "react-redux";
 import {useNavigate} from "react-router-dom";
+import {UserCreateApi} from "../../api/user-create-api";
 
-export default function VerifyCode({phone}) {
+export default function VerifyCode({phone, type, navigateTo}) {
 
     ChangeTitle("Verify your phone number")
 
@@ -24,10 +25,10 @@ export default function VerifyCode({phone}) {
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
-            const response = await VerifyApi({phone: "+998" + phone, code: otp})
+            const response = await VerifyApi({phone: "+998" + phone, code: otp, type: type})
             dispatch(signSuccess(response.data))
-            console.log(response)
-            navigate("/login")
+            // await UserCreateApi({firstName: "user", lastName: "", email: ""})
+            navigate(navigateTo)
         } catch (error) {
             dispatch(signFailure(error))
             console.log(error)

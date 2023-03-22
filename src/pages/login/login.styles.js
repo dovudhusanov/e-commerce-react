@@ -81,6 +81,19 @@ export const AuthStyle = {
       color: rgb(115, 115, 115);
     `,
 
+    Reset: styled.span`
+      display: flex;
+      justify-content: end;
+      
+      & a{
+        color: var(--color-black);
+        
+        &:hover{
+          text-decoration: underline;
+        }
+      }
+    `,
+
     ErrorValid: styled.span`
       color: red;
       font-size: 15px;

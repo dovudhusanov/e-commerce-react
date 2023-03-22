@@ -1,10 +1,22 @@
 import React, {useEffect} from "react";
-import {Home, Signup, Login, VerifyCode, NotFoundPage, SearchResults, Categories, Cart, Saved} from "./pages"
+import {
+    Home,
+    Signup,
+    Login,
+    VerifyCode,
+    NotFoundPage,
+    SearchResults,
+    Categories,
+    Cart,
+    Saved,
+    ResetPassword
+} from "./pages"
 import {ProductDetails} from "./components";
 import {Route, Routes, useNavigate} from "react-router-dom";
 import FAQ from "./pages/faq/faq";
 import {BaseLayout} from "./layout/base-layout";
 import {ChangePassword, MyInfos, MyOrders, Settings} from "./pages/profile";
+import NewPassword from "./pages/new-password";
 
 function App() {
 
@@ -56,6 +68,8 @@ function App() {
                             <Route path="/signup" element={<Signup/>}/>
                             <Route path="/login" element={<Login/>}/>
                             <Route path="/verify-phone-number" element={<VerifyCode/>}/>
+                            <Route path="/reset-password" element={<ResetPassword />} />
+                            <Route path="/new-password" element={<NewPassword />} />
                         </>
                     )}
                     <Route path="/*" element={<NotFoundPage/>}/>

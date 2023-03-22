@@ -70,6 +70,16 @@ const GlobalStyles = createGlobalStyle`
   .activeImage {
     border: 2px solid red;
   }
+
+  .btn-cancel {
+    background-color: rgba(255, 0, 0, 0.2);
+    margin-left: 10px;
+    color: red;
+    &:hover{
+      background-color: red;
+      color: white;
+    }
+  }
 `
 
 export default GlobalStyles

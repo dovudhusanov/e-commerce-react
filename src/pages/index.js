@@ -7,3 +7,4 @@ export {default as VerifyCode} from "./verify-code/verify-code";
 export {default as SearchResults} from "./search-results/search-results";
 export {default as Categories} from "./categories/category";
 export {default as NotFoundPage} from "./not-found/not-found-page/not-found-page";
+export {default as ResetPassword} from "./reset-password"

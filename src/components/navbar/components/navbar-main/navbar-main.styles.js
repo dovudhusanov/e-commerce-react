@@ -83,25 +83,25 @@ export const NavbarMainStyles = {
           left: 20px; 
           top: 2px;
         }
-
+        
         @media screen and (max-width: 820px) {
           display: block;
         }
         
         @media screen and (max-width: 590px) {
           & p {
-            left: 15px;
             top: 0;
+            left: 15px;
             width: 14px;
             height: 14px;
           }
         }
-
+        
         & i {
           padding-right: 0;
         }
       }
-
+      
       ${(props) => {
         if (props.user) {
           return `

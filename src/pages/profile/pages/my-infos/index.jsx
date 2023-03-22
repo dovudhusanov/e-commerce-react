@@ -1,4 +1,4 @@
-import React, {useRef, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import ProfileDashboardLayout from "../../../../layout/profile-dashboard-layout";
 import img from "../../../../assets/userInitialImg.png"
 import {
@@ -7,14 +7,27 @@ import {
     InfoItem,
 } from "./my-infos.styles";
 import SelectUserImg from "./components/select-user-img";
-import {userData} from "../../../../data/data";
+import axiosInstance from "../../../../api";
+import {UserInfoGetApi} from "../../../../api/user-info-get-api";
 
 function MyInfos() {
+
+    const [user, setUser] = useState([])
+
+    // async function getUserInfo() {
+    //     const response = await UserInfoGetApi()
+    //     setUser(response?.data)
+    // }
+    //
+    // useEffect(() => {
+    //     getUserInfo()
+    // }, [])
+
     return (
         <ProfileDashboardLayout>
             <UserInfo>
                 <UserInfoInput>
-                    {userData.map(user => (
+                    {user?.map(user => (
                         <InfoItem key={user.id}>
                             <label>{user.labelName}</label>
                             <span>{user.key}</span>

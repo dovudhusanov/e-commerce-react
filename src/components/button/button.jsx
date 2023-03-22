@@ -1,9 +1,9 @@
 import React from 'react';
 import {ButtonStyles} from "./button.styles";
 
-function Button({children, style, onClick, icon, className, productAdded, disabled}) {
+function Button({children, style, onClick, type, icon, className, productAdded, disabled}) {
     return (
-        <ButtonStyles.Button disabled={disabled} productAdded={productAdded?.length !== 0 && productAdded} style={style}
+        <ButtonStyles.Button type={type} disabled={disabled} productAdded={productAdded?.length !== 0 && productAdded} style={style}
                              onClick={onClick} className={className}>{children}</ButtonStyles.Button>
     );
 }

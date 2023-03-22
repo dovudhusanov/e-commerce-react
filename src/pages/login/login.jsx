@@ -105,6 +105,7 @@ function Login() {
                                     <ErrorMessage name="password" component={TextError}/>
                                 </AuthStyle.Input>
                             </AuthStyle.InputParent>
+                            <AuthStyle.Reset><Link to="/reset-password">Reset password?</Link></AuthStyle.Reset>
                             <AuthStyle.Error>{error && "Phone number or password is incorrect"}</AuthStyle.Error>
                             <AuthStyle.Button type="submit">Login</AuthStyle.Button>
                             <AuthStyle.BottomText>Create an account <Link to="/signup">Sign
