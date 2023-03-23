@@ -27,12 +27,25 @@ function MyInfos() {
         <ProfileDashboardLayout>
             <UserInfo>
                 <UserInfoInput>
-                    {user?.map(user => (
-                        <InfoItem key={user.id}>
-                            <label>{user.labelName}</label>
-                            <span>{user.key}</span>
-                        </InfoItem>
-                    ))}
+                    <InfoItem>
+                        <label>First Name</label>
+                        <span>-----------</span>
+                    </InfoItem>
+                    <InfoItem>
+                        <label>Last Name</label>
+                        <span>-----------</span>
+                    </InfoItem>
+                    <InfoItem>
+                        <label>E-mail</label>
+                        <span>-----------</span>
+                    </InfoItem>
+                    <InfoItem>
+                        <label>Phone Number</label>
+                        <span>-----------</span>
+                    </InfoItem>
+                    {/*{user?.map(user => (*/}
+                    {/* */}
+                    {/*))}*/}
                 </UserInfoInput>
                 <SelectUserImg src={img}/>
             </UserInfo>

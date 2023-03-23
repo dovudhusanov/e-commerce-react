@@ -24,7 +24,7 @@ export const FAQItem = styled.div`
 `
 
 export const FaqItemWrapper = styled.div`
-  max-width: 620px;
+  width: 100%;
   background-color: rgba(2, 28, 52, 0.06);
   color: var(--color-black);
   margin: 5px 0;

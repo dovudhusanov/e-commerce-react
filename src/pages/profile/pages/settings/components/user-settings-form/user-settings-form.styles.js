@@ -6,19 +6,19 @@ export const UserSettingsFormStyle = styled.div`
 `
 
 export const UserSettingsInputs = styled.form`
-  max-width: 550px;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   flex-direction: row;
   margin-top: 20px;
   margin-bottom: 20px;
-
+  align-items: center;
 `
 
 export const UserSettingsInput = styled.div`
-  max-width: 250px;
-  width: 250px;
+  max-width: 300px;
+  width: 300px;
   margin-bottom: 20px;
   padding-right: 0.25rem;
   padding-left: 0.25rem;
@@ -33,8 +33,8 @@ export const UserSettingsInput = styled.div`
     color: rgba(0, 0, 0, 0.6);
     display: block;
   }
-  
-  & input{
+
+  & input {
     border: 1px solid rgba(0, 0, 0, 0.12);
     font-weight: 400;
     font-size: 0.875rem;
@@ -45,11 +45,22 @@ export const UserSettingsInput = styled.div`
     height: 2.5rem;
     border-radius: 4px;
     font-family: Roboto, sans-serif;
-    
-    &:focus{
+
+    &:focus {
       outline: 1px solid var(--color-blue);
     }
-}
+  }
+
+  & a {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: black;
+    padding: 12px;
+    background-color: rgba(128, 128, 128, 0.10);
+    border-radius: 4px;
+  }
 `
 
 export const BottomItems = styled.div`
@@ -61,15 +72,26 @@ export const BottomItems = styled.div`
     display: flex;
     flex-direction: column;
     align-items: start;
+
     a, button {
       font-weight: 600;
-      text-decoration: underline;
       color: black;
       font-size: 15px;
       border: none;
       background-color: transparent;
       cursor: pointer;
       margin-bottom: 20px;
+
+      &.btn-cancel {
+        background-color: rgba(255, 0, 0, 0.1);
+        margin: 0;
+        color: red;
+        
+        &:hover{
+          background-color: red;
+          color: white;
+        }
+      }
     }
   }
 `

@@ -15,7 +15,7 @@ import {ProductDetails} from "./components";
 import {Route, Routes, useNavigate} from "react-router-dom";
 import FAQ from "./pages/faq/faq";
 import {BaseLayout} from "./layout/base-layout";
-import {ChangePassword, MyInfos, MyOrders, Settings} from "./pages/profile";
+import {ChangePassword, ChangePhoneNumber, MyInfos, MyOrders, Settings} from "./pages/profile";
 import NewPassword from "./pages/new-password";
 
 function App() {
@@ -56,6 +56,7 @@ function App() {
                             <Route path="/user/info" element={<MyInfos />} />
                             <Route path="/user/settings" element={<Settings />} />
                             <Route path="/user/change-password" element={<ChangePassword />} />
+                            <Route path="/user/change-phone-number" element={<ChangePhoneNumber />} />
                         </>
                     )}
                     <Route path="/categories/:categoryName" element={<Categories/>}/>

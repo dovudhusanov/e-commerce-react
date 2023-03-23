@@ -50,9 +50,8 @@ function NewPassword() {
                     {({errors, touched}) => (
                         <Form>
                             <h1>New Password</h1>
-                            <p>Enter new password</p>
+                            <p>Please enter new password and confirm</p>
                             <AuthStyle.InputParent>
-                                <label htmlFor="password">New Password:</label>
                                 <AuthStyle.Input>
                                     <Field
                                         type="password"
@@ -65,7 +64,6 @@ function NewPassword() {
                                 </AuthStyle.Input>
                             </AuthStyle.InputParent>
                             <AuthStyle.InputParent>
-                                <label htmlFor="confirmPassword">Confirm Password:</label>
                                 <AuthStyle.Input>
                                     <Field
                                         type="password"
@@ -74,13 +72,12 @@ function NewPassword() {
                                         id="confirmPassword"
                                         className={errors.confirmPassword && touched.confirmPassword ? 'error-valid' : ''}
                                     />
-                                    <ErrorMessage name="confirmPassword" component={TextError}/>
-                                    <AuthStyle.ErrorValid></AuthStyle.ErrorValid>
+                                    <AuthStyle.ErrorValid>
+                                        <ErrorMessage name="confirmPassword" component={TextError}/>
+                                    </AuthStyle.ErrorValid>
                                 </AuthStyle.Input>
                             </AuthStyle.InputParent>
-                            <div>
                                 <Button type="submit">Submit</Button>
-                            </div>
                         </Form>
                     )}
                 </Formik>

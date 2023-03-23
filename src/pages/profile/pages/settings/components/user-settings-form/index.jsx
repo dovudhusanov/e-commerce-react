@@ -46,16 +46,25 @@ function UserSettingsForm() {
                     <label htmlFor={"email"}>Email</label>
                     <input type="email" value={inputValue.email} name={"email"} onChange={handleChange}/>
                 </UserSettingsInput>
-                {/*<UserSettingsInput>*/}
-                {/*    <label htmlFor={"phoneNumber"}>Phone Number</label>*/}
-                {/*    <input type="tel" value={inputValue.phoneNumber} name={"phoneNumber"} onChange={handleChange}/>*/}
-                {/*</UserSettingsInput>*/}
-                <Button type="submit">Save</Button>
+                <UserSettingsInput>
+                    <Button type="submit">Save</Button>
+                </UserSettingsInput>
+                <UserSettingsInput>
+                    <Link to={"/user/change-phone-number"}>
+                        <span>change phone number </span>
+                        <i className="fa-regular fa-angle-right"></i>
+                    </Link>
+                </UserSettingsInput>
+                <UserSettingsInput>
+                    <Link to={"/user/change-password"}>
+                        <span>change password</span>
+                        <i className="fa-regular fa-angle-right"></i>
+                    </Link>
+                </UserSettingsInput>
             </UserSettingsInputs>
             <BottomItems>
                <div>
-                   <Link to={"/user/change-password"}>change password</Link>
-                   <button>delete account</button>
+                   <Button type={"button"} className="btn-cancel">delete account</Button>
                </div>
             </BottomItems>
         </UserSettingsFormStyle>

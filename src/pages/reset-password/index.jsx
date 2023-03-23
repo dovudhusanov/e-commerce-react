@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {ResetPasswordStyles} from "./reset-password.styles";
+import {Buttons, ResetPasswordStyles} from "./reset-password.styles";
 import {Button} from "../../components";
 import {Link, useNavigate} from "react-router-dom";
 import {ResetPasswordApi} from "../../api/reset-password-api";
@@ -74,10 +74,10 @@ function ResetPassword() {
                                         </AuthStyle.Input>
                                         <ErrorMessage name="phoneNumber" component={TextError}/>
                                     </AuthStyle.InputParent>
-                                    <div>
+                                    <Buttons>
                                         <Button type="submit">Reset password</Button>
                                         <Link to={"/login"}><Button type="button" className="btn-cancel">Cancel</Button></Link>
-                                    </div>
+                                    </Buttons>
                                 </Form>
                             )}
                         </Formik>
