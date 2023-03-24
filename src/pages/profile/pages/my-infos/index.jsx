@@ -15,7 +15,7 @@ function MyInfos() {
     const [user, setUser] = useState([])
 
     async function getUserInfo() {
-        const response = await UserInfoGetApi(4)
+        const response = await UserInfoGetApi(localStorage.getItem("userId"))
         setUser(response.data)
     }
 
