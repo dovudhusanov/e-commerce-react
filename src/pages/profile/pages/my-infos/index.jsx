@@ -14,14 +14,16 @@ function MyInfos() {
 
     const [user, setUser] = useState([])
 
-    // async function getUserInfo() {
-    //     const response = await UserInfoGetApi()
-    //     setUser(response?.data)
-    // }
-    //
-    // useEffect(() => {
-    //     getUserInfo()
-    // }, [])
+    async function getUserInfo() {
+        const response = await UserInfoGetApi(4)
+        setUser(response.data)
+    }
+
+    useEffect(() => {
+        getUserInfo()
+    }, [])
+
+    const {first_name, last_name, email} = user
 
     return (
         <ProfileDashboardLayout>
@@ -29,23 +31,16 @@ function MyInfos() {
                 <UserInfoInput>
                     <InfoItem>
                         <label>First Name</label>
-                        <span>-----------</span>
+                        <span>{first_name ? first_name : "-----------------"}</span>
                     </InfoItem>
                     <InfoItem>
                         <label>Last Name</label>
-                        <span>-----------</span>
+                        <span>{last_name ? last_name : "-----------------"}</span>
                     </InfoItem>
                     <InfoItem>
                         <label>E-mail</label>
-                        <span>-----------</span>
+                        <span>{email ? email : "-----------------"}</span>
                     </InfoItem>
-                    <InfoItem>
-                        <label>Phone Number</label>
-                        <span>-----------</span>
-                    </InfoItem>
-                    {/*{user?.map(user => (*/}
-                    {/* */}
-                    {/*))}*/}
                 </UserInfoInput>
                 <SelectUserImg src={img}/>
             </UserInfo>

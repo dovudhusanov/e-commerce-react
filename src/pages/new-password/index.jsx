@@ -5,10 +5,10 @@ import {AuthStyle} from "../login/login.styles";
 import {ErrorMessage, Field, Form, Formik} from "formik";
 import * as Yup from "yup";
 import {SendResettedApi} from "../../api/send-resetted-api";
+import {useNavigate} from "react-router-dom";
+import {toast} from "react-toastify";
 
 function NewPassword() {
-    const [navigate, setNavigate] = useState(false)
-
     const Schema = Yup.object().shape({
         password: Yup.string()
             .min(8, 'Password must be at least 8 characters')
@@ -23,11 +23,16 @@ function NewPassword() {
         confirmPassword: ""
     };
 
+    const navigate = useNavigate()
+
     const handleSubmit = async (value) => {
         try {
             const res = await SendResettedApi({phone: "+998999999999", password: value.password, password2: value.confirmPassword})
             console.log(res)
+            navigate("/login")
+            toast.success('Successfully saved!');
         } catch (error) {
+            toast.success('Please enter a password with a combination of letters and numbers\n!');
             console.log(error)
         }
     }

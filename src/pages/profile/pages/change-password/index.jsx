@@ -3,7 +3,8 @@ import {ChangePasswordStyles} from "./change-password.styles"
 import {Button} from "../../../../components";
 import {ChangePasswordApi} from "../../../../api/change-password-api";
 import img from "../../../../assets/change-password.png"
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
+import {toast} from "react-toastify";
 
 function ChangePassword() {
 
@@ -14,6 +15,8 @@ function ChangePassword() {
 
     const [error, setError] = useState("")
 
+    const navigate = useNavigate()
+
     const handleChange = (e) => {
         setValue({...value, [e.target.name]: e.target.value})
     }
@@ -22,8 +25,11 @@ function ChangePassword() {
         e.preventDefault()
         try{
             await ChangePasswordApi({old_password: value.oldPassword, new_password: value.newPassword})
+            toast.success('Password successfully changed!');
+            navigate(-1)
         } catch (error) {
             setError("")
+            toast.error('Please enter a password with a combination of letters and numbers');
             console.log(error.message)
         }
     }

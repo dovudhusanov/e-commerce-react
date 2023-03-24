@@ -37,6 +37,7 @@ function MobileSidebar({sModal, setSModal}) {
         console.log(res);
         localStorage.removeItem("access");
         localStorage.removeItem("refresh");
+        localStorage.removeItem("userId")
         dispatch(logout());
         navigate("/");
     }

@@ -1,6 +1,6 @@
 import React, {useRef, useState} from 'react';
 import {UserImg, CameraIcon, HiddenInput, Icon, ImageContainer, Image} from "./user-select-img.styles";
-import axiosInstance from "../../../../../../api";
+import {UploadImgApi} from "../../../../../../api/upload-img-api";
 
 function SelectUserImg({src, setting}) {
 
@@ -10,21 +10,26 @@ function SelectUserImg({src, setting}) {
 
     const [showCameraIcon, setShowCameraIcon] = useState(false);
 
+    const uploadImage = (file) => {
+        const formData = new FormData();
+        formData.append('image', file);
+
+        return UploadImgApi({file: formData})
+    }
+
+// Usage
     const handleFileUpload = async (event) => {
         const file = event.target.files[0];
         const imageUrl = URL.createObjectURL(file);
         setImageSrc(imageUrl);
-        // const formData = new FormData();
-        // formData.append('image', file);
-
-        // try {
-        //     const response = await axiosInstance.post("/profile/image", formData)
-        //     const imageUrl = response.image_url;
-        //     setImageSrc(imageUrl);
-        // } catch (error) {
-        //     console.error('Error uploading image:', error);
-        // }
-    };
+        await uploadImage(file)
+            .then((response) => {
+                console.log(response.data);
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    }
 
 
     return (

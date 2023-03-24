@@ -1,8 +1,7 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import ProfileDashboardLayout from "../../../../layout/profile-dashboard-layout";
 import {UserSettings} from "./settings.styles";
 import UserSettingsForm from "./components/user-settings-form";
-
 function Settings() {
     return (
         <ProfileDashboardLayout>

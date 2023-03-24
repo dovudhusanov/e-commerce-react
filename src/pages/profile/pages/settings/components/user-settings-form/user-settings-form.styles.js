@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 
 export const UserSettingsFormStyle = styled.div`
-
+  width: 100%;
 `
 
 export const UserSettingsInputs = styled.form`
@@ -22,6 +22,10 @@ export const UserSettingsInput = styled.div`
   margin-bottom: 20px;
   padding-right: 0.25rem;
   padding-left: 0.25rem;
+  &:nth-child(6){
+    text-align: right;
+  }
+  
   @media screen and (max-width: 529px) {
     width: 100%;
     max-width: 100%;

@@ -6,11 +6,11 @@ import {NavLink} from "react-router-dom";
 function Dashboard() {
     return (
         <DashboardStyle>
-            <TopItems>
-                {dashboardLinksData.map(data => (
-                    <NavLink to={`/user/${data.pathName}`} key={data.id}>{data.linkName}</NavLink>
-                ))}
-            </TopItems>
+              <TopItems>
+                  {dashboardLinksData.map(data => (
+                      <NavLink to={`/user/${data.pathName}`} key={data.id}>{data.linkName}</NavLink>
+                  ))}
+              </TopItems>
         </DashboardStyle>
     );
 }

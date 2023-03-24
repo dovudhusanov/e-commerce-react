@@ -8,7 +8,6 @@ import {Link, useNavigate} from "react-router-dom";
 import * as Yup from "yup";
 import {ErrorMessage, Field, Form, Formik} from "formik";
 import {ChangeTitle, ScrollTop} from "../../middleware";
-import axiosInstance from "../../api";
 
 function Login() {
 
@@ -45,9 +44,11 @@ function Login() {
             const {phoneNumber, password} = values
             const response = await LoginApi({phone: "+998" + phoneNumber, password})
             dispatch(loginSuccess(response.data))
-            const {access, refresh} = response.data
+            const {access, refresh, id} = response.data
             localStorage.setItem('access', access);
             localStorage.setItem('refresh', refresh);
+            localStorage.setItem("userId", id)
+            console.log(response)
             navigate("/")
         } catch (error) {
             console.log(error)

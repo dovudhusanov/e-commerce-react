@@ -1,7 +1,7 @@
 import axiosInstance from ".";
 
-export const UserInfoGetApi = () =>
-    axiosInstance.get("/profile/user-info/", {
+export const UserInfoGetApi = (id) =>
+    axiosInstance.get(`/account/profile/${id}/`, {
         headers: {
             Authorization: `Bearer ${localStorage.getItem("access")}`
         }
