@@ -3,54 +3,69 @@ import {UserSettingsFormStyle, BottomItems, UserSettingsInput, UserSettingsInput
 import {Link} from "react-router-dom";
 import {Button} from "../../../../../../components";
 import {UserInfoEditApi} from "../../../../../../api/user-info-edit-api";
-import axiosInstance from "../../../../../../api";
 import {UserInfoGetApi} from "../../../../../../api/user-info-get-api";
 import {toast} from "react-toastify";
+import {GetUserApi} from "../../../../../../api/get-user-api";
+import {UserCreateApi} from "../../../../../../api/user-create-api";
 
 function UserSettingsForm() {
 
-    const [user, setUser] = useState([])
+    const [profileCreated, setProfileCreated] = useState([])
 
     async function getUserInfo() {
-        const response = await UserInfoGetApi(4)
-        setUser(response.data)
-        console.log(response)
+        const userRes = await GetUserApi(localStorage.getItem("userId"))
+        const response = await UserInfoGetApi(localStorage.getItem("profileId"))
+        setProfileCreated(userRes.data)
+
+        setInputValue({
+            first_name: response.data.first_name,
+            last_name: response.data.last_name,
+            email: response.data.email,
+        });
     }
 
     useEffect(() => {
         getUserInfo()
     }, [])
 
-    const {first_name, last_name, email} = user
-
     const [inputValue, setInputValue] = useState({
-        first_name,
-        last_name,
-        email,
+        first_name: "",
+        last_name: "",
+        email: "",
     })
 
     const handleChange = (e) => {
         setInputValue({...inputValue, [e.target.name]: e.target.value})
     }
 
-    console.log(localStorage.getItem("userId"))
-
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log("hello")
-        await UserInfoEditApi({
-            first_name: inputValue.first_name,
-            last_name: inputValue.last_name,
-            email: inputValue.email
-        }, localStorage.getItem("userId"))
-            .then(res => {
-                toast.success('Successfully saved!');
-                console.log(res)
-            })
-            .catch(error => {
-                toast.error('Error!');
-                console.error(error)
-            })
+        if(profileCreated.profile) {
+            const userRes = await GetUserApi(localStorage.getItem("userId"))
+            userRes?.data?.profile && localStorage.setItem("profileId", userRes.data.profile)
+            await UserInfoEditApi({
+                first_name: inputValue.first_name,
+                last_name: inputValue.last_name,
+                email: inputValue.email
+            }, localStorage.getItem("profileId"))
+                .then(res => {
+                    toast.success('Successfully saved!');
+                    console.log(res)
+                })
+                .catch(error => {
+                    toast.error('Error!');
+                    console.error(error)
+                })
+        } else {
+            await UserCreateApi({first_name: inputValue.first_name, last_name: inputValue.last_name, email: inputValue.email})
+                .then(res => {
+                    toast.success("Successfully saved!")
+                    console.log(res)
+                })
+                .catch(error => {
+                    toast.error("Wrong")
+                })
+        }
     }
 
     return (
@@ -58,15 +73,15 @@ function UserSettingsForm() {
             <UserSettingsInputs onSubmit={handleSubmit}>
                 <UserSettingsInput>
                     <label htmlFor={"first_name"}>Name</label>
-                    <input type="text" value={inputValue.first_name} name={"first_name"} onChange={handleChange}/>
+                    <input type="text" id={"first_name"} placeholder="First Name" value={inputValue.first_name} name={"first_name"} onChange={handleChange}/>
                 </UserSettingsInput>
                 <UserSettingsInput>
                     <label htmlFor={"last_name"}>Last Name</label>
-                    <input type="text" value={inputValue.last_name} name={"last_name"} onChange={handleChange}/>
+                    <input type="text" id={"last_name"} placeholder="Last Name" value={inputValue.last_name} name={"last_name"} onChange={handleChange}/>
                 </UserSettingsInput>
                 <UserSettingsInput>
                     <label htmlFor={"email"}>Email</label>
-                    <input type="email" value={inputValue.email} name={"email"} onChange={handleChange}/>
+                    <input type="email" id={"email"} placeholder="E-mail" value={inputValue.email} name={"email"} onChange={handleChange}/>
                 </UserSettingsInput>
                 <UserSettingsInput>
                     <Link to={"/user/change-phone-number"}>

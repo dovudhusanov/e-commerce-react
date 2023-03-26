@@ -6,11 +6,14 @@ import {ChangeTitle} from "../../middleware";
 import {signFailure, signSuccess} from "../../action/signup-action";
 import {useDispatch} from "react-redux";
 import {useNavigate} from "react-router-dom";
-import {UserCreateApi} from "../../api/user-create-api";
+import NewPassword from "../new-password";
+import {Button} from "../../components";
 
-export default function VerifyCode({phone, type, navigateTo}) {
+export default function VerifyCode({phone, type, navigateTo, signup}) {
 
     ChangeTitle("Verify your phone number")
+
+    const [verified, setVerified] = useState(false)
 
     const [otp, setOtp] = useState('');
 
@@ -27,9 +30,11 @@ export default function VerifyCode({phone, type, navigateTo}) {
         try {
             const response = await VerifyApi({phone: "+998" + phone, code: otp, type: type})
             dispatch(signSuccess(response.data))
-            // await UserCreateApi({firstName: "user", lastName: "", email: ""})
+            // signup && await UserCreateApi({first_name: "user", last_name: "", email: ""})
             navigate(navigateTo)
+            setVerified(true)
         } catch (error) {
+            setVerified(false)
             dispatch(signFailure(error))
             console.log(error)
         }
@@ -48,8 +53,11 @@ export default function VerifyCode({phone, type, navigateTo}) {
                     separator={<span>-</span>}
                     numInputs={6}
                 />
-                <button type="submit">Send</button>
+                <Button type="submit">Send</Button>
             </VerifyCodeStyles.Form>
+            {verified && type === "password_reset" &&
+                <NewPassword phone={phone}/>
+            }
         </>
     )
 }

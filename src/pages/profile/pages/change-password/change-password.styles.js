@@ -46,6 +46,10 @@ export const ChangePasswordStyles = styled.div`
     width: 100%;
     max-width: 400px;
 
+    & li{
+      position: relative;
+    }
+    
     & h1 {
       color: var(--color-blue);
       margin-bottom: 20px;
@@ -68,4 +72,12 @@ export const ChangePasswordStyles = styled.div`
       }
     }
   }
+`
+
+export const ErrorValid = styled.span`
+  color: red;
+  position: relative;
+  bottom: 10px;
+  font-size: 14px;
+  line-height: -4px!important;
 `

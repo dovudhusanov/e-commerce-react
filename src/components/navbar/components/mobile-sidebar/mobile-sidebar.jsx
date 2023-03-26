@@ -38,6 +38,7 @@ function MobileSidebar({sModal, setSModal}) {
         localStorage.removeItem("access");
         localStorage.removeItem("refresh");
         localStorage.removeItem("userId")
+        localStorage.removeItem("profileId")
         dispatch(logout());
         navigate("/");
     }

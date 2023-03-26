@@ -22,10 +22,11 @@ export const UserSettingsInput = styled.div`
   margin-bottom: 20px;
   padding-right: 0.25rem;
   padding-left: 0.25rem;
-  &:nth-child(6){
+
+  &:nth-child(6) {
     text-align: right;
   }
-  
+
   @media screen and (max-width: 529px) {
     width: 100%;
     max-width: 100%;
@@ -36,6 +37,7 @@ export const UserSettingsInput = styled.div`
     font-size: 0.875rem;
     color: rgba(0, 0, 0, 0.6);
     display: block;
+    padding-bottom: 3px;
   }
 
   & input {
@@ -52,6 +54,10 @@ export const UserSettingsInput = styled.div`
 
     &:focus {
       outline: 1px solid var(--color-blue);
+    }
+
+    &::placeholder {
+      color: rgba(128, 128, 128, 0.47);
     }
   }
 

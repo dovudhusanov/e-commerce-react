@@ -134,7 +134,7 @@ function Signup() {
                 </AuthStyle.AuthContainer>
             )}
             {isPhoneNumberSubmitted && (
-                <VerifyCode phone={phoneVerify} type={"register"} navigateTo={"/login"}/>
+                <VerifyCode phone={phoneVerify} type={"register"} navigateTo={"/login"} signup={true}/>
             )}
         </>
     );

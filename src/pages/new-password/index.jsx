@@ -8,7 +8,7 @@ import {SendResettedApi} from "../../api/send-resetted-api";
 import {useNavigate} from "react-router-dom";
 import {toast} from "react-toastify";
 
-function NewPassword() {
+function NewPassword({phone}) {
     const Schema = Yup.object().shape({
         password: Yup.string()
             .min(8, 'Password must be at least 8 characters')
@@ -27,12 +27,12 @@ function NewPassword() {
 
     const handleSubmit = async (value) => {
         try {
-            const res = await SendResettedApi({phone: "+998999999999", password: value.password, password2: value.confirmPassword})
+            const res = await SendResettedApi({phone: "+998" + phone, password: value.password, password2: value.confirmPassword})
             console.log(res)
             navigate("/login")
             toast.success('Successfully saved!');
         } catch (error) {
-            toast.success('Please enter a password with a combination of letters and numbers\n!');
+            toast.error('Please enter a password with a combination of letters and numbers\n!');
             console.log(error)
         }
     }

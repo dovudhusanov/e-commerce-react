@@ -9,13 +9,16 @@ import {
 import SelectUserImg from "./components/select-user-img";
 import axiosInstance from "../../../../api";
 import {UserInfoGetApi} from "../../../../api/user-info-get-api";
+import {GetUserApi} from "../../../../api/get-user-api";
 
 function MyInfos() {
 
     const [user, setUser] = useState([])
 
     async function getUserInfo() {
-        const response = await UserInfoGetApi(localStorage.getItem("userId"))
+        const userRes = await GetUserApi(localStorage.getItem("userId"))
+        userRes?.data?.profile && localStorage.setItem("profileId", userRes.data.profile)
+        const response = await UserInfoGetApi(localStorage.getItem("profileId"))
         setUser(response.data)
     }
 

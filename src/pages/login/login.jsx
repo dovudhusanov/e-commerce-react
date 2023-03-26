@@ -8,6 +8,7 @@ import {Link, useNavigate} from "react-router-dom";
 import * as Yup from "yup";
 import {ErrorMessage, Field, Form, Formik} from "formik";
 import {ChangeTitle, ScrollTop} from "../../middleware";
+import {toast} from "react-toastify";
 
 function Login() {
 
@@ -32,7 +33,6 @@ function Login() {
     };
 
     const [showPass, setShowPass] = useState(false)
-    const [error, setError] = useState(false)
 
     const dispatch = useDispatch()
 
@@ -51,9 +51,7 @@ function Login() {
             console.log(response)
             navigate("/")
         } catch (error) {
-            console.log(error)
             dispatch(loginFailure())
-            setError(true)
         }
     }
 
@@ -107,7 +105,6 @@ function Login() {
                                 </AuthStyle.Input>
                             </AuthStyle.InputParent>
                             <AuthStyle.Reset><Link to="/reset-password">Reset password?</Link></AuthStyle.Reset>
-                            <AuthStyle.Error>{error && "Phone number or password is incorrect"}</AuthStyle.Error>
                             <AuthStyle.Button type="submit">Login</AuthStyle.Button>
                             <AuthStyle.BottomText>Create an account <Link to="/signup">Sign
                                 Up</Link></AuthStyle.BottomText>
