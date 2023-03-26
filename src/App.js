@@ -17,10 +17,17 @@ import FAQ from "./pages/faq/faq";
 import {BaseLayout} from "./layout/base-layout";
 import {ChangePassword, ChangePhoneNumber, MyInfos, MyOrders, Settings} from "./pages/profile";
 import NewPassword from "./pages/new-password";
+import NProgress from "nprogress"
+import "nprogress/nprogress.css"
+
+NProgress.configure({color: '#29d', showSpinner: false})
 
 function App() {
 
     const navigate = useNavigate()
+
+        document.addEventListener("DOMContentLoaded", NProgress.start());
+        document.addEventListener("DOMContentLoaded", NProgress.done());
 
     useEffect(() => {
         if (window.location.pathname === "/search" && window.location.search === "?query=" || window.location.search === "?query") {
@@ -50,13 +57,13 @@ function App() {
                     <Route path="/wishlist" element={<Saved/>}/>
                     {localStorage.getItem("access") && (
                         <>
-                            <Route path="/user" element={<MyInfos />} />
-                            <Route path="/profile" element={<MyInfos />} />
+                            <Route path="/user" element={<MyInfos/>}/>
+                            <Route path="/profile" element={<MyInfos/>}/>
                             <Route path="/user/my-orders" element={<MyOrders/>}/>
-                            <Route path="/user/info" element={<MyInfos />} />
-                            <Route path="/user/settings" element={<Settings />} />
-                            <Route path="/user/change-password" element={<ChangePassword />} />
-                            <Route path="/user/change-phone-number" element={<ChangePhoneNumber />} />
+                            <Route path="/user/info" element={<MyInfos/>}/>
+                            <Route path="/user/settings" element={<Settings/>}/>
+                            <Route path="/user/change-password" element={<ChangePassword/>}/>
+                            <Route path="/user/change-phone-number" element={<ChangePhoneNumber/>}/>
                         </>
                     )}
                     <Route path="/categories/:categoryName" element={<Categories/>}/>
@@ -69,8 +76,8 @@ function App() {
                             <Route path="/signup" element={<Signup/>}/>
                             <Route path="/login" element={<Login/>}/>
                             <Route path="/verify-phone-number" element={<VerifyCode/>}/>
-                            <Route path="/reset-password" element={<ResetPassword />} />
-                            <Route path="/new-password" element={<NewPassword />} />
+                            <Route path="/reset-password" element={<ResetPassword/>}/>
+                            <Route path="/new-password" element={<NewPassword/>}/>
                         </>
                     )}
                     <Route path="/*" element={<NotFoundPage/>}/>

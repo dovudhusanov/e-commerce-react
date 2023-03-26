@@ -6,7 +6,7 @@ export const NavbarMainStyles = {
       padding: 13px 0 55px 0;
       height: 70px;
       z-index: 4000;
-      border-top: 5px solid var(--color-blue);
+      //border-top: 5px solid var(--color-blue);
       background: rgba(85, 170, 246, 0.01);
       border-bottom: 1px solid rgba(128, 128, 128, 0.23);
       

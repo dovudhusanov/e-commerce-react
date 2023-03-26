@@ -27,18 +27,12 @@ function MobileSidebar({sModal, setSModal}) {
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
-    const refresh = localStorage.getItem("refresh")
-
     async function handleLogout() {
-        const accessToken = localStorage.getItem("access");
-        console.log(accessToken)
-        const headers = {Authorization: `Bearer ${accessToken}`};
-        const res = await LogoutApi({refresh: refresh, headers: headers});
-        console.log(res);
+        await LogoutApi({refresh: localStorage.getItem("refresh"), headers: {Authorization: `Bearer ${localStorage.getItem("access")}`}});
         localStorage.removeItem("access");
         localStorage.removeItem("refresh");
-        localStorage.removeItem("userId")
-        localStorage.removeItem("profileId")
+        localStorage.removeItem("userId");
+        localStorage.removeItem("profileId");
         dispatch(logout());
         navigate("/");
     }

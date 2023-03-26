@@ -43,49 +43,30 @@ function UserSettingsForm() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        const {first_name, last_name, email} = inputValue
         if(profileCreated.profile) {
             const userRes = await GetUserApi(localStorage.getItem("userId"))
             userRes?.data?.profile && localStorage.setItem("profileId", userRes.data.profile)
-            await UserInfoEditApi({
-                first_name: inputValue.first_name,
-                last_name: inputValue.last_name,
-                email: inputValue.email
+            await UserInfoEditApi({first_name, last_name, email
             }, localStorage.getItem("profileId"))
-                .then(res => {
-                    toast.success('Successfully saved!');
-                    console.log(res)
-                })
-                .catch(error => {
-                    toast.error('Error!');
-                    console.error(error)
-                })
+                .then(_ => toast.success('Successfully saved!'))
+                .catch(_ => toast.error('Error!'))
         } else {
-            await UserCreateApi({first_name: inputValue.first_name, last_name: inputValue.last_name, email: inputValue.email})
-                .then(res => {
-                    toast.success("Successfully saved!")
-                    console.log(res)
-                })
-                .catch(error => {
-                    toast.error("Wrong")
-                })
+            await UserCreateApi({first_name, last_name, email})
+                .then(_ => toast.success("Successfully saved!"))
+                .catch(_ => toast.error("Wrong"))
         }
     }
 
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
-    const refresh = localStorage.getItem("refresh")
-
     async function handleLogout() {
-        const accessToken = localStorage.getItem("access");
-        console.log(accessToken)
-        const headers = {Authorization: `Bearer ${accessToken}`};
-        const res = await LogoutApi({refresh: refresh, headers: headers});
-        console.log(res);
+        await LogoutApi({refresh: localStorage.getItem("refresh"), headers: {Authorization: `Bearer ${localStorage.getItem("access")}`}});
         localStorage.removeItem("access");
         localStorage.removeItem("refresh");
-        localStorage.removeItem("userId")
-        localStorage.removeItem("profileId")
+        localStorage.removeItem("userId");
+        localStorage.removeItem("profileId");
         dispatch(logout());
         navigate("/");
     }

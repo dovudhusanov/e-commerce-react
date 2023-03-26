@@ -80,6 +80,10 @@ const GlobalStyles = createGlobalStyle`
       color: white;
     }
   }
+
+  #nprogress .bar{
+    height: 4px!important;
+  }
 `
 
 export default GlobalStyles
