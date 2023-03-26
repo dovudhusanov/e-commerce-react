@@ -1,12 +1,15 @@
 import React, {useEffect, useState} from 'react';
 import {UserSettingsFormStyle, BottomItems, UserSettingsInput, UserSettingsInputs} from "./user-settings-form.styles";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {Button} from "../../../../../../components";
 import {UserInfoEditApi} from "../../../../../../api/user-info-edit-api";
 import {UserInfoGetApi} from "../../../../../../api/user-info-get-api";
 import {toast} from "react-toastify";
 import {GetUserApi} from "../../../../../../api/get-user-api";
 import {UserCreateApi} from "../../../../../../api/user-create-api";
+import {useDispatch} from "react-redux";
+import {LogoutApi} from "../../../../../../api/logout-api";
+import {logout} from "../../../../../../action/auth-login-action";
 
 function UserSettingsForm() {
 
@@ -68,6 +71,26 @@ function UserSettingsForm() {
         }
     }
 
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+
+    const refresh = localStorage.getItem("refresh")
+
+    async function handleLogout() {
+        const accessToken = localStorage.getItem("access");
+        console.log(accessToken)
+        const headers = {Authorization: `Bearer ${accessToken}`};
+        const res = await LogoutApi({refresh: refresh, headers: headers});
+        console.log(res);
+        localStorage.removeItem("access");
+        localStorage.removeItem("refresh");
+        localStorage.removeItem("userId")
+        localStorage.removeItem("profileId")
+        dispatch(logout());
+        navigate("/");
+    }
+
+
     return (
         <UserSettingsFormStyle>
             <UserSettingsInputs onSubmit={handleSubmit}>
@@ -96,11 +119,14 @@ function UserSettingsForm() {
                     </Link>
                 </UserSettingsInput>
                 <UserSettingsInput>
-                    <Button type="submit">Save</Button>
+                    <Button type="submit" disabled={
+                        inputValue.first_name === "" && inputValue.last_name === "" && inputValue.email === "" ? "disabled" : ""
+                    }>Save Changes</Button>
                 </UserSettingsInput>
             </UserSettingsInputs>
             <BottomItems>
                 <div>
+                    <Button type={"button"} onClick={handleLogout}>log out</Button>
                     <Button type={"button"} className="btn-cancel">delete account</Button>
                 </div>
             </BottomItems>

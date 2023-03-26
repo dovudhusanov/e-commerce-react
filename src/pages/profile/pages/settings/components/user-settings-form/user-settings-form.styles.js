@@ -71,6 +71,10 @@ export const UserSettingsInput = styled.div`
     background-color: rgba(128, 128, 128, 0.10);
     border-radius: 4px;
   }
+  
+  & button{
+    
+  }
 `
 
 export const BottomItems = styled.div`
@@ -83,21 +87,27 @@ export const BottomItems = styled.div`
     flex-direction: column;
     align-items: start;
 
-    a, button {
+    button {
       font-weight: 600;
-      color: black;
       font-size: 15px;
       border: none;
-      background-color: transparent;
       cursor: pointer;
       margin-bottom: 20px;
+      width: 100%;
+      margin-bottom: 20px;
+      background-color: var(--color-blue);
+      color: white;
+
+      &:hover {
+        background-color: rgb(17, 111, 197);
+      }
 
       &.btn-cancel {
         background-color: rgba(255, 0, 0, 0.1);
         margin: 0;
         color: red;
-        
-        &:hover{
+
+        &:hover {
           background-color: red;
           color: white;
         }

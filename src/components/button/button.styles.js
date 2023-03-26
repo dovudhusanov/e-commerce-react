@@ -30,5 +30,18 @@ export const ButtonStyles = {
               `
           }
       }}
+      ${(props) => {
+        if(props.disabled) {
+          return `
+                user-select: none;
+                    color: rgba(32, 145, 249, 0.60);
+               
+                &:hover {
+                    background-color: rgb(32, 145, 249, 0.1);
+                    color: rgba(32, 145, 249, 0.60);
+                }
+              `
+        }
+      }}
     `
 }
