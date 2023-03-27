@@ -9,9 +9,11 @@ import {useNavigate} from "react-router-dom";
 import NewPassword from "../new-password";
 import {Button} from "../../components";
 
-export default function VerifyCode({phone, type, navigateTo, signup}) {
+export default function VerifyCode({phone, type, navigateTo}) {
 
     ChangeTitle("Verify your phone number")
+
+    localStorage.setItem("phone_number", phone)
 
     const [verified, setVerified] = useState(false)
 
@@ -30,7 +32,6 @@ export default function VerifyCode({phone, type, navigateTo, signup}) {
         try {
             const response = await VerifyApi({phone: "+998" + phone, code: otp, type: type})
             dispatch(signSuccess(response.data))
-            // signup && await UserCreateApi({first_name: "user", last_name: "", email: ""})
             navigate(navigateTo)
             setVerified(true)
         } catch (error) {
@@ -55,8 +56,8 @@ export default function VerifyCode({phone, type, navigateTo, signup}) {
                 />
                 <Button type="submit">Send</Button>
             </VerifyCodeStyles.Form>
-            {verified && type === "password_reset" &&
-                <NewPassword phone={phone}/>
+            {verified === true && type === "password_reset" &&
+                <NewPassword/>
             }
         </>
     )

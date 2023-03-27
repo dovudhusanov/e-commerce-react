@@ -26,8 +26,9 @@ function App() {
 
     const navigate = useNavigate()
 
-        document.addEventListener("DOMContentLoaded", NProgress.start());
-        document.addEventListener("DOMContentLoaded", NProgress.done());
+    window.addEventListener("load", () => {
+        NProgress.start();
+    });
 
     useEffect(() => {
         if (window.location.pathname === "/search" && window.location.search === "?query=" || window.location.search === "?query") {

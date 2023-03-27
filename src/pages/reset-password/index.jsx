@@ -10,7 +10,7 @@ import * as Yup from "yup";
 
 function ResetPassword() {
 
-    const [phoneVerify, setPhoneVerify] = useState("")
+    const [phoneVerify, setPhoneVerify] = useState()
 
     const [navigate, setNavigate] = useState(false)
 
@@ -27,10 +27,10 @@ function ResetPassword() {
         phoneNumber: "",
     };
 
-    const handleSubmit = async (value) => {
-        setPhoneVerify(value.phoneNumber)
+    const handleSubmit = async (values) => {
+        setPhoneVerify(values.phoneNumber)
         try {
-            const res = await ResetPasswordApi({phone: "+998" + value.phoneNumber})
+            const res = await ResetPasswordApi({phone: "+998" + values.phoneNumber})
             setNavigate(true)
             console.log(res)
         } catch (error) {
