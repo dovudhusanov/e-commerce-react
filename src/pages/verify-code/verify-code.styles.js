@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, {keyframes} from "styled-components";
 
 export const VerifyCodeStyles = {
     Form: styled.form`
@@ -79,6 +79,35 @@ export const VerifyCodeStyles = {
         &:hover {
           background-color: rgb(11, 119, 220);
         }
+
+        &.resend {
+          background-color: transparent !important;
+          color: var(--color-black);
+          width: initial;
+          cursor: initial;
+                    
+          & > p {
+            cursor: pointer;
+          }
+        }
       }
     `
 }
+
+const scaleAnimation = keyframes`
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+`;
+
+export const Count = styled.div`
+  animation: ${scaleAnimation} 1s infinite ease-in-out;
+  display: inline-block;
+  padding-left: 10px;
+`

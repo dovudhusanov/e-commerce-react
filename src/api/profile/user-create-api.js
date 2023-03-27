@@ -1,4 +1,4 @@
-import axiosInstance from ".";
+import axiosInstance from "../index";
 
 export const UserCreateApi = (userInfo) =>
     axiosInstance.post("/account/profile/", userInfo, {

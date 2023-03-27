@@ -12,7 +12,7 @@ import {
     ResetPassword
 } from "./pages"
 import {ProductDetails} from "./components";
-import {Route, Routes, useNavigate} from "react-router-dom";
+import {Route, Routes, useLocation, useNavigate} from "react-router-dom";
 import FAQ from "./pages/faq/faq";
 import {BaseLayout} from "./layout/base-layout";
 import {ChangePassword, ChangePhoneNumber, MyInfos, MyOrders, Settings} from "./pages/profile";
@@ -26,9 +26,12 @@ function App() {
 
     const navigate = useNavigate()
 
-    window.addEventListener("load", () => {
+    let location = useLocation();
+
+    useEffect(() => {
         NProgress.start();
-    });
+        NProgress.done();
+    }, [location.pathname]);
 
     useEffect(() => {
         if (window.location.pathname === "/search" && window.location.search === "?query=" || window.location.search === "?query") {

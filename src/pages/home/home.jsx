@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import {useSelector} from "react-redux";
 import {Products} from "../../components";
 import {ChangeTitle, ScrollTop} from "../../middleware";
-import {GetUserApi} from "../../api/get-user-api";
+import {GetUserApi} from "../../api/profile/get-user-api";
 
 function Home() {
     ScrollTop();

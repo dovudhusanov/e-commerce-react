@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {Buttons, ResetPasswordStyles} from "./reset-password.styles";
 import {Button} from "../../components";
 import {Link, useNavigate} from "react-router-dom";
-import {ResetPasswordApi} from "../../api/reset-password-api";
+import {ResetPasswordApi} from "../../api/auth/reset-password-api";
 import {VerifyCode} from "../index";
 import {AuthStyle} from "../login/login.styles";
 import {ErrorMessage, Field, Form, Formik} from "formik";

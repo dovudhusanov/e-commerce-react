@@ -1,6 +1,6 @@
 import React, {useRef, useState} from 'react';
 import {UserImg, CameraIcon, HiddenInput, Icon, ImageContainer, Image} from "./user-select-img.styles";
-import {UploadImgApi} from "../../../../../../api/upload-img-api";
+import {UploadImgApi} from "../../../../../../api/profile/upload-img-api";
 
 function SelectUserImg({src, setting}) {
 

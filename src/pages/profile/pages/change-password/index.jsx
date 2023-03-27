@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {ChangePasswordStyles, ErrorValid} from "./change-password.styles"
 import {Button} from "../../../../components";
-import {ChangePasswordApi} from "../../../../api/change-password-api";
+import {ChangePasswordApi} from "../../../../api/profile/change-password-api";
 import img from "../../../../assets/change-password.png"
 import {Link, useNavigate} from "react-router-dom";
 import {toast} from "react-toastify";

@@ -4,7 +4,7 @@ import {Button} from "../../components";
 import {AuthStyle} from "../login/login.styles";
 import {ErrorMessage, Field, Form, Formik} from "formik";
 import * as Yup from "yup";
-import {SendResettedApi} from "../../api/send-resetted-api";
+import {SendResettedApi} from "../../api/auth/send-resetted-api";
 import {useNavigate} from "react-router-dom";
 import {toast} from "react-toastify";
 

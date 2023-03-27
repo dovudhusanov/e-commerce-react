@@ -30,5 +30,9 @@ export const InfoItem = styled.div`
   & > span {
     font-size: 14px;
     color: grey;
+    
+    & a{
+      color: grey;
+    }
   }
 `

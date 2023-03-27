@@ -1,4 +1,4 @@
-import axiosInstance from ".";
+import axiosInstance from "../index";
 
 export const UploadImgApi = (formatData) =>
     axiosInstance.post(`/account/upload-image/`, formatData, {

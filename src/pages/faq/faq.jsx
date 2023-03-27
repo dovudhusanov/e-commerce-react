@@ -3,7 +3,7 @@ import {faqData} from "../../data/data";
 import FaqList from "./faq-list";
 import {Title, FAQItem} from "./faq.styles";
 import {ChangeTitle, ScrollTop} from "../../middleware";
-import {UserInfoGetApi} from "../../api/user-info-get-api";
+import {UserInfoGetApi} from "../../api/profile/user-info-get-api";
 
 function Faq() {
 

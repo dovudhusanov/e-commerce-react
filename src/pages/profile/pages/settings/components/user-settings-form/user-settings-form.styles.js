@@ -26,8 +26,24 @@ export const UserSettingsInput = styled.div`
   &:nth-child(6) {
     text-align: right;
   }
+  
+  
+  @media screen and (max-width: 888px) {
+    max-width: 270px;
+    width: 270px;
+  }
 
-  @media screen and (max-width: 529px) {
+  @media screen and (max-width: 820px) {
+    max-width: 300px;
+    width: 300px;
+  }
+
+  @media screen and (max-width: 630px) {
+    max-width: 260px;
+    width: 260px;
+  }
+
+  @media screen and (max-width: 549px) {
     width: 100%;
     max-width: 100%;
   }
@@ -73,7 +89,9 @@ export const UserSettingsInput = styled.div`
   }
   
   & button{
-    
+    @media screen and (max-width: 549px) {
+      width: 100%;
+    }
   }
 `
 
@@ -84,19 +102,24 @@ export const BottomItems = styled.div`
 
   & > div {
     display: flex;
-    flex-direction: column;
     align-items: start;
+    flex-direction: column;
 
     button {
       font-weight: 600;
       font-size: 15px;
       border: none;
       cursor: pointer;
-      margin-bottom: 20px;
       width: 100%;
       margin-bottom: 20px;
       background-color: var(--color-blue);
       color: white;
+      
+      @media screen and (max-width: 820px) {
+        &:nth-child(1) {
+          display: none;
+        }
+      }
 
       &:hover {
         background-color: rgb(17, 111, 197);
@@ -104,7 +127,7 @@ export const BottomItems = styled.div`
 
       &.btn-cancel {
         background-color: rgba(255, 0, 0, 0.1);
-        margin: 0;
+        margin: 0 0 20px 0;
         color: red;
 
         &:hover {

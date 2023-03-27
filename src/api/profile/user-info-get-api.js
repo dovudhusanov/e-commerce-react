@@ -1,4 +1,4 @@
-import axiosInstance from ".";
+import axiosInstance from "../index";
 
 export const UserInfoGetApi = (id) =>
     axiosInstance.get(`/account/profile/${id}/`, {

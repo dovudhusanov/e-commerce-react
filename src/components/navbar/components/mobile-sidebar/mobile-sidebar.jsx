@@ -16,7 +16,7 @@ import {Link, useNavigate} from "react-router-dom";
 import {categoryList} from "../../../../data/data";
 import MobileInnerBtn from "./mobile-inner-btn/mobile-inner-btn";
 import {CategoryIcon, ContactUs, FAQ, MyOrder, Whishlist, Settings, Logout} from "../../../../icons";
-import {LogoutApi} from "../../../../api/logout-api";
+import {LogoutApi} from "../../../../api/auth/logout-api";
 import {logout} from "../../../../action/auth-login-action";
 import {useDispatch} from "react-redux";
 

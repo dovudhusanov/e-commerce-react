@@ -3,7 +3,7 @@ import {AuthStyle} from "./login.styles"
 import "./login-style.css"
 import {useDispatch} from "react-redux";
 import {loginFailure, loginStart, loginSuccess} from "../../action/auth-login-action";
-import {LoginApi} from "../../api/login-api";
+import {LoginApi} from "../../api/auth/login-api";
 import {Link, useNavigate} from "react-router-dom";
 import * as Yup from "yup";
 import {ErrorMessage, Field, Form, Formik} from "formik";
