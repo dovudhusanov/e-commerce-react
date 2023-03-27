@@ -51,6 +51,9 @@ function Login() {
             console.log(response)
             navigate("/")
         } catch (error) {
+            toast.error("This user not found or Incorrect phone number / password", {
+                autoClose: 7000
+            })
             dispatch(loginFailure())
         }
     }

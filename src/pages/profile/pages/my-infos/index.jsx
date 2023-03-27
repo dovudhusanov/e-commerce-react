@@ -23,8 +23,8 @@ function MyInfos() {
         const userRes = await GetUserApi(localStorage.getItem("userId"))
         setPhone(userRes.data.phone)
         userRes?.data?.profile && localStorage.setItem("profileId", userRes.data.profile)
-        const response = await UserInfoGetApi(localStorage.getItem("profileId"))
-        setUser(response.data)
+        const response = localStorage.getItem("profileId") && await UserInfoGetApi(localStorage.getItem("profileId"))
+        setUser(response?.data)
         setLoading(false)
     }
 
@@ -32,7 +32,6 @@ function MyInfos() {
         getUserInfo()
     }, [])
 
-    const {first_name, last_name, email} = user
 
     return (
         <ProfileDashboardLayout>
@@ -43,19 +42,19 @@ function MyInfos() {
                     <UserInfoInput>
                         <InfoItem>
                             <label>First Name</label>
-                            <span>{first_name ? first_name : "-----------------"}</span>
+                            <span>{user?.first_name ? user?.first_name : "-----------------"}</span>
                         </InfoItem>
                         <InfoItem>
                             <label>Last Name</label>
-                            <span>{last_name ? last_name : "-----------------"}</span>
+                            <span>{user?.last_name ? user?.last_name : "-----------------"}</span>
                         </InfoItem>
                         <InfoItem>
                             <label>E-mail</label>
-                            <span>{email ? email : "-----------------"}</span>
+                            <span>{user?.email ? user?.email : "-----------------"}</span>
                         </InfoItem>
                         <InfoItem>
                             <label>Phone Number</label>
-                            <span>{email ? phone : "-----------------"}</span>
+                            <span>{phone ? phone : "-----------------"}</span>
                         </InfoItem>
                         <InfoItem>
                             <label style={{opacity: 0}}>.</label>

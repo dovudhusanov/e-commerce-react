@@ -11,22 +11,26 @@ import {useDispatch} from "react-redux";
 import {LogoutApi} from "../../../../../../api/auth/logout-api";
 import {logout} from "../../../../../../action/auth-login-action";
 import Loader from "../../../../../../components/loader";
+import WarningPopup from "../../../../../../components/warning-popup";
+import {DeleteUserApi} from "../../../../../../api/profile/delete-user-api";
+import {DeleteProfileApi} from "../../../../../../api/profile/delete-profile-api";
 
 function UserSettingsForm() {
 
     const [profileCreated, setProfileCreated] = useState([])
     const [loading, setLoading] = useState(false)
+    const [popup, setPopup] = useState(false)
 
     async function getUserInfo() {
         setLoading(true)
         const userRes = await GetUserApi(localStorage.getItem("userId"))
-        const response = await UserInfoGetApi(localStorage.getItem("profileId"))
-        setProfileCreated(userRes.data)
+        const response = localStorage.getItem("profileId") && await UserInfoGetApi(localStorage.getItem("profileId"))
+        setProfileCreated(userRes?.data)
 
         setInputValue({
-            first_name: response.data.first_name,
-            last_name: response.data.last_name,
-            email: response.data.email,
+            first_name: response?.data.first_name,
+            last_name: response?.data.last_name,
+            email: response?.data.email,
         });
         setLoading(false)
     }
@@ -80,6 +84,21 @@ function UserSettingsForm() {
     }
 
 
+    async function handleDeleteAccount(e) {
+        e.preventDefault()
+        try {
+            await DeleteUserApi(localStorage.getItem("userId"))
+            localStorage.removeItem("access");
+            localStorage.removeItem("refresh");
+            localStorage.removeItem("userId");
+            localStorage.removeItem("profileId");
+            navigate("/")
+            toast.success("Account successfully deleted")
+        }catch (e) {
+            console.log(e)
+        }
+    }
+
     return (
         <>
             {loading ? (
@@ -123,11 +142,12 @@ function UserSettingsForm() {
                     <BottomItems>
                         <div>
                             <Button type={"button"} onClick={handleLogout}>log out</Button>
-                            <Button type={"button"} className="btn-cancel">delete account</Button>
+                            <Button type={"button"} className="btn-cancel" onClick={() => setPopup(true)}>delete account</Button>
                         </div>
                     </BottomItems>
                 </UserSettingsFormStyle>
             )}
+            {popup && <WarningPopup question={"Are you sure you want to delete your account?"} btnFunction={handleDeleteAccount} buttonText={"Delete"} setPopup={setPopup}/>}
         </>
     );
 }
