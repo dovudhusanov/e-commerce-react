@@ -22,6 +22,10 @@ export const ButtonStyles = {
               return `
                 background-color: var(--color-blue);
                 color: white;
+                 
+                  &:hover {
+                    background-color: rgb(10, 105, 194);
+                  }
               `
           } else {
               return `

@@ -4,12 +4,14 @@ import {USDollar} from "../../../middleware/price-formatter";
 import {useDispatch, useSelector} from "react-redux";
 import {addToCart, uploadProduct} from "../../../action/product-action";
 import {Button} from "../../index";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {addWhishlist, deleteProductFromWhishlist, uploadWhishlist} from "../../../action/wishlist-action";
+import AddToCartPopup from "../../custom-toast";
 
 function Product({product}) {
 
     const dispatch = useDispatch()
+    const navigate = useNavigate()
 
     const [isMobile, setIsMobile] = useState(false);
 
@@ -54,42 +56,60 @@ function Product({product}) {
         );
     }
 
+    const [showPopup, setShowPopup] = useState(false);
+    const [productAddedPopup, setProductAddedPopup] = useState(null);
+
     function ProdcutButton({productItem}) {
 
         const handleAdd = (e, productItem) => {
             e.stopPropagation()
             dispatch(addToCart(productItem))
+
+            setProductAddedPopup(productItem);
+            setShowPopup(true);
+
+            setTimeout(() => {
+                setShowPopup(false);
+            }, 3000);
         }
 
         const productAdded = useSelector(state => state.ProductReducer.filter(productFilter => productFilter.id === product.id))
 
         return (
-            <Button productAdded={productAdded} style={{fontSize: "12px"}}
-                    onClick={(e) => handleAdd(e, productItem)}>{productAdded.length !== 0 ? "Added" : (isMobile ? "Add" : "Add to cart")}</Button>
+            <>
+                <Button productAdded={productAdded} style={{fontSize: "12px"}}
+                        onClick={(e) => {
+                            productAdded.length !== 0 ? navigate("/cart") : handleAdd(e, productItem)
+                        }
+                        }>{productAdded.length !== 0 ? "In cart, Go" : (isMobile ? "Add" : "Add to cart")}</Button>
+            </>
         );
     }
 
     return (
-        <ProductStyle.Product>
-            <ProductStyle.ProdcutCard>
-                <Link to={`/categories/${product.pathName}/${product.id}`}>
-                    <img src={product.image} alt={product.productName}/>
-                </Link>
-                <ProductStyle.Price>{USDollar.format(product.price)}</ProductStyle.Price>
-                <ProductStyle.ProductInfo>
-                    <span>{product.productName} {product.descr.slice(0, 20)}</span>
-                    <div>
+        <>
+            <ProductStyle.Product>
+                <ProductStyle.ProdcutCard>
+                    <Link to={`/categories/${product.pathName}/${product.id}`}>
+                        <img src={product.image} alt={product.productName}/>
+                    </Link>
+                    <ProductStyle.Price>{USDollar.format(product.price)}</ProductStyle.Price>
+                    <ProductStyle.ProductInfo>
+                        <span>{product.productName} {product.descr.slice(0, 20)}</span>
                         <div>
-                            <Link to={`/categories/${product.pathName}/${product.id}`}>
-                            <i className="fa-light fa-eye"></i>
-                            </Link>
-                            <ProductSaveButton productItem={product} id={product.id}/>
+                            <div>
+                                <Link to={`/categories/${product.pathName}/${product.id}`}>
+                                    <i className="fa-light fa-eye"></i>
+                                </Link>
+                                <ProductSaveButton productItem={product} id={product.id}/>
+                            </div>
+                            <ProdcutButton productItem={product}/>
                         </div>
-                        <ProdcutButton productItem={product}/>
-                    </div>
-                </ProductStyle.ProductInfo>
-            </ProductStyle.ProdcutCard>
-        </ProductStyle.Product>
+                    </ProductStyle.ProductInfo>
+                </ProductStyle.ProdcutCard>
+            </ProductStyle.Product>
+            <AddToCartPopup descr={productAddedPopup?.descr} img={productAddedPopup?.image} setShowPopup={setShowPopup} showPopup={showPopup}/>
+        </>
     );
 }
 

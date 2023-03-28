@@ -13,7 +13,6 @@ import {logout} from "../../../../../../action/auth-login-action";
 import Loader from "../../../../../../components/loader";
 import WarningPopup from "../../../../../../components/warning-popup";
 import {DeleteUserApi} from "../../../../../../api/profile/delete-user-api";
-import {DeleteProfileApi} from "../../../../../../api/profile/delete-profile-api";
 
 function UserSettingsForm() {
 
@@ -24,6 +23,7 @@ function UserSettingsForm() {
     async function getUserInfo() {
         setLoading(true)
         const userRes = await GetUserApi(localStorage.getItem("userId"))
+        localStorage.setItem("oldPhone", userRes.data.phone)
         const response = localStorage.getItem("profileId") && await UserInfoGetApi(localStorage.getItem("profileId"))
         setProfileCreated(userRes?.data)
 
@@ -75,10 +75,7 @@ function UserSettingsForm() {
             refresh: localStorage.getItem("refresh"),
             headers: {Authorization: `Bearer ${localStorage.getItem("access")}`}
         });
-        localStorage.removeItem("access");
-        localStorage.removeItem("refresh");
-        localStorage.removeItem("userId");
-        localStorage.removeItem("profileId");
+        localStorage.clear()
         dispatch(logout());
         navigate("/");
     }
@@ -88,10 +85,7 @@ function UserSettingsForm() {
         e.preventDefault()
         try {
             await DeleteUserApi(localStorage.getItem("userId"))
-            localStorage.removeItem("access");
-            localStorage.removeItem("refresh");
-            localStorage.removeItem("userId");
-            localStorage.removeItem("profileId");
+           localStorage.clear()
             navigate("/")
             toast.success("Account successfully deleted")
         }catch (e) {

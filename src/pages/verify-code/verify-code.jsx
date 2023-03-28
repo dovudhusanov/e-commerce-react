@@ -11,7 +11,7 @@ import {Button} from "../../components";
 import {ResendVerifyCodeApi} from "../../api/auth/resend-verify-code.api";
 import {toast} from "react-toastify";
 
-export default function VerifyCode({phone, type, navigateTo}) {
+export default function VerifyCode({phone, type, navigateTo, newPhone}) {
 
     ChangeTitle("Verify your phone number")
 
@@ -32,10 +32,14 @@ export default function VerifyCode({phone, type, navigateTo}) {
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
-            const response = await VerifyApi({phone: "+998" + phone, code: otp, type: type})
+            const response = await VerifyApi({phone: type === "change_phone" ? phone : "+998" + phone, new_phone: newPhone ?  newPhone : null, code: otp, type: type})
             dispatch(signSuccess(response.data))
             navigate(navigateTo)
             setVerified(true)
+            if(type === "change_phone") {
+                toast.success("Phone number successfully changed")
+            }
+            localStorage.removeItem("oldPhone")
         } catch (error) {
             setVerified(false)
             dispatch(signFailure(error))
@@ -59,7 +63,7 @@ export default function VerifyCode({phone, type, navigateTo}) {
         e.preventDefault()
         setCountdown(60);
         try {
-            const response = await ResendVerifyCodeApi({phone: "+998" + phone, type: "resend"})
+            const response = await ResendVerifyCodeApi({phone: type === "change_phone" ? phone : "+998" + phone, type: "resend"})
             console.log(response)
         } catch (error) {
             console.log(error)

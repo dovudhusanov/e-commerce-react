@@ -10,19 +10,15 @@ function SelectUserImg({src, setting}) {
 
     const [showCameraIcon, setShowCameraIcon] = useState(false);
 
-    const uploadImage = (file) => {
-        const formData = new FormData();
-        formData.append('image', file);
-
-        return UploadImgApi({file: formData})
-    }
-
 // Usage
     const handleFileUpload = async (event) => {
         const file = event.target.files[0];
         const imageUrl = URL.createObjectURL(file);
         setImageSrc(imageUrl);
-        await uploadImage(file)
+        const formData = new FormData();
+        formData.append('file', file, file.fileName);
+
+        await UploadImgApi(formData)
             .then((response) => {
                 console.log(response.data);
             })

@@ -61,7 +61,6 @@ function MyInfos() {
                             <span style={{fontSize: "16px"}}>
                                  <Link to={"/user/settings"}>Edit <i className="fa-solid fa-pen"></i></Link>
                             </span>
-
                         </InfoItem>
                     </UserInfoInput>
                     <SelectUserImg src={img}/>
