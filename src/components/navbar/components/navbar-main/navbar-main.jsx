@@ -27,9 +27,6 @@ function NavbarMain() {
 
     useEffect(() => {
         getUserInfo()
-        return () => {
-            setImgSrc(img)
-        }
     }, [window.location.pathname,])
 
     return (
