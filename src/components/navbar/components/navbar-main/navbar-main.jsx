@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useCallback} from 'react';
 import img from "../../../../assets/userInitialImg.png"
 import {NavbarMainStyles} from "./navbar-main.styles"
 import SearchBar from "../search-bar/search";
@@ -14,20 +14,23 @@ import {UserInfoGetApi} from "../../../../api/profile/user-info-get-api";
 function NavbarMain() {
 
     const [sModal, setSModal] = useState(false);
-    const [imgSrc, setImgSrc] = useState(null)
+    const [imgSrc, setImgSrc] = useState(img)
 
     const productLength = useSelector(state => state.ProductReducer)
 
     const state = JSON.parse(localStorage.getItem("product"))
 
-    async function getUserInfo() {
-        const response = localStorage.getItem("profileId") && await UserInfoGetApi(localStorage.getItem("profileId"))
-        setImgSrc(response?.data?.image?.url ? `https://abdusattor0707.pythonanywhere.com${response?.data.image.url}/` : img)
-    }
+    const getUserInfo = useCallback(async () => {
+        const response = await UserInfoGetApi(localStorage.getItem("profileId"))
+        setImgSrc(`https://abdusattor0707.pythonanywhere.com${response?.data.image.url}/`)
+    }, [imgSrc]);
 
     useEffect(() => {
         getUserInfo()
-    }, [window.location.pathname])
+        return () => {
+            setImgSrc(img)
+        }
+    }, [window.location.pathname,])
 
     return (
         <>
@@ -47,7 +50,9 @@ function NavbarMain() {
                         <NavbarMainStyles.NavbarRight user={localStorage.getItem("access")}>
                             {localStorage.getItem("access") ? (
                                 <>
-                                    <NavLink to="/user/info" className={"profile-btn"}><img src={imgSrc} alt="user image"/> </NavLink>
+                                    <NavLink to="/user/info" className={"profile-btn"}><img src={imgSrc}
+                                                                                            alt="user image"/>
+                                    </NavLink>
                                     <NavLink to="/cart" className="user-cart">
                                         {productLength?.length === 0 || state?.length === 0 ? null : (
                                             <CartLength
