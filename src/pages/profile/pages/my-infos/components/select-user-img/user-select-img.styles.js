@@ -120,7 +120,7 @@ export const SaveButton = styled.button`
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  z-index: 99999;
+  z-index: 888;
   cursor: pointer;
 
   
