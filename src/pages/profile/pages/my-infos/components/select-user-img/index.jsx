@@ -7,7 +7,7 @@ import {UploadImgApi} from "../../../../../../api/profile/upload-img-api";
 function SelectUserImg({src, setting}) {
 
     const [imageSrc, setImageSrc] = useState(src)
-    const [imageId, setImageId] = useState()
+    const [imageId, setImageId] = useState([])
 
     const hiddenInputRef = useRef(null);
 
@@ -22,16 +22,18 @@ function SelectUserImg({src, setting}) {
         await UploadImgApi(formData)
             .then((response) => {
                 console.log(response.data);
-                setImageId(response?.data.results.id)
+                setImageId([response?.data.results.id])
             })
             .catch((error) => {
                 console.log(error);
             });
     }
 
+
+
     const handleSave = async (e) => {
         e.preventDefault()
-        await UserInfoEditApi({image: [imageId]}, localStorage.getItem("profileId"))
+        await UserInfoEditApi({images: [...imageId]}, localStorage.getItem("profileId"))
             .then(_ => toast.success('Successfully saved!'))
             .catch(_ => toast.error('Error!'))
     }

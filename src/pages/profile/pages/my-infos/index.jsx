@@ -17,6 +17,7 @@ function MyInfos() {
     const [user, setUser] = useState([])
     const [phone, setPhone] = useState("")
     const [loading, setLoading] = useState(false)
+    const [imgSrc, setImgSrc] = useState(null)
 
     async function getUserInfo() {
         setLoading(true)
@@ -24,6 +25,7 @@ function MyInfos() {
         setPhone(userRes.data.phone)
         userRes?.data?.profile && localStorage.setItem("profileId", userRes.data.profile)
         const response = localStorage.getItem("profileId") && await UserInfoGetApi(localStorage.getItem("profileId"))
+        setImgSrc(`https://abdusattor0707.pythonanywhere.com${response?.data.image.url}/`)
         setUser(response?.data)
         setLoading(false)
     }
@@ -63,7 +65,7 @@ function MyInfos() {
                             </span>
                         </InfoItem>
                     </UserInfoInput>
-                    <SelectUserImg src={img}/>
+                    <SelectUserImg src={imgSrc ?? img}/>
                 </UserInfo>
             )}
         </ProfileDashboardLayout>

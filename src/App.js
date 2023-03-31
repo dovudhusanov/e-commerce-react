@@ -51,7 +51,6 @@ function App() {
         }
     }, [window.location, navigate])
 
-
     return (
         <>
             <BaseLayout>
