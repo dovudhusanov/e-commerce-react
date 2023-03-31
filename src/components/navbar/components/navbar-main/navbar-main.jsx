@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import img from "../../../../assets/userInitialImg.png"
 import {NavbarMainStyles} from "./navbar-main.styles"
 import SearchBar from "../search-bar/search";
 import {Link, NavLink} from "react-router-dom";
@@ -8,14 +9,25 @@ import {CartLength} from "../navbar-bottom/NavbarBottomStyle";
 import {useSelector} from "react-redux";
 import MobileSidebar from "../mobile-sidebar/mobile-sidebar";
 import NavbarBottom from "../navbar-bottom/navbar-bottom";
+import {UserInfoGetApi} from "../../../../api/profile/user-info-get-api";
 
 function NavbarMain() {
+
+    const [sModal, setSModal] = useState(false);
+    const [imgSrc, setImgSrc] = useState(null)
 
     const productLength = useSelector(state => state.ProductReducer)
 
     const state = JSON.parse(localStorage.getItem("product"))
 
-    const [sModal, setSModal] = useState(false)
+    async function getUserInfo() {
+        const response = localStorage.getItem("profileId") && await UserInfoGetApi(localStorage.getItem("profileId"))
+        setImgSrc(response?.data?.image?.url ? `https://abdusattor0707.pythonanywhere.com${response?.data.image.url}/` : img)
+    }
+
+    useEffect(() => {
+        getUserInfo()
+    }, [window.location.pathname])
 
     return (
         <>
@@ -35,7 +47,7 @@ function NavbarMain() {
                         <NavbarMainStyles.NavbarRight user={localStorage.getItem("access")}>
                             {localStorage.getItem("access") ? (
                                 <>
-                                    <NavLink to="/user/info"><Button>Profile</Button></NavLink>
+                                    <NavLink to="/user/info" className={"profile-btn"}><img src={imgSrc} alt="user image"/> </NavLink>
                                     <NavLink to="/cart" className="user-cart">
                                         {productLength?.length === 0 || state?.length === 0 ? null : (
                                             <CartLength

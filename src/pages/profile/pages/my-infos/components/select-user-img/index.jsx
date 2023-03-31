@@ -1,10 +1,21 @@
 import React, {useRef, useState} from 'react';
-import {UserImg, CameraIcon, HiddenInput, Icon, ImageContainer, Image} from "./user-select-img.styles";
+import {
+    UserImg,
+    CameraIcon,
+    HiddenInput,
+    Icon,
+    ImageContainer,
+    Image,
+    SaveButton,
+    Form
+} from "./user-select-img.styles";
 import {toast} from "react-toastify";
 import {UserInfoEditApi} from "../../../../../../api/profile/user-info-edit-api";
+import {UserCreateApi} from "../../../../../../api/profile/user-create-api";
+import {GetUserApi} from "../../../../../../api/profile/get-user-api";
 import {UploadImgApi} from "../../../../../../api/profile/upload-img-api";
 
-function SelectUserImg({src, setting}) {
+function SelectUserImg({src, profileCreated}) {
 
     const [imageSrc, setImageSrc] = useState(src)
     const [imageId, setImageId] = useState([])
@@ -30,21 +41,27 @@ function SelectUserImg({src, setting}) {
     }
 
 
-
     const handleSave = async (e) => {
         e.preventDefault()
-        await UserInfoEditApi({images: [...imageId]}, localStorage.getItem("profileId"))
-            .then(_ => toast.success('Successfully saved!'))
-            .catch(_ => toast.error('Error!'))
+        if (profileCreated.profile) {
+            const userRes = await GetUserApi(localStorage.getItem("userId"))
+            userRes?.data?.profile && localStorage.setItem("profileId", userRes.data.profile)
+            await UserInfoEditApi({images: [...imageId]}, localStorage.getItem("profileId"))
+                .then(_ => toast.success('Successfully saved!'))
+                .catch(_ => toast.error('Error!'))
+        } else {
+            await UserCreateApi({first_name: "user"})
+                .then(_ => toast.success("Successfully saved!"))
+                .catch(_ => toast.error("Wrong"))
+        }
     }
 
     return (
-        <form onSubmit={handleSave}>
+        <Form onSubmit={handleSave}>
             <UserImg
                 onClick={() => {
                     hiddenInputRef.current.click()
                 }}
-                setting={setting}
                 onMouseOver={() => setShowCameraIcon(true)} onMouseOut={() => setShowCameraIcon(false)}>
                 <ImageContainer>
                     <Image src={imageSrc}/>
@@ -54,8 +71,8 @@ function SelectUserImg({src, setting}) {
                 </ImageContainer>
                 <HiddenInput ref={hiddenInputRef} onChange={handleFileUpload}/>
             </UserImg>
-            <button type={"submit"} disabled={!imageId && true}>save</button>
-        </form>
+            <SaveButton type={"submit"} disabled={!Object.keys(imageId).length && true}><i className="fa-solid fa-check"></i></SaveButton>
+        </Form>
     );
 }
 

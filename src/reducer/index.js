@@ -9,5 +9,5 @@ export const rootReducer = combineReducers({
     SignupReducer: SignupReducer,
     ProductsReducer: ProductsReducer,
     ProductReducer: ProductReducer,
-    WhishlistReducer: WhishlistReducer
+    WhishlistReducer: WhishlistReducer,
 })

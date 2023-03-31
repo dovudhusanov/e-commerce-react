@@ -14,6 +14,7 @@ import {Link} from "react-router-dom";
 
 function MyInfos() {
 
+    const [profileCreated, setProfileCreated] = useState([])
     const [user, setUser] = useState([])
     const [phone, setPhone] = useState("")
     const [loading, setLoading] = useState(false)
@@ -25,7 +26,8 @@ function MyInfos() {
         setPhone(userRes.data.phone)
         userRes?.data?.profile && localStorage.setItem("profileId", userRes.data.profile)
         const response = localStorage.getItem("profileId") && await UserInfoGetApi(localStorage.getItem("profileId"))
-        setImgSrc(`https://abdusattor0707.pythonanywhere.com${response?.data.image.url}/`)
+        setImgSrc(response?.data?.image?.url ? `https://abdusattor0707.pythonanywhere.com${response?.data.image.url}/` : img)
+        setProfileCreated(userRes?.data)
         setUser(response?.data)
         setLoading(false)
     }
@@ -65,7 +67,7 @@ function MyInfos() {
                             </span>
                         </InfoItem>
                     </UserInfoInput>
-                    <SelectUserImg src={imgSrc ?? img}/>
+                    <SelectUserImg src={imgSrc} profileCreated={profileCreated}/>
                 </UserInfo>
             )}
         </ProfileDashboardLayout>

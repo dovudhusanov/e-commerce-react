@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+export const Form = styled.form`
+  position: relative;
+`
+
 export const UserImg = styled.div`
   margin: 10px 150px 10px 10px;
   position: relative;
@@ -102,3 +106,31 @@ export const HiddenInput = styled.input.attrs({type: 'file', accept: 'image/*'})
   height: 100%;
   border-radius: 50%;
 `;
+
+export const SaveButton = styled.button`
+  border: none;
+  position: absolute;
+  top: 20px;
+  right: 170px;
+  background: #379D00;
+  color: white;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  z-index: 99999;
+  cursor: pointer;
+
+  
+  ${(props) => {
+      if (props.disabled) {
+          return`
+           background: #3e5e2e;
+            color: #b2b2b2;
+            cursor: default;
+          `
+      }
+  }}
+`

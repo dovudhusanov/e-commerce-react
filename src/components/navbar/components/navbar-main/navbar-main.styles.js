@@ -74,20 +74,32 @@ export const NavbarMainStyles = {
       align-content: center;
       width: 152px;
 
+      & .profile-btn {
+        display: flex;
+        align-items: center;
+
+        & img {
+          width: 35px;
+          object-fit: cover;
+          height: 35px;
+          border-radius: 50%;
+        }
+      }
+
       & .user-cart {
         position: relative;
         display: none;
         margin-left: 7px;
 
         & p {
-          left: 20px; 
+          left: 20px;
           top: 2px;
         }
-        
+
         @media screen and (max-width: 820px) {
           display: block;
         }
-        
+
         @media screen and (max-width: 590px) {
           & p {
             top: 0;
@@ -96,12 +108,12 @@ export const NavbarMainStyles = {
             height: 14px;
           }
         }
-        
+
         & i {
           padding-right: 0;
         }
       }
-      
+
       ${(props) => {
         if (props.user) {
           return `
