@@ -9,7 +9,7 @@ export function BaseLayout({children}) {
             <Navbar/>
             <BaseLayoutMain> {children}</BaseLayoutMain>
             <Footer/>
-            <ScrollToTop />
+            <ScrollToTop/>
         </>
     )
 }

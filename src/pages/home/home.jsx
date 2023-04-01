@@ -8,6 +8,7 @@ function Home() {
     ScrollTop();
     ChangeTitle("E-Commerce")
     const products = useSelector(state => state.ProductsReducer);
+    const imageChange = useSelector(state => state.ChangeImageStatesReducer)
 
     async function getUserInfo() {
         const userRes = await GetUserApi(localStorage.getItem("userId"))
@@ -16,8 +17,7 @@ function Home() {
 
     useEffect(() => {
         getUserInfo()
-    }, [])
-
+    }, [imageChange.isLoggedIn, window.location.href === "/"])
 
     return (
         <div className="container">

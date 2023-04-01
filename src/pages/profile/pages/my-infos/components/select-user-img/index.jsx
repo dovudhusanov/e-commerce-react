@@ -14,6 +14,8 @@ import {UserInfoEditApi} from "../../../../../../api/profile/user-info-edit-api"
 import {UserCreateApi} from "../../../../../../api/profile/user-create-api";
 import {GetUserApi} from "../../../../../../api/profile/get-user-api";
 import {UploadImgApi} from "../../../../../../api/profile/upload-img-api";
+import {useDispatch} from "react-redux";
+import {setImageChanged} from "../../../../../../reducer/change-image-states-reducer";
 
 function SelectUserImg({src, profileCreated}) {
 
@@ -21,6 +23,7 @@ function SelectUserImg({src, profileCreated}) {
     const [imageId, setImageId] = useState([])
 
     const hiddenInputRef = useRef(null);
+    const dispatch = useDispatch()
 
     const [showCameraIcon, setShowCameraIcon] = useState(false);
     const handleFileUpload = async (event) => {
@@ -46,13 +49,36 @@ function SelectUserImg({src, profileCreated}) {
         if (profileCreated.profile) {
             const userRes = await GetUserApi(localStorage.getItem("userId"))
             userRes?.data?.profile && localStorage.setItem("profileId", userRes.data.profile)
-            await UserInfoEditApi({images: [...imageId]}, localStorage.getItem("profileId"))
-                .then(_ => toast.success('Successfully saved!'))
-                .catch(_ => toast.error('Error!'))
+            try {
+                dispatch(setImageChanged(true))
+                const intervalId = setInterval(() => {
+                    dispatch(setImageChanged(false));
+                }, 2000);
+                await UserInfoEditApi({images: [...imageId]}, localStorage.getItem("profileId"))
+                    .then(_ => {
+                        clearInterval(intervalId);
+                        toast.success('Successfully saved!')
+                    })
+                    .catch(_ => toast.error('Error!'))
+            } catch (error) {
+                dispatch(setImageChanged(false))
+            }
         } else {
-            await UserCreateApi({first_name: "user"})
-                .then(_ => toast.success("Successfully saved!"))
-                .catch(_ => toast.error("Wrong"))
+            try {
+                dispatch(setImageChanged(true));
+                const intervalId = setInterval(() => {
+                    dispatch(setImageChanged(false));
+                }, 2000);
+                await UserCreateApi({ first_name: "user" }).then((_) => {
+                    clearInterval(intervalId);
+                    toast.success("Successfully saved!");
+                }).catch((_) => {
+                    toast.error("Wrong");
+                });
+
+            } catch (e) {
+                dispatch(setImageChanged(false));
+            }
         }
     }
 

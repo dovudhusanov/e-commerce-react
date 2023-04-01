@@ -17,17 +17,23 @@ function NavbarMain() {
     const [imgSrc, setImgSrc] = useState(img)
 
     const productLength = useSelector(state => state.ProductReducer)
+    const imageChange = useSelector(state => state.ChangeImageStatesReducer)
 
     const state = JSON.parse(localStorage.getItem("product"))
 
     const getUserInfo = useCallback(async () => {
         const response = await UserInfoGetApi(localStorage.getItem("profileId"))
-        setImgSrc(`https://abdusattor0707.pythonanywhere.com${response?.data.image.url}/`)
-    }, [imgSrc]);
+        setImgSrc(`https://abdusattor0707.pythonanywhere.com/${response?.data.image.url}/`)
+    }, []);
 
     useEffect(() => {
-        getUserInfo()
-    }, [window.location.pathname,])
+        if (imageChange.isLoggedIn || imageChange.imageChanged || window.location.pathname) {
+            getUserInfo()
+        }
+        return () => {
+            setImgSrc(img)
+        }
+    }, [imageChange.isLoggedIn, imageChange.imageChanged, window.location.pathname, window.location.href])
 
     return (
         <>

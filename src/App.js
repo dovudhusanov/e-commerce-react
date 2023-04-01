@@ -34,21 +34,11 @@ function App() {
     }, [location.pathname]);
 
     useEffect(() => {
-        if (window.location.pathname === "/search" && window.location.search === "?query=" || window.location.search === "?query") {
-            navigate("/")
-        }
-        if (localStorage.getItem("access") && window.location.pathname === "/login") {
-            navigate("/")
-        }
-        if (localStorage.getItem("access") && window.location.pathname === "/signup") {
-            navigate("/")
-        }
-        if (localStorage.getItem("access") && window.location.pathname === "/user") {
-            navigate("/user/info")
-        }
-        if (localStorage.getItem("access") && window.location.pathname === "/profile") {
-            navigate("/user/info")
-        }
+        if (window.location.pathname === "/search" && window.location.search === "?query=" || window.location.search === "?query") navigate("/")
+        if (localStorage.getItem("access") && window.location.pathname === "/login") navigate("/")
+        if (localStorage.getItem("access") && window.location.pathname === "/signup") navigate("/")
+        if (localStorage.getItem("access") && window.location.pathname === "/user") navigate("/user/info")
+        if (localStorage.getItem("access") && window.location.pathname === "/profile") navigate("/user/info")
     }, [window.location, navigate])
 
     return (

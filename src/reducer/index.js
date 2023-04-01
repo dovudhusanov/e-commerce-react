@@ -4,10 +4,12 @@ import {SignupReducer} from "./signup-reducer"
 import {ProductsReducer} from "./products-reducer";
 import {ProductReducer} from "./product-reducer";
 import {WhishlistReducer} from "./whishlist-reducer";
+import {ChangeImageStatesReducer} from "./change-image-states-reducer";
 export const rootReducer = combineReducers({
     LoginReducer: LoginReducer,
     SignupReducer: SignupReducer,
     ProductsReducer: ProductsReducer,
     ProductReducer: ProductReducer,
     WhishlistReducer: WhishlistReducer,
+    ChangeImageStatesReducer: ChangeImageStatesReducer
 })

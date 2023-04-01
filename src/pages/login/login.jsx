@@ -9,6 +9,7 @@ import * as Yup from "yup";
 import {ErrorMessage, Field, Form, Formik} from "formik";
 import {ChangeTitle, ScrollTop} from "../../middleware";
 import {toast} from "react-toastify";
+import {setImageChanged, setLoggedIn} from "../../reducer/change-image-states-reducer";
 
 function Login() {
 
@@ -40,6 +41,7 @@ function Login() {
 
     const handleSubmit = async (values) => {
         dispatch(loginStart());
+        dispatch(setLoggedIn(true))
         try {
             const {phoneNumber, password} = values
             const response = await LoginApi({phone: "+998" + phoneNumber, password})
@@ -48,13 +50,14 @@ function Login() {
             localStorage.setItem('access', access);
             localStorage.setItem('refresh', refresh);
             localStorage.setItem("userId", id)
-            console.log(response)
             navigate("/")
+            dispatch(setLoggedIn(true))
         } catch (error) {
             toast.error("This user not found or Incorrect phone number / password", {
                 autoClose: 7000
             })
             dispatch(loginFailure())
+            dispatch(setLoggedIn(false))
         }
     }
 

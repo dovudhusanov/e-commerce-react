@@ -13,6 +13,7 @@ import {logout} from "../../../../../../action/auth-login-action";
 import Loader from "../../../../../../components/loader";
 import WarningPopup from "../../../../../../components/warning-popup";
 import {DeleteUserApi} from "../../../../../../api/profile/delete-user-api";
+import {setImageChanged, setLoggedIn} from "../../../../../../reducer/change-image-states-reducer";
 
 function UserSettingsForm() {
 
@@ -77,6 +78,8 @@ function UserSettingsForm() {
         });
         localStorage.clear()
         dispatch(logout());
+        dispatch(setImageChanged(false))
+        dispatch(setLoggedIn(false))
         navigate("/");
     }
 
