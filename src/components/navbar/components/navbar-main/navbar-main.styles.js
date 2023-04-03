@@ -84,6 +84,11 @@ export const NavbarMainStyles = {
           object-fit: cover;
           height: 35px;
           border-radius: 50%;
+
+          @media screen and (max-width: 590px) {
+            width: 28px;
+            height: 28px;
+          }
         }
       }
 

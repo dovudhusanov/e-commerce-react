@@ -3,6 +3,7 @@ import {useSelector} from "react-redux";
 import {Products} from "../../components";
 import {ChangeTitle, ScrollTop} from "../../middleware";
 import {GetUserApi} from "../../api";
+import Banner from "../../components/banner/banner";
 
 function Home() {
     ScrollTop();
@@ -20,6 +21,7 @@ function Home() {
 
     return (
         <div className="container">
+            <Banner />
             <Products
                 products={products.products}
             />

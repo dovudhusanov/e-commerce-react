@@ -124,7 +124,6 @@ export const SearchBarStyles = {
       box-sizing: border-box;
       box-shadow: 0 4px 4px rgb(0 0 0 / 25%);
       border-radius: 0 0 12px 12px;
-      transition: 0.2s ease;
       padding: 10px 0 25px 0;
 
       ${(props) => {
