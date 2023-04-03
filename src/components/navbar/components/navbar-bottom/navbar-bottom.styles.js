@@ -1,11 +1,10 @@
 import styled from "styled-components";
 
-export const NavbarBottomStyle = {
+export const NavbarBottomStyles = {
     NavbarBottom: styled.div`
       width: 100%;
       background: rgba(85, 170, 246, 0.01);
-      position: relative;
-      top: 16px;
+      margin-top: 12px;
       border-bottom: 1px solid rgba(128, 128, 128, 0.23);
       
       @media screen and (max-width: 820px) {
@@ -21,9 +20,10 @@ export const NavbarBottomItem = styled.div`
   align-items: center;
 
   &  a {
-    padding: 17px 25px;
+    padding: 12px 25px;
     color: var(--color-blue);
     transition: 0.3s ease;
+    font-size: 15px;
     
     &:hover{
       font-weight: 400;
@@ -92,7 +92,7 @@ export const CategoryButton = styled.button`
   background-color: rgb(32, 145, 249, 0.1);
   color: var(--color-blue);
   position: relative;
-  padding: 20px;
+  padding: 17px;
 
   &:hover {
     background-color: rgb(32, 145, 249, 0.2);
@@ -167,10 +167,10 @@ export const CartLength = styled.p`
   display: flex;
   justify-content: center;
   align-items: center;
-  top: 8px;
-  left: 32px;
-  width: 16px;
-  height: 16px;
+  top: 5px;
+  left: 34px;
+  width: 14px;
+  height: 14px;
   background: var(--color-blue);
   color: white;
   border-radius: 50%;

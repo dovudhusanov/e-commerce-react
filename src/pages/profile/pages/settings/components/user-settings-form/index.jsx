@@ -1,20 +1,12 @@
 import React, {useEffect, useState} from 'react';
 import {UserSettingsFormStyle, BottomItems, UserSettingsInput, UserSettingsInputs} from "./user-settings-form.styles";
 import {Link, useNavigate} from "react-router-dom";
-import {Button} from "../../../../../../components";
-import {UserInfoEditApi} from "../../../../../../api/profile/user-info-edit-api";
-import {UserInfoGetApi} from "../../../../../../api/profile/user-info-get-api";
+import {Button, Loader, WarningPopup} from "../../../../../../components";
+import {DeleteUserApi, UserInfoEditApi, UserInfoGetApi, GetUserApi, UserCreateApi, LogoutApi} from "../../../../../../api";
 import {toast} from "react-toastify";
-import {GetUserApi} from "../../../../../../api/profile/get-user-api";
-import {UserCreateApi} from "../../../../../../api/profile/user-create-api";
 import {useDispatch} from "react-redux";
-import {LogoutApi} from "../../../../../../api/auth/logout-api";
 import {logout} from "../../../../../../action/auth-login-action";
-import Loader from "../../../../../../components/loader";
-import WarningPopup from "../../../../../../components/warning-popup";
-import {DeleteUserApi} from "../../../../../../api/profile/delete-user-api";
 import {setImageChanged, setLoggedIn} from "../../../../../../reducer/change-image-states-reducer";
-
 function UserSettingsForm() {
 
     const [profileCreated, setProfileCreated] = useState([])
@@ -25,7 +17,8 @@ function UserSettingsForm() {
         setLoading(true)
         const userRes = await GetUserApi(localStorage.getItem("userId"))
         localStorage.setItem("oldPhone", userRes.data.phone)
-        const response = localStorage.getItem("profileId") && await UserInfoGetApi(localStorage.getItem("profileId"))
+        userRes?.data?.profile && localStorage.setItem("profileId", userRes.data.profile)
+        const response = userRes?.data?.profile && await UserInfoGetApi(localStorage.getItem("profileId"))
         setProfileCreated(userRes?.data)
 
         setInputValue({
@@ -55,7 +48,8 @@ function UserSettingsForm() {
         const {first_name, last_name, email} = inputValue
         if (profileCreated.profile) {
             const userRes = await GetUserApi(localStorage.getItem("userId"))
-            userRes?.data?.profile && localStorage.setItem("profileId", userRes.data.profile)
+            userRes?.data?.profile && localStorage.setItem("profileId", userRes?.data.profile)
+            console.log(userRes.data.profile)
             await UserInfoEditApi({
                 first_name, last_name, email
             }, localStorage.getItem("profileId"))
@@ -76,7 +70,6 @@ function UserSettingsForm() {
             refresh: localStorage.getItem("refresh"),
             headers: {Authorization: `Bearer ${localStorage.getItem("access")}`}
         });
-        localStorage.clear()
         dispatch(logout());
         dispatch(setImageChanged(false))
         dispatch(setLoggedIn(false))

@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import OtpInput from 'react18-input-otp';
-import {VerifyApi} from "../../api/auth/verify-api";
+import {VerifyApi, ResendVerifyCodeApi} from "../../api";
 import {VerifyCodeStyles, Count} from "./verify-code.styles";
 import {ChangeTitle} from "../../middleware";
 import {signFailure, signSuccess} from "../../action/signup-action";
@@ -8,7 +8,6 @@ import {useDispatch} from "react-redux";
 import {useNavigate} from "react-router-dom";
 import NewPassword from "../new-password";
 import {Button} from "../../components";
-import {ResendVerifyCodeApi} from "../../api/auth/resend-verify-code.api";
 import {toast} from "react-toastify";
 
 export default function VerifyCode({phone, type, navigateTo, newPhone}) {

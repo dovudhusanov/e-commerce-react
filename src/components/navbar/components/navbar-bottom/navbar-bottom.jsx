@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import {
-    NavbarBottomStyle,
+    NavbarBottomStyles,
     NavbarBottomRight,
     CategoryButton,
     NavbarBottomItem, CartLength
-} from "./NavbarBottomStyle";
+} from "./navbar-bottom.styles";
 import {NavLink, useNavigate} from "react-router-dom";
 import {useSelector} from "react-redux";
 import CategoriesModal from "../categories-modal/categories-modal";
@@ -39,7 +39,7 @@ function NavbarBottom() {
     }, [window.location, navigate])
 
     return (
-        <NavbarBottomStyle.NavbarBottom>
+        <NavbarBottomStyles.NavbarBottom>
             <div className="container">
                 <CategoriesModal showCategories={showCategories} setShowCategories={setShowCategories}/>
             </div>
@@ -63,7 +63,7 @@ function NavbarBottom() {
                     </NavbarBottomRight>
                 </NavbarBottomItem>
             </div>
-        </NavbarBottomStyle.NavbarBottom>
+        </NavbarBottomStyles.NavbarBottom>
     );
 }
 

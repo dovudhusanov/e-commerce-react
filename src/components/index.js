@@ -4,3 +4,5 @@ export {default as Products} from "./products/products";
 export {default as Button} from "./button/button";
 export {default as Dashboard} from "./dashboard"
 export {default as ProductDetails} from "./product-details/product-details"
+export {default as Loader} from "./loader"
+export {default as WarningPopup} from "./warning-popup"

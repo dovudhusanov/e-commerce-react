@@ -4,8 +4,8 @@ import * as Yup from 'yup';
 import {AuthStyle} from "../login/login.styles";
 import {Link} from "react-router-dom";
 import {useDispatch} from "react-redux";
-import {SignupApi} from "../../api/auth/signup-api";
-import {signFailure, signStart, signSuccess} from "../../action/signup-action";
+import {SignupApi} from "../../api";
+import {signFailure, signStart} from "../../action/signup-action";
 import {ChangeTitle, ScrollTop} from "../../middleware";
 import {VerifyCode} from "../index";
 

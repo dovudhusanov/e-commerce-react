@@ -1,15 +1,13 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {AuthStyle} from "./login.styles"
 import "./login-style.css"
-import {useDispatch} from "react-redux";
-import {loginFailure, loginStart, loginSuccess} from "../../action/auth-login-action";
-import {LoginApi} from "../../api/auth/login-api";
+import {LoginUser} from "../../action/auth-login-action";
 import {Link, useNavigate} from "react-router-dom";
 import * as Yup from "yup";
 import {ErrorMessage, Field, Form, Formik} from "formik";
 import {ChangeTitle, ScrollTop} from "../../middleware";
 import {toast} from "react-toastify";
-import {setImageChanged, setLoggedIn} from "../../reducer/change-image-states-reducer";
+import {useDispatch} from "react-redux";
 
 function Login() {
 
@@ -35,30 +33,13 @@ function Login() {
 
     const [showPass, setShowPass] = useState(false)
 
-    const dispatch = useDispatch()
-
     const navigate = useNavigate()
 
-    const handleSubmit = async (values) => {
-        dispatch(loginStart());
-        dispatch(setLoggedIn(true))
-        try {
-            const {phoneNumber, password} = values
-            const response = await LoginApi({phone: "+998" + phoneNumber, password})
-            dispatch(loginSuccess(response.data))
-            const {access, refresh, id} = response.data
-            localStorage.setItem('access', access);
-            localStorage.setItem('refresh', refresh);
-            localStorage.setItem("userId", id)
-            navigate("/")
-            dispatch(setLoggedIn(true))
-        } catch (error) {
-            toast.error("This user not found or Incorrect phone number / password", {
-                autoClose: 7000
-            })
-            dispatch(loginFailure())
-            dispatch(setLoggedIn(false))
-        }
+    const dispatch = useDispatch()
+
+    const handleSubmit = (values) => {
+        const {phoneNumber, password} = values
+        dispatch(LoginUser(phoneNumber, password))
     }
 
     function TextError(props) {

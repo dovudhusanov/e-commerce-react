@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const SearchBarStyles = {
     Search: styled.div`
       position: relative;
-      height: 40px;
+      height: 38px;
       width: 100%;
 
       ${(props) => {
@@ -21,7 +21,7 @@ export const SearchBarStyles = {
 
       & form {
         position: relative;
-        height: 40px;
+        height: 38px;
         width: 100%;
         
         ${(props) => {
@@ -250,7 +250,7 @@ export const SearchBarStyles = {
       width: 15%;
       border-radius: 0 4px 4px 0;
       background-color: rgba(49, 49, 196, 0.05);
-      height: 40px;
+      height: 38px;
       cursor: pointer;
 
       & i {

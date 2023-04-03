@@ -1,6 +1,5 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {SearchResultsStyles} from "./search-results.styles";
-import {SearchApi} from "../../api/other/search-api";
 import {useSelector} from "react-redux";
 import Products from "../../components/products/products";
 import {ChangeTitle, ScrollTop} from "../../middleware";

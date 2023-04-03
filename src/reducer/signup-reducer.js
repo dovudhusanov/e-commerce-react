@@ -24,11 +24,6 @@ export function SignupReducer(state = initialState, action) {
                 isSigningUp: false,
                 signupError: action.payload,
             };
-        case SignupType.ACCESS_TOKEN_EXPIRED:
-            return state;
-        case SignupType.ACCESS_TOKEN_REFRESHED:
-            localStorage.setItem('access', action.payload.access);
-            return state;
         default:
             return state;
     }

@@ -1,15 +1,13 @@
 import React, {useEffect, useState, useCallback} from 'react';
 import img from "../../../../assets/userInitialImg.png"
 import {NavbarMainStyles} from "./navbar-main.styles"
-import SearchBar from "../search-bar/search";
 import {Link, NavLink} from "react-router-dom";
 import "./navbar-main.css"
 import {Button} from "../../../index";
-import {CartLength} from "../navbar-bottom/NavbarBottomStyle";
+import {CartLength} from "../navbar-bottom/navbar-bottom.styles";
 import {useSelector} from "react-redux";
-import MobileSidebar from "../mobile-sidebar/mobile-sidebar";
-import NavbarBottom from "../navbar-bottom/navbar-bottom";
-import {UserInfoGetApi} from "../../../../api/profile/user-info-get-api";
+import {SearchBar, MobileSidebar, NavbarBottom} from "../index";
+import {UserInfoGetApi} from "../../../../api";
 
 function NavbarMain() {
 
@@ -24,16 +22,14 @@ function NavbarMain() {
     const getUserInfo = useCallback(async () => {
         const response = await UserInfoGetApi(localStorage.getItem("profileId"))
         setImgSrc(`https://abdusattor0707.pythonanywhere.com/${response?.data.image.url}/`)
-    }, []);
+    }, [imgSrc]);
 
     useEffect(() => {
-        if (imageChange.isLoggedIn || imageChange.imageChanged || window.location.pathname) {
-            getUserInfo()
-        }
+        getUserInfo()
         return () => {
             setImgSrc(img)
         }
-    }, [imageChange.isLoggedIn, imageChange.imageChanged, window.location.pathname, window.location.href])
+    }, [window.location.location, imageChange.imageChanged])
 
     return (
         <>

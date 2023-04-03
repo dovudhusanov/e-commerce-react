@@ -1,4 +1,4 @@
-import axiosInstance from "../index";
+import axiosInstance from "../axios";
 
 export const ChangePhoneNumberApi = (phone) =>
     axiosInstance.patch("/account/change-phone/", phone, {

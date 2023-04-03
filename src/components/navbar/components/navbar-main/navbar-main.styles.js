@@ -3,8 +3,8 @@ import styled from "styled-components";
 export const NavbarMainStyles = {
     Navbar: styled.div`
       width: 100%;
-      padding: 13px 0 55px 0;
-      height: 70px;
+      padding: 13px 0 50px 0;
+      height: 50px;
       z-index: 4000;
       //border-top: 5px solid var(--color-blue);
       background: rgba(85, 170, 246, 0.01);
@@ -45,7 +45,7 @@ export const NavbarMainStyles = {
     `,
 
     Logo: styled.h1`
-      font-size: 28px;
+      font-size: 24px;
       color: var(--color-blue);
       @media screen and (max-width: 520px) {
         font-size: 22px;
@@ -56,6 +56,7 @@ export const NavbarMainStyles = {
       display: flex;
       align-items: center;
       width: 60%;
+      height: 100%;
 
       @media screen and (max-width: 970px) {
         width: 40%;

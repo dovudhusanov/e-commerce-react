@@ -18,6 +18,7 @@ export const setImageChanged = (imageChanged) => ({
 const initialState = {
     isLoggedIn: false,
     imageChanged: false,
+    profileId: null,
 };
 
 export const ChangeImageStatesReducer = (state = initialState, action) => {
@@ -32,6 +33,11 @@ export const ChangeImageStatesReducer = (state = initialState, action) => {
                 ...state,
                 imageChanged: action.payload,
             };
+        case "SET_DAVID_ID":
+            return {
+                ...state,
+                profileId: action.payload,
+            }
         default:
             return state;
     }

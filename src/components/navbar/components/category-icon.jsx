@@ -1,5 +1,5 @@
 import React from 'react';
-import {CategoryBtnBottom, CategoryBtnRect, CategoryBtnTop, CategoryIcon} from "./navbar-bottom/NavbarBottomStyle";
+import {CategoryBtnBottom, CategoryBtnRect, CategoryBtnTop, CategoryIcon} from "./navbar-bottom/navbar-bottom.styles";
 
 function BtnCategoryIcon() {
     return (

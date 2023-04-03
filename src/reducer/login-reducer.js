@@ -10,29 +10,43 @@ export const LoginReducer = (state = initialState, action) => {
     switch (action.type) {
         case AuthLoginTypes.LOGIN_START:
             return {
-                user: null,
+                ...state,
                 isFetching: true,
                 error: false,
             };
         case AuthLoginTypes.LOGIN_SUCCESS:
             return {
+                ...state,
                 user: action.payload,
-                isFetching: true,
+                isFetching: false,
                 error: false,
             };
-        case AuthLoginTypes.LOGIN_FAILURE:
+        case AuthLoginTypes.ACCESS_TOKEN_REFRESHED:
+            localStorage.setItem('access', action.payload.access);
             return {
+                ...state,
+            };
+        case AuthLoginTypes.ACCESS_TOKEN_EXPIRED:
+            localStorage.clear()
+            return {
+                ...state,
                 user: null,
                 isFetching: false,
                 error: true,
             };
-        case AuthLoginTypes.LOGOUT:
+        case AuthLoginTypes.LOGIN_FAILURE:
             return {
-                user: null,
+                ...state,
                 isFetching: false,
-                error: false,
+                error: true,
+            };
+        case AuthLoginTypes.LOGOUT:
+            localStorage.clear()
+            return {
+                ...state,
+                user: null,
             };
         default:
-            return { ...state };
+            return state;
     }
 }

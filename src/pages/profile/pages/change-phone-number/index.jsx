@@ -1,6 +1,5 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {Button} from "../../../../components";
-import {ChangePasswordApi} from "../../../../api/profile/change-password-api";
 import img from "../../../../assets/change-phone.png"
 import {Link, useNavigate} from "react-router-dom";
 import {toast} from "react-toastify";
@@ -8,7 +7,7 @@ import {ErrorMessage, Field, Form, Formik} from "formik";
 import * as Yup from "yup";
 import {ChangePasswordStyles, ErrorValid} from "../change-password/change-password.styles";
 import {VerifyCode} from "../../../index";
-import {ChangePhoneNumberApi} from "../../../../api/profile/change-phone-number-api";
+import {ChangePhoneNumberApi} from "../../../../api";
 
 function ChangePhoneNumber() {
 

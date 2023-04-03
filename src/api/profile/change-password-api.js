@@ -1,4 +1,4 @@
-import axiosInstance from "../index";
+import axiosInstance from "../axios";
 
 export const ChangePasswordApi = (password) =>
     axiosInstance.put("/account/change_password/", password, {

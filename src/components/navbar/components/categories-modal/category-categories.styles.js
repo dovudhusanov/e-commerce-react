@@ -8,7 +8,7 @@ export const CategoryModal = styled.ul`
   z-index: 999;
   box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
   position: absolute;
-  top: -20px;
+  top: 20px;
   visibility: hidden;
   opacity: 0;
   transition: 0.3s ease all;
@@ -56,7 +56,7 @@ export const CategoryModal = styled.ul`
           return `
             visibility: visible;
             opacity: 1;
-            top: 70px;
+            top: 120px;
             transform: scale(1);
           `
       }

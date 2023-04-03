@@ -1,4 +1,4 @@
-import axiosInstance from "../index";
+import axiosInstance from "../axios";
 
 export const DeleteProfileApi = (id) =>
     axiosInstance.delete(`/account/profile/${id}/`, {

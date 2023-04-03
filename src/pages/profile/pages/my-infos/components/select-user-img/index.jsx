@@ -10,10 +10,7 @@ import {
     Form
 } from "./user-select-img.styles";
 import {toast} from "react-toastify";
-import {UserInfoEditApi} from "../../../../../../api/profile/user-info-edit-api";
-import {UserCreateApi} from "../../../../../../api/profile/user-create-api";
-import {GetUserApi} from "../../../../../../api/profile/get-user-api";
-import {UploadImgApi} from "../../../../../../api/profile/upload-img-api";
+import {UserInfoEditApi, UserCreateApi, GetUserApi, UploadImgApi} from "../../../../../../api";
 import {useDispatch} from "react-redux";
 import {setImageChanged} from "../../../../../../reducer/change-image-states-reducer";
 
@@ -64,12 +61,14 @@ function SelectUserImg({src, profileCreated}) {
                 dispatch(setImageChanged(false))
             }
         } else {
+            const userRes = await GetUserApi(localStorage.getItem("userId"))
+            userRes?.data?.profile && localStorage.setItem("profileId", userRes.data.profile)
             try {
                 dispatch(setImageChanged(true));
                 const intervalId = setInterval(() => {
                     dispatch(setImageChanged(false));
                 }, 2000);
-                await UserCreateApi({ first_name: "user" }).then((_) => {
+                await UserCreateApi({images: [...imageId], first_name: "user"}).then((_) => {
                     clearInterval(intervalId);
                     toast.success("Successfully saved!");
                 }).catch((_) => {
@@ -97,7 +96,8 @@ function SelectUserImg({src, profileCreated}) {
                 </ImageContainer>
                 <HiddenInput ref={hiddenInputRef} onChange={handleFileUpload}/>
             </UserImg>
-            <SaveButton type={"submit"} disabled={!Object.keys(imageId).length && true}><i className="fa-solid fa-check"></i></SaveButton>
+            <SaveButton type={"submit"} disabled={!Object.keys(imageId).length && true}><i
+                className="fa-solid fa-check"></i></SaveButton>
         </Form>
     );
 }
