@@ -20,6 +20,7 @@ export const CartStyles = {
       flex-direction: column;
       align-items: center;
       text-align: center;
+      min-height: 400px;
 
       & div {
         margin-top: 100px;

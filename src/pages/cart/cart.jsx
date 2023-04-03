@@ -35,7 +35,7 @@ function Cart() {
                   <div>
                       <i className="fa-regular fa-cart-shopping"></i>
                       <h1>Your Cart is Empty</h1>
-                      <Link to="/"><Button style={{marginTop: "20px"}}>Go to by Product</Button></Link>
+                      <Link to="/"><Button style={{marginTop: "20px"}}>Go to buy Product</Button></Link>
                   </div>
                 </CartStyles.Empty>
             ) : (

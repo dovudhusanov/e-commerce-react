@@ -27,13 +27,18 @@ function ResetPassword() {
         phoneNumber: "",
     };
 
+    const [isLoading, setIsLoading] = useState(false)
+
     const handleSubmit = async (values) => {
         setPhoneVerify(values.phoneNumber)
         try {
+            setIsLoading(true)
             const res = await ResetPasswordApi({phone: "+998" + values.phoneNumber})
             setNavigate(true)
             console.log(res)
+            setIsLoading(false)
         } catch (error) {
+            setIsLoading(false)
             setNavigate(false)
             console.log(error)
         }
@@ -75,7 +80,7 @@ function ResetPassword() {
                                         <ErrorMessage name="phoneNumber" component={TextError}/>
                                     </AuthStyle.InputParent>
                                     <Buttons>
-                                        <Button type="submit">Reset password</Button>
+                                        <Button type="submit" loading={isLoading && true}>Reset password</Button>
                                         <Link to={"/login"}><Button type="button" className="btn-cancel">Cancel</Button></Link>
                                     </Buttons>
                                 </Form>

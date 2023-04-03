@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {ChangePasswordStyles, ErrorValid} from "./change-password.styles"
 import {Button} from "../../../../components";
 import {ChangePasswordApi} from "../../../../api";
@@ -29,12 +29,17 @@ function ChangePassword() {
     };
     const navigate = useNavigate()
 
+    const [isLoading, setIsLoading] = useState(false)
+
     const handleSubmit = async (values) => {
         try {
+            setIsLoading(true)
             await ChangePasswordApi({old_password: values.oldPassword, new_password: values.password})
             toast.success('Password successfully changed!');
             navigate(-1)
+            setIsLoading(false)
         } catch (error) {
+            setIsLoading(false)
             toast.error('old password is wrong');
             console.log(error.message)
         }
@@ -91,7 +96,7 @@ function ChangePassword() {
                             <div>
                                 <Button type={"submit"}>submit</Button>
                                 <Link to="/user/settings">
-                                    <Button type={"button"} className="btn-cancel">
+                                    <Button type={"button"} className="btn-cancel" loading={isLoading && true}>
                                         cancel
                                     </Button>
                                 </Link>

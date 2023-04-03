@@ -36,12 +36,17 @@ function ChangePhoneNumber() {
         newPhone: "+998",
     };
 
+    const [isLoading, setIsLoading] = useState(false)
+
     const handleSubmit = async (values) => {
         setNewPhone(values.newPhone)
         try {
+            setIsLoading(true)
             await ChangePhoneNumberApi({phone: values.oldPhone, new_phone: values.newPhone})
             setNavigate(true)
+            setIsLoading(false)
         } catch (error) {
+            setIsLoading(false)
             toast.error('old phone is wrong');
             setNavigate(false)
             console.log(error.message)
@@ -95,7 +100,7 @@ function ChangePhoneNumber() {
                                         navigator(-1)
                                         localStorage.removeItem("oldPhone")
                                     }}>
-                                        <Button type={"button"} className="btn-cancel">
+                                        <Button type={"button"} loading={isLoading && true} className="btn-cancel">
                                             cancel
                                         </Button>
                                     </Link>

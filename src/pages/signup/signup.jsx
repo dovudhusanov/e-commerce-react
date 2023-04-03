@@ -38,6 +38,7 @@ function Signup() {
 
     const [isPhoneNumberSubmitted, setIsPhoneNumberSubmitted] = useState(false);
     const [phoneVerify, setPhoneVerify] = useState("")
+    const [isLoading, setIsLoading] = useState(false)
 
     const dispatch = useDispatch()
 
@@ -45,9 +46,11 @@ function Signup() {
         setPhoneVerify(value.phoneNumber)
         dispatch(signStart())
         try {
+            setIsLoading(true)
             const {phoneNumber, password} = value
             await SignupApi({phone: "+998" + phoneNumber, password})
             setIsPhoneNumberSubmitted(true)
+            setIsLoading(false)
         } catch (error) {
             console.log(error)
             dispatch(signFailure(error.message))
@@ -117,15 +120,11 @@ function Signup() {
                                             <AuthStyle.ErrorValid></AuthStyle.ErrorValid>
                                         </AuthStyle.Input>
                                     </AuthStyle.InputParent>
-                                    <AuthStyle.Button type="submit">Sign Up</AuthStyle.Button>
+                                    <AuthStyle.Button type="submit" loading={isLoading && true}>{isLoading ? (<div>
+                                        <AuthStyle.Spinner></AuthStyle.Spinner>
+                                    </div>) : 'Sign Up'}</AuthStyle.Button>
                                     <AuthStyle.BottomText>Already have an account? <Link to="/login">Log
                                         In</Link></AuthStyle.BottomText>
-                                    {/*<AuthStyle.Or>*/}
-                                    {/*    <AuthStyle.OrLine></AuthStyle.OrLine>*/}
-                                    {/*    <AuthStyle.OrText>Or</AuthStyle.OrText>*/}
-                                    {/*    <AuthStyle.OrLine></AuthStyle.OrLine>*/}
-                                    {/*</AuthStyle.Or>*/}
-                                    {/*<AuthStyle.button className="button-google"><img src="./assets/google.png" alt="google img"/> login with Google</AuthStyle.button>*/}
                                 </Form>
                             )}
                         </Formik>

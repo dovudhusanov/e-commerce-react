@@ -1,4 +1,8 @@
-import styled from "styled-components";
+import styled, {keyframes} from "styled-components";
+
+const spin = keyframes`
+  100% {transform: rotate(360deg)}
+`
 
 export const AuthStyle = {
     AuthContainer: styled.div`
@@ -124,10 +128,40 @@ export const AuthStyle = {
       background: rgb(32, 145, 249);
       width: 100%;
       margin-top: 40px;
+      position: relative;
 
       &:hover {
         background-color: rgb(6, 128, 246);
       }
+      
+      & > div{
+        padding: 12px;
+      }
+      
+      ${(props) => {
+          if(props.loading){
+              return`
+                background-color: rgba(6, 128, 246, 0.80);
+              `
+          }
+      }}
+    `,
+
+    Spinner: styled.div`
+      display: block;
+      width: 34px;
+      height: 34px;
+      position: absolute;
+      top: 8px;
+      left: calc(50% - 17px);
+      background: transparent;
+      box-sizing: border-box;
+      border-top: 4px solid white;
+      border-left: 4px solid transparent;
+      border-right: 4px solid transparent;
+      border-bottom: 4px solid transparent;
+      border-radius: 100%;
+      animation: ${spin} 0.6s ease-out infinite;
     `,
 
     BottomText: styled.div`

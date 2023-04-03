@@ -43,10 +43,13 @@ function UserSettingsForm() {
         setInputValue({...inputValue, [e.target.name]: e.target.value})
     }
 
+    const [isLoading, setIsLoading] = useState(false)
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         const {first_name, last_name, email} = inputValue
         if (profileCreated.profile) {
+            setIsLoading(true)
             const userRes = await GetUserApi(localStorage.getItem("userId"))
             userRes?.data?.profile && localStorage.setItem("profileId", userRes?.data.profile)
             console.log(userRes.data.profile)
@@ -55,10 +58,13 @@ function UserSettingsForm() {
             }, localStorage.getItem("profileId"))
                 .then(_ => toast.success('Successfully saved!'))
                 .catch(_ => toast.error('Error!'))
+            setIsLoading(false)
         } else {
+            setIsLoading(true)
             await UserCreateApi({first_name, last_name, email})
                 .then(_ => toast.success("Successfully saved!"))
                 .catch(_ => toast.error("Wrong"))
+            setIsLoading(false)
         }
     }
 
@@ -124,7 +130,7 @@ function UserSettingsForm() {
                             </Link>
                         </UserSettingsInput>
                         <UserSettingsInput>
-                            <Button type="submit" disabled={
+                            <Button type="submit" loading={isLoading && true} disabled={
                                 inputValue.first_name === "" && inputValue.last_name === "" && inputValue.email === "" ? "disabled" : ""
                             }>Save Changes</Button>
                         </UserSettingsInput>

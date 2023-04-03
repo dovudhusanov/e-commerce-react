@@ -8,8 +8,9 @@ export const NotFoundPageStyles = {
       height: 260px;
       align-items: center;
       flex-direction: column;
-      margin-top: 150px;
+      margin-top: 80px;
       background-color: white;
+      min-height: 400px;
       
       & img{
         width: 300px;

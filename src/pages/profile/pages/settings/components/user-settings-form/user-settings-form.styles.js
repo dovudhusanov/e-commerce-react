@@ -26,8 +26,8 @@ export const UserSettingsInput = styled.div`
   &:nth-child(6) {
     text-align: right;
   }
-  
-  
+
+
   @media screen and (max-width: 888px) {
     max-width: 270px;
     width: 270px;
@@ -87,8 +87,15 @@ export const UserSettingsInput = styled.div`
     background-color: rgba(128, 128, 128, 0.10);
     border-radius: 4px;
   }
-  
-  & button{
+
+  & button {
+    background-color: var(--color-blue);
+    color: white;
+
+    &:hover {
+      background-color: rgb(17, 111, 197);
+    }
+
     @media screen and (max-width: 549px) {
       width: 100%;
     }
@@ -112,17 +119,11 @@ export const BottomItems = styled.div`
       cursor: pointer;
       width: 100%;
       margin-bottom: 20px;
-      background-color: var(--color-blue);
-      color: white;
-      
+
       @media screen and (max-width: 820px) {
         &:nth-child(1) {
           display: none;
         }
-      }
-
-      &:hover {
-        background-color: rgb(17, 111, 197);
       }
 
       &.btn-cancel {

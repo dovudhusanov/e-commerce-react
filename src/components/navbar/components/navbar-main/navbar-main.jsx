@@ -41,7 +41,7 @@ function NavbarMain() {
                             <NavbarMainStyles.Burger onClick={() => setSModal(true)}>
                                 <i className="fa-regular fa-bars"></i>
                             </NavbarMainStyles.Burger>
-                            <Link to="/"><NavbarMainStyles.Logo>e-commerce</NavbarMainStyles.Logo></Link>
+                            <Link to="/"><NavbarMainStyles.Logo>olma market</NavbarMainStyles.Logo></Link>
                         </div>
                         <NavbarMainStyles.SearchBar>
                             <SearchBar/>

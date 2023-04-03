@@ -32,14 +32,20 @@ function Login() {
     };
 
     const [showPass, setShowPass] = useState(false)
-
-    const navigate = useNavigate()
+    const [isLoading, setIsLoading] = useState(false)
 
     const dispatch = useDispatch()
 
-    const handleSubmit = (values) => {
-        const {phoneNumber, password} = values
-        dispatch(LoginUser(phoneNumber, password))
+    const handleSubmit = async (values) => {
+        const {phoneNumber, password} = values;
+        setIsLoading(true); // set isLoading to true before dispatching
+        try {
+            await dispatch(LoginUser(phoneNumber, password));
+            setIsLoading(false); // set isLoading back to false after dispatch is complete
+        } catch (error) {
+            setIsLoading(false); // set isLoading back to false in case of error
+            console.error(error);
+        }
     }
 
     function TextError(props) {
@@ -92,15 +98,11 @@ function Login() {
                                 </AuthStyle.Input>
                             </AuthStyle.InputParent>
                             <AuthStyle.Reset><Link to="/reset-password">Reset password?</Link></AuthStyle.Reset>
-                            <AuthStyle.Button type="submit">Login</AuthStyle.Button>
+                            <AuthStyle.Button type="submit" loading={isLoading && true}>{isLoading ? (<div>
+                                <AuthStyle.Spinner></AuthStyle.Spinner>
+                            </div>) : 'Login'}</AuthStyle.Button>
                             <AuthStyle.BottomText>Create an account <Link to="/signup">Sign
                                 Up</Link></AuthStyle.BottomText>
-                            {/*<AuthStyle.Or>*/}
-                            {/*    <AuthStyle.OrLine></AuthStyle.OrLine>*/}
-                            {/*    <AuthStyle.OrText>Or</AuthStyle.OrText>*/}
-                            {/*    <AuthStyle.OrLine></AuthStyle.OrLine>*/}
-                            {/*</AuthStyle.Or>*/}
-                            {/*<AuthStyle.button className="button-google"><img src="./assets/google.png" alt="google img"/> login with Google</AuthStyle.button>*/}
                         </Form>
                     )}
                 </Formik>

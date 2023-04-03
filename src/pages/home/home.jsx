@@ -7,7 +7,7 @@ import Banner from "../../components/banner/banner";
 
 function Home() {
     ScrollTop();
-    ChangeTitle("E-Commerce")
+    ChangeTitle("Olma Market")
     const products = useSelector(state => state.ProductsReducer);
 
     async function getUserInfo() {

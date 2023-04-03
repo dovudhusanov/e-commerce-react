@@ -1,4 +1,5 @@
 export {default as Home} from "./home/home";
+export {default as FAQPage} from "./faq/faq"
 export {default as Cart} from "./cart/cart";
 export {default as Saved} from "./saved/saved";
 export {default as Login} from "./login/login";

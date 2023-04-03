@@ -17,6 +17,7 @@ export default function VerifyCode({phone, type, navigateTo, newPhone}) {
     localStorage.setItem("phone_number", phone)
 
     const [verified, setVerified] = useState(false)
+    const [isLoading, setIsLoading] = useState(false)
 
     const [otp, setOtp] = useState('');
 
@@ -31,6 +32,7 @@ export default function VerifyCode({phone, type, navigateTo, newPhone}) {
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
+            setIsLoading(true)
             const response = await VerifyApi({phone: type === "change_phone" ? phone : "+998" + phone, new_phone: newPhone ?  newPhone : null, code: otp, type: type})
             dispatch(signSuccess(response.data))
             navigate(navigateTo)
@@ -39,7 +41,9 @@ export default function VerifyCode({phone, type, navigateTo, newPhone}) {
                 toast.success("Phone number successfully changed")
             }
             localStorage.removeItem("oldPhone")
+            setIsLoading(false)
         } catch (error) {
+            setIsLoading(false)
             setVerified(false)
             dispatch(signFailure(error))
             toast.error("Incorrect Code")
@@ -87,7 +91,7 @@ export default function VerifyCode({phone, type, navigateTo, newPhone}) {
                             <i className='fa-solid fa-repeat'></i> Resend Code
                         </p>
                     )}</Button>
-                <Button type="submit">Send</Button>
+                <Button type="submit" loading={isLoading && true}>Send</Button>
             </VerifyCodeStyles.Form>
             {verified === true && type === "password_reset" &&
                 <NewPassword/>
