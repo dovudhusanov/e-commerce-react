@@ -16,12 +16,12 @@ export const ProductReducer = (state = [], action) => {
                 ...state,
                 action.payload
             ]
-        case ProductType.TOGGLE_PRODUCT:
-            return state?.map(product =>
-                product.id === action.payload
-                    ? {...product, selected: !product.selected}
-                    : product
-            );
+        // case ProductType.TOGGLE_PRODUCT:
+        //     return state?.map(product =>
+        //         product.id === action.payload
+        //             ? {...product, selected: !product.selected}
+        //             : product
+        //     );
         case ProductType.DELETE_PRODUCT:
             const removeProductIdx = state?.findIndex((product) => product.id == action.payload)
             if (removeProductIdx >= 0) {
