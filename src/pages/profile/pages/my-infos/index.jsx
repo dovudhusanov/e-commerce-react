@@ -22,7 +22,7 @@ function MyInfos() {
     async function getUserInfo() {
         setLoading(true)
         const userRes = await GetUserApi(localStorage.getItem("userId"))
-        setPhone(userRes.data[0].phone)
+        setPhone(userRes.data.phone)
         userRes?.data?.profile && localStorage.setItem("profileId", userRes.data.profile)
         const response = localStorage.getItem("profileId") && await UserInfoGetApi(localStorage.getItem("profileId"))
         setImgSrc(response?.data?.image?.url ? `https://abdusattor0707.pythonanywhere.com${response?.data.image.url}/` : img)
