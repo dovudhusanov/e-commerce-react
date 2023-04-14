@@ -20,6 +20,7 @@ function UserSettingsForm() {
         userRes?.data?.profile && localStorage.setItem("profileId", userRes.data.profile)
         const response = userRes?.data.profile && await UserInfoGetApi(localStorage.getItem("profileId"))
         setProfileCreated(userRes.data)
+        console.log(response)
 
         setInputValue({
             first_name: response?.data.first_name,
