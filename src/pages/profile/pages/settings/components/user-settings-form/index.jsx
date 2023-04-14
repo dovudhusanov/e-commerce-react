@@ -16,10 +16,10 @@ function UserSettingsForm() {
     async function getUserInfo() {
         setLoading(true)
         const userRes = await GetUserApi(localStorage.getItem("userId"))
-        localStorage.setItem("oldPhone", userRes.data[0].phone)
-        userRes?.data[0]?.profile && localStorage.setItem("profileId", userRes.data[0].profile)
-        const response = userRes?.data[0]?.profile && await UserInfoGetApi(localStorage.getItem("profileId"))
-        setProfileCreated(userRes[0]?.data)
+        localStorage.setItem("oldPhone", userRes.data.phone)
+        userRes?.data?.profile && localStorage.setItem("profileId", userRes.data.profile)
+        const response = userRes?.data.profile && await UserInfoGetApi(localStorage.getItem("profileId"))
+        setProfileCreated(userRes.data)
 
         setInputValue({
             first_name: response?.data[0].first_name,
