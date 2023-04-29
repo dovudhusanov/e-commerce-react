@@ -43,7 +43,7 @@ export const LoginUser = (phoneNumber, password) => {
             localStorage.setItem('refresh', response.data.refresh);
             localStorage.setItem("userId", response.data.id)
             const userRes = await GetUserApi(localStorage.getItem("userId"))
-            userRes.data[0].profile && localStorage.setItem("profileId", userRes.data[0].profile)
+            userRes.data.profile && localStorage.setItem("profileId", userRes.data.profile)
             // window.location.reload()
             window.location.href = '/';
             dispatch(setLoggedIn(true))
